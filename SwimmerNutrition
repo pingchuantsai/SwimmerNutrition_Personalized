@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Prep for Performance - Swimmer Nutrition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            background: #e5e7eb;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: #666;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-btn:hover {
+            background: #d1d5db;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .swimmer-profile {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .swimmer-profile h3 {
+            margin-bottom: 1rem;
+            color: #111;
+        }
+
+        .height-inputs, .weight-inputs {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .height-inputs select, .weight-inputs select {
+            min-width: 70px;
+        }
+
+        .height-ft-in {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .height-ft-in input {
+            width: 60px;
+        }
+
+        .height-cm input, .weight-inputs input {
+            flex: 1;
+        }
+
+        .bmi-result {
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px;
+            color: white;
+            text-align: center;
+        }
+
+        .bmi-result span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .bmi-result small {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .profile-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .height-group, .weight-group {
+            min-width: 220px;
+        }
+
+        .profile-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-group label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .profile-group select, .profile-group input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .profile-group select:focus, .profile-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .phase-selector {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .nutrition-breakdown {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .nutrition-breakdown h3 {
+            margin-bottom: 1.5rem;
+            color: #111;
+            text-align: center;
+        }
+
+        .personalized-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .personalized-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .macro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .macro-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .macro-card.carbs {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .macro-card.protein {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .macro-card.veggies {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .macro-card.fruits {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .macro-percent {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .macro-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .phase-notes {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            border-left: 4px solid #2563eb;
+        }
+
+        .phase-selector h3 {
+            margin-bottom: 1rem;
+            color: #111;
+        }
+
+        .phase-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .phase-btn {
+            padding: 1rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+            min-width: 140px;
+        }
+
+        .phase-btn small {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #666;
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .phase-btn.active {
+            border-color: #2563eb;
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .phase-btn.active small {
+            color: #e0e7ff;
+        }
+
+        .phase-btn:hover {
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .filter-group select, .filter-group input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .legend {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .choose { background: #10b981; }
+        .limit { background: #f59e0b; }
+        .avoid { background: #ef4444; }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .food-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .food-content {
+            padding: 1.5rem;
+        }
+
+        .food-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        .food-category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-badge.choose {
+            background: #10b981;
+        }
+
+        .recommendation-badge.limit {
+            background: #f59e0b;
+        }
+
+        .recommendation-badge.avoid {
+            background: #ef4444;
+        }
+
+        .food-benefits {
+            list-style: none;
+        }
+
+        .food-benefits li {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .food-benefits li::before {
+            content: "•";
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+        }
+
+        .foods-to-avoid {
+            margin-top: 3rem;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .foods-to-avoid h2 {
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .avoid-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .avoid-food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .avoid-card {
+            border: 2px solid #fecaca;
+            background: #fef2f2;
+        }
+
+        .avoid-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.15);
+            border-color: #f87171;
+        }
+
+        .avoid-image {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .avoid-effects li {
+            color: #dc2626;
+        }
+
+        .avoid-effects li::before {
+            content: "⚠";
+            color: #ef4444;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .profile-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .height-inputs, .weight-inputs {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+            
+            .height-ft-in {
+                justify-content: center;
+            }
+            
+            .phase-buttons {
+                flex-direction: column;
+            }
+            
+            .macro-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .filter-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .legend {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .avoid-food-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .foods-to-avoid {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .profile-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .height-inputs, .weight-inputs {
+                flex-direction: column;
+            }
+            
+            .macro-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .macro-percent {
+                font-size: 1.5rem;
+            }
+            
+            .personalized-header h4 {
+                font-size: 0.9rem;
+            }
+
+            .avoid-food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .foods-to-avoid {
+                padding: 1rem;
+                margin-top: 2rem;
+            }
+
+            .foods-to-avoid h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Your Personalized Prep for Performance</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Food Recommendations</a></li>
+                <li><a href="#">Nutrition Plans</a></li>
+                <li><a href="#">Competition Calendar</a></li>
+                <li><a href="#">Performance Tracking</a></li>
+                <li><a href="#">Premium</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <button class="back-btn" onclick="history.back()">
+            ← Back
+        </button>
+
+        <h1>Food Recommendations</h1>
+        <p class="subtitle">
+            Based on your training schedule and competition timeline, we've curated personalized food recommendations.<br>
+            These suggestions will help you optimize performance, energy levels, and recovery at each phase of your preparation.
+        </p>
+
+        <div class="swimmer-profile">
+            <h3>Swimmer Profile</h3>
+            <div class="profile-form">
+                <div class="profile-group">
+                    <label>Age Group</label>
+                    <select id="ageGroup">
+                        <option value="10-under">10 & Under</option>
+                        <option value="11-12">AG 11-12</option>
+                        <option value="13-14">AG 13-14</option>
+                        <option value="15-over">AG 15 & Over</option>
+                    </select>
+                </div>
+                <div class="profile-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                </div>
+                <div class="profile-group height-group">
+                    <label>Height</label>
+                    <div class="height-inputs">
+                        <select id="heightUnit">
+                            <option value="ft-in">ft/in</option>
+                            <option value="cm">cm</option>
+                        </select>
+                        <div id="heightFtIn" class="height-ft-in">
+                            <input type="number" id="heightFt" placeholder="ft" min="3" max="8" step="1">
+                            <input type="number" id="heightIn" placeholder="in" min="0" max="11" step="1">
+                        </div>
+                        <div id="heightCm" class="height-cm" style="display: none;">
+                            <input type="number" id="heightCmValue" placeholder="cm" min="90" max="250" step="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-group weight-group">
+                    <label>Weight</label>
+                    <div class="weight-inputs">
+                        <select id="weightUnit">
+                            <option value="lbs">lbs</option>
+                            <option value="kg">kg</option>
+                        </select>
+                        <input type="number" id="weightValue" placeholder="Enter weight" min="20" max="150" step="0.1">
+                    </div>
+                </div>
+                <div class="profile-group">
+                    <label>Competition Date</label>
+                    <input type="date" id="competitionDate">
+                </div>
+                <div class="profile-group bmi-display" id="bmiDisplay" style="display: none;">
+                    <label>BMI</label>
+                    <div class="bmi-result">
+                        <span id="bmiValue">--</span>
+                        <small id="bmiCategory">BMI Category</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase-selector">
+            <h3>Select Competition Phase</h3>
+            <div class="phase-buttons">
+                <button class="phase-btn active" data-phase="training-1">Training Phase 1<br><small>14-8 Days Out</small></button>
+                <button class="phase-btn" data-phase="training-2">Training Phase 2<br><small>7-3 Days Out</small></button>
+                <button class="phase-btn" data-phase="carb-loading">Carb Loading<br><small>2-1 Days Out</small></button>
+                <button class="phase-btn" data-phase="competition">Competition Day<br><small>Race Day</small></button>
+                <button class="phase-btn" data-phase="recovery">Recovery<br><small>1-2 Days Post</small></button>
+            </div>
+        </div>
+
+        <div class="nutrition-breakdown">
+            <div class="personalized-header" id="personalizedHeader" style="display: none;">
+                <h4 id="swimmerInfo">Customized Plan</h4>
+            </div>
+            <h3>Nutrition Targets for <span id="currentPhaseName">Training Phase 1 (14-8 Days Out)</span></h3>
+            <div class="macro-grid">
+                <div class="macro-card carbs">
+                    <div class="macro-percent" id="carbsPercent">50%</div>
+                    <div class="macro-label">Carbs</div>
+                </div>
+                <div class="macro-card protein">
+                    <div class="macro-percent" id="proteinPercent">18%</div>
+                    <div class="macro-label">Protein</div>
+                </div>
+                <div class="macro-card veggies">
+                    <div class="macro-percent" id="veggiesPercent">17%</div>
+                    <div class="macro-label">Veggies</div>
+                </div>
+                <div class="macro-card fruits">
+                    <div class="macro-percent" id="fruitsPercent">15%</div>
+                    <div class="macro-label">Fruits</div>
+                </div>
+            </div>
+            <div class="phase-notes" id="phaseNotes">
+                Build glycogen but keep variety in your nutrition approach
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Food Category</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="protein">Protein</option>
+                        <option value="carbohydrates">Carbohydrates</option>
+                        <option value="vegetables-high-fiber">Vegetables (High Fiber)</option>
+                        <option value="vegetables-low-fiber">Vegetables (Low Fiber)</option>
+                        <option value="fruits">Fruits</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Recommendation</label>
+                    <select id="recommendationFilter">
+                        <option value="all">All Recommendations</option>
+                        <option value="choose">Choose</option>
+                        <option value="limit">Limit</option>
+                        <option value="avoid">Avoid</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Search Foods</label>
+                    <input type="text" id="searchInput" placeholder="Search by food name...">
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color choose"></div>
+                <span>Choose - foods should be eaten often for optimal performance</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color limit"></div>
+                <span>Limit - foods can be eaten occasionally but should be restricted</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color avoid"></div>
+                <span>Avoid - foods should be avoided during this phase</span>
+            </div>
+        </div>
+
+        <div class="food-grid" id="foodGrid">
+            <!-- Food cards will be inserted here -->
+        </div>
+
+        <div class="foods-to-avoid" id="foodsToAvoid" style="display: none;">
+            <h2>🚫 Foods to Avoid During This Phase</h2>
+            <p class="avoid-subtitle">These foods can negatively impact your performance and should be avoided during carb loading and competition phases.</p>
+            
+            <div class="avoid-food-grid">
+                <!-- High-Fat, Fried, or Greasy Foods -->
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍟</div>
+                    <div class="food-content">
+                        <div class="food-name">French Fries</div>
+                        <div class="food-category">High-Fat Fried Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Slows digestion</li>
+                            <li>Causes bloating</li>
+                            <li>Heavy feeling in water</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍗</div>
+                    <div class="food-content">
+                        <div class="food-name">Fried Chicken</div>
+                        <div class="food-category">High-Fat Fried Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>High fat content</li>
+                            <li>Delayed digestion</li>
+                            <li>Energy sluggishness</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🧅</div>
+                    <div class="food-content">
+                        <div class="food-name">Onion Rings</div>
+                        <div class="food-category">High-Fat Fried Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Very high fat</li>
+                            <li>Hard to digest</li>
+                            <li>Stomach discomfort</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍔</div>
+                    <div class="food-content">
+                        <div class="food-name">Fast Food Burgers</div>
+                        <div class="food-category">High-Fat Fried Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>High saturated fat</li>
+                            <li>High sodium</li>
+                            <li>Poor nutrient quality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🥓</div>
+                    <div class="food-content">
+                        <div class="food-name">Bacon</div>
+                        <div class="food-category">High-Fat Fried Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Very high fat</li>
+                            <li>High sodium</li>
+                            <li>Processed preservatives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍕</div>
+                    <div class="food-content">
+                        <div class="food-name">Greasy Pizza</div>
+                        <div class="food-category">High-Fat Fried Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Excess cheese fat</li>
+                            <li>Heavy feeling</li>
+                            <li>Poor digestion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sugary Snacks and Desserts -->
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍩</div>
+                    <div class="food-content">
+                        <div class="food-name">Donuts</div>
+                        <div class="food-category">Sugary Desserts</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Sugar spike & crash</li>
+                            <li>High trans fats</li>
+                            <li>Energy instability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍫</div>
+                    <div class="food-content">
+                        <div class="food-name">Candy Bars</div>
+                        <div class="food-category">Sugary Desserts</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Rapid sugar spike</li>
+                            <li>Energy crash</li>
+                            <li>Poor stamina</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🧊</div>
+                    <div class="food-content">
+                        <div class="food-name">Milkshakes</div>
+                        <div class="food-category">Sugary Desserts</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Very high sugar</li>
+                            <li>High fat content</li>
+                            <li>Digestive stress</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍦</div>
+                    <div class="food-content">
+                        <div class="food-name">Ice Cream</div>
+                        <div class="food-category">Sugary Desserts</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>High sugar & fat</li>
+                            <li>Cold shock to system</li>
+                            <li>Poor pre-race fuel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🧁</div>
+                    <div class="food-content">
+                        <div class="food-name">Cupcakes</div>
+                        <div class="food-category">Sugary Desserts</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Sugar overload</li>
+                            <li>Artificial ingredients</li>
+                            <li>Energy instability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍪</div>
+                    <div class="food-content">
+                        <div class="food-name">Packaged Cookies</div>
+                        <div class="food-category">Sugary Desserts</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>High processed sugar</li>
+                            <li>Trans fats</li>
+                            <li>Poor nutrient value</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sugary Drinks and Energy Drinks -->
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🥤</div>
+                    <div class="food-content">
+                        <div class="food-name">Soda</div>
+                        <div class="food-category">Sugary Drinks</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Empty calories</li>
+                            <li>Dehydrating</li>
+                            <li>Blood sugar spikes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">⚡</div>
+                    <div class="food-content">
+                        <div class="food-name">Energy Drinks</div>
+                        <div class="food-category">Sugary Drinks</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Excessive caffeine</li>
+                            <li>Jitteriness</li>
+                            <li>Crash after spike</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🧊</div>
+                    <div class="food-content">
+                        <div class="food-name">Fruit Punch</div>
+                        <div class="food-category">Sugary Drinks</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>High artificial sugar</li>
+                            <li>No real fruit value</li>
+                            <li>Poor hydration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🧊</div>
+                    <div class="food-content">
+                        <div class="food-name">Slushies</div>
+                        <div class="food-category">Sugary Drinks</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Pure sugar ice</li>
+                            <li>Artificial colors</li>
+                            <li>Zero nutrition</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Highly Processed Packaged Foods -->
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍟</div>
+                    <div class="food-content">
+                        <div class="food-name">Potato Chips</div>
+                        <div class="food-category">Processed Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Very high sodium</li>
+                            <li>Unhealthy fats</li>
+                            <li>Water retention</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🧀</div>
+                    <div class="food-content">
+                        <div class="food-name">Cheese Puffs</div>
+                        <div class="food-category">Processed Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Artificial ingredients</li>
+                            <li>High sodium</li>
+                            <li>No nutritional value</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍜</div>
+                    <div class="food-content">
+                        <div class="food-name">Instant Noodles</div>
+                        <div class="food-category">Processed Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Extreme sodium</li>
+                            <li>Preservatives</li>
+                            <li>Digestive upset</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🥧</div>
+                    <div class="food-content">
+                        <div class="food-name">Pop-Tarts</div>
+                        <div class="food-category">Processed Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>High sugar content</li>
+                            <li>Artificial everything</li>
+                            <li>Poor fuel quality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🥣</div>
+                    <div class="food-content">
+                        <div class="food-name">Sugary Cereals</div>
+                        <div class="food-category">Processed Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Sugar overload</li>
+                            <li>Artificial colors</li>
+                            <li>Energy crash</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="food-card avoid-card">
+                    <div class="food-image avoid-image">🍫</div>
+                    <div class="food-content">
+                        <div class="food-name">Chocolate Granola Bars</div>
+                        <div class="food-category">Processed Foods</div>
+                        <div class="recommendation-badge avoid">Avoid</div>
+                        <ul class="food-benefits avoid-effects">
+                            <li>Hidden sugars</li>
+                            <li>Processed ingredients</li>
+                            <li>Poor nutrient ratio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <h3>No foods found</h3>
+            <p>Try adjusting your filters to see more recommendations.</p>
+        </div>
+    </div>
+
+    <script>
+        // Food database with phase-specific recommendations
+        const foodDatabase = {
+            protein: [
+                { name: "Chicken Breast", emoji: "🐔", benefits: ["Complete protein", "Lean muscle building", "Easy to digest"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Turkey Breast", emoji: "🦃", benefits: ["High protein", "Low fat", "B vitamins"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Salmon", emoji: "🐟", benefits: ["Omega-3 fatty acids", "Anti-inflammatory", "Complete protein"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Greek Yogurt", emoji: "🥛", benefits: ["Probiotics", "Quick absorption", "Calcium"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Eggs", emoji: "🥚", benefits: ["Complete amino acids", "Versatile", "Choline"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Quinoa", emoji: "🌾", benefits: ["Complete protein", "Complex carbs", "Fiber"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Lentils", emoji: "🫘", benefits: ["Plant protein", "Iron", "Folate"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "limit" }},
+                { name: "Tuna", emoji: "🐟", benefits: ["Lean protein", "Convenient", "B vitamins"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Almonds", emoji: "🌰", benefits: ["Healthy fats", "Vitamin E", "Magnesium"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Tofu", emoji: "🥡", benefits: ["Plant-based", "Calcium", "Isoflavones"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ],
+            carbohydrates: [
+                { name: "Brown Rice", emoji: "🍚", benefits: ["Complex carbs", "B vitamins", "Sustained energy"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Sweet Potatoes", emoji: "🍠", benefits: ["Beta carotene", "Complex carbs", "Potassium"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Oats", emoji: "🥣", benefits: ["Beta glucan", "Fiber", "Sustained energy"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Whole Wheat Bread", emoji: "🍞", benefits: ["Fiber", "B vitamins", "Iron"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Pasta", emoji: "🍝", benefits: ["Quick energy", "Carb loading", "Familiar"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Bananas", emoji: "🍌", benefits: ["Quick energy", "Potassium", "Easy to digest"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "White Potatoes", emoji: "🥔", benefits: ["Quick carbs", "Potassium", "Familiar"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Dates", emoji: "🌴", benefits: ["Natural sugars", "Potassium", "Quick energy"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Sourdough Bread", emoji: "🥖", benefits: ["Easy to digest", "Lower glycemic", "Probiotics"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ],
+            "vegetables-high-fiber": [
+                { name: "Broccoli", emoji: "🥦", benefits: ["Vitamin C", "Fiber", "Antioxidants"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
+                { name: "Brussels Sprouts", emoji: "🥬", benefits: ["Vitamin K", "Fiber", "Folate"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
+                { name: "Spinach", emoji: "🍃", benefits: ["Iron", "Folate", "Nitrates"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
+                { name: "Kale", emoji: "🥬", benefits: ["Vitamin A", "Calcium", "Antioxidants"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
+                { name: "Carrots", emoji: "🥕", benefits: ["Beta carotene", "Fiber", "Vitamin A"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
+                { name: "Artichokes", emoji: "🌿", benefits: ["High fiber", "Antioxidants", "Prebiotics"], phases: { "training-1": "choose", "training-2": "limit", "carb-loading": "avoid", "competition": "avoid", recovery: "limit" }}
+            ],
+            "vegetables-low-fiber": [
+                { name: "Tomatoes", emoji: "🍅", benefits: ["Lycopene", "Vitamin C", "Hydrating"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Cucumbers", emoji: "🥒", benefits: ["Hydrating", "Low calorie", "Refreshing"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Lettuce", emoji: "🥬", benefits: ["Hydrating", "Low calorie", "Vitamin K"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Bell Peppers", emoji: "🫑", benefits: ["Vitamin C", "Antioxidants", "Low fiber"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Avocados", emoji: "🥑", benefits: ["Healthy fats", "Potassium", "Creamy texture"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Mushrooms", emoji: "🍄", benefits: ["Umami flavor", "B vitamins", "Low calorie"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }}
+            ],
+            fruits: [
+                { name: "Oranges", emoji: "🍊", benefits: ["Vitamin C", "Hydrating", "Natural sugars"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Watermelon", emoji: "🍉", benefits: ["Hydrating", "Quick sugars", "Refreshing"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Grapes", emoji: "🍇", benefits: ["Quick energy", "Antioxidants", "Convenient"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Apples", emoji: "🍎", benefits: ["Fiber", "Vitamin C", "Pectin"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Berries", emoji: "🫐", benefits: ["Antioxidants", "Vitamin C", "Anti-inflammatory"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Melons", emoji: "🍈", benefits: ["Hydrating", "Potassium", "Easy to digest"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Peaches", emoji: "🍑", benefits: ["Vitamin A", "Natural sugars", "Hydrating"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ]
+        };
+
+        // Age-specific nutrition data based on competition timeline
+        const ageSpecificNutrition = {
+            'training-1': {
+                name: 'Training Phase 1 (14-8 Days Out)',
+                notes: 'Build glycogen but keep variety in your nutrition approach',
+                '10-under': { carbs: '50%', protein: '18%', veggies: '17%', fruits: '15%' },
+                '11-12': { carbs: '50%', protein: '20%', veggies: '15%', fruits: '15%' },
+                '13-14': { carbs: '50%', protein: '22%', veggies: '15%', fruits: '13%' },
+                '15-over': { carbs: '50%', protein: '25%', veggies: '15%', fruits: '10%' }
+            },
+            'training-2': {
+                name: 'Training Phase 2 (7-3 Days Out)',
+                notes: 'Taper training and begin glycogen loading protocol',
+                '10-under': { carbs: '55%', protein: '17%', veggies: '13%', fruits: '15%' },
+                '11-12': { carbs: '58%', protein: '18%', veggies: '12%', fruits: '12%' },
+                '13-14': { carbs: '60%', protein: '18%', veggies: '12%', fruits: '10%' },
+                '15-over': { carbs: '62%', protein: '18%', veggies: '10%', fruits: '10%' }
+            },
+            'carb-loading': {
+                name: 'Carb Loading (2-1 Days Out)',
+                notes: 'Begin fiber-reduction and low-residue foods, maintain hydration',
+                '10-under': { carbs: '62%', protein: '18%', veggies: '10%', fruits: '10%' },
+                '11-12': { carbs: '64%', protein: '17%', veggies: '10%', fruits: '9%' },
+                '13-14': { carbs: '65%', protein: '16%', veggies: '9%', fruits: '10%' },
+                '15-over': { carbs: '66%', protein: '16%', veggies: '8%', fruits: '10%' }
+            },
+            'competition': {
+                name: 'Competition Day (Race Day)', 
+                notes: 'Fast-fuel, easy-digest foods only. Small frequent portions',
+                '10-under': { carbs: '67%', protein: '15%', veggies: '8%', fruits: '10%' },
+                '11-12': { carbs: '68%', protein: '15%', veggies: '7%', fruits: '10%' },
+                '13-14': { carbs: '69%', protein: '15%', veggies: '6%', fruits: '10%' },
+                '15-over': { carbs: '70%', protein: '15%', veggies: '5%', fruits: '10%' }
+            },
+            'recovery': {
+                name: 'Recovery (1-2 Days Post)',
+                notes: 'Replenish glycogen and support muscle recovery',
+                '10-under': { carbs: '50%', protein: '18%', veggies: '17%', fruits: '15%' },
+                '11-12': { carbs: '50%', protein: '20%', veggies: '15%', fruits: '15%' },
+                '13-14': { carbs: '50%', protein: '22%', veggies: '15%', fruits: '13%' },
+                '15-over': { carbs: '50%', protein: '25%', veggies: '15%', fruits: '10%' }
+            }
+        };
+
+        let currentPhase = 'training-1';
+        let currentAgeGroup = '10-under';
+        let currentCategory = 'all';
+        let currentRecommendation = 'all';
+        let searchTerm = '';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            toggleHeightInputs(); // Initialize height input display
+            updateWeightInputLimits(); // Initialize weight input limits
+            updateNutritionBreakdown();
+            renderFoods();
+        });
+
+        function setupEventListeners() {
+            // Profile inputs
+            document.getElementById('ageGroup').addEventListener('change', function() {
+                currentAgeGroup = this.value;
+                updateNutritionBreakdown();
+            });
+
+            document.getElementById('gender').addEventListener('change', function() {
+                updateNutritionBreakdown();
+            });
+
+            // Height unit change
+            document.getElementById('heightUnit').addEventListener('change', function() {
+                toggleHeightInputs();
+                calculateBMI();
+                updateNutritionBreakdown();
+            });
+
+            // Height inputs
+            document.getElementById('heightFt').addEventListener('input', function() {
+                calculateBMI();
+                updateNutritionBreakdown();
+            });
+
+            document.getElementById('heightIn').addEventListener('input', function() {
+                calculateBMI();
+                updateNutritionBreakdown();
+            });
+
+            document.getElementById('heightCmValue').addEventListener('input', function() {
+                calculateBMI();
+                updateNutritionBreakdown();
+            });
+
+        // Weight unit change
+            document.getElementById('weightUnit').addEventListener('change', function() {
+                updateWeightInputLimits();
+                calculateBMI();
+                updateNutritionBreakdown();
+            });
+
+            document.getElementById('weightValue').addEventListener('input', function() {
+                calculateBMI();
+                updateNutritionBreakdown();
+            });
+
+            document.getElementById('competitionDate').addEventListener('change', function() {
+                updateNutritionBreakdown();
+            });
+
+            // Phase selector buttons
+            document.querySelectorAll('.phase-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentPhase = this.dataset.phase;
+                    updateNutritionBreakdown();
+                    renderFoods();
+                });
+            });
+
+            // Filter controls
+            document.getElementById('categoryFilter').addEventListener('change', function() {
+                currentCategory = this.value;
+                renderFoods();
+            });
+
+            document.getElementById('recommendationFilter').addEventListener('change', function() {
+                currentRecommendation = this.value;
+                renderFoods();
+            });
+
+            document.getElementById('searchInput').addEventListener('input', function() {
+                searchTerm = this.value.toLowerCase();
+                renderFoods();
+            });
+        }
+
+        function updateWeightInputLimits() {
+            const weightUnit = document.getElementById('weightUnit').value;
+            const weightInput = document.getElementById('weightValue');
+            
+            if (weightUnit === 'kg') {
+                weightInput.min = 20;
+                weightInput.max = 150;
+                weightInput.placeholder = 'Enter weight in kg';
+            } else {
+                weightInput.min = 44;
+                weightInput.max = 330;
+                weightInput.placeholder = 'Enter weight in lbs';
+            }
+        }
+
+        function toggleHeightInputs() {
+            const heightUnit = document.getElementById('heightUnit').value;
+            const ftInInputs = document.getElementById('heightFtIn');
+            const cmInputs = document.getElementById('heightCm');
+
+            if (heightUnit === 'ft-in') {
+                ftInInputs.style.display = 'flex';
+                cmInputs.style.display = 'none';
+            } else {
+                ftInInputs.style.display = 'none';
+                cmInputs.style.display = 'block';
+            }
+        }
+
+        function getHeightInCm() {
+            const heightUnit = document.getElementById('heightUnit').value;
+            
+            if (heightUnit === 'ft-in') {
+                const ft = parseFloat(document.getElementById('heightFt').value) || 0;
+                const inches = parseFloat(document.getElementById('heightIn').value) || 0;
+                const totalInches = (ft * 12) + inches;
+                return totalInches * 2.54; // Convert inches to cm
+            } else {
+                return parseFloat(document.getElementById('heightCmValue').value) || 0;
+            }
+        }
+
+        function getWeightInKg() {
+            const weightUnit = document.getElementById('weightUnit').value;
+            const weight = parseFloat(document.getElementById('weightValue').value) || 0;
+            
+            if (weightUnit === 'lbs') {
+                return weight * 0.453592; // Convert lbs to kg
+            } else {
+                return weight;
+            }
+        }
+
+        function getWeightInLbs() {
+            const weightUnit = document.getElementById('weightUnit').value;
+            const weight = parseFloat(document.getElementById('weightValue').value) || 0;
+            
+            if (weightUnit === 'kg') {
+                return weight * 2.20462; // Convert kg to lbs
+            } else {
+                return weight;
+            }
+        }
+
+        function calculateBMI() {
+            const heightCm = getHeightInCm();
+            const weightKg = getWeightInKg();
+            
+            if (heightCm > 0 && weightKg > 0) {
+                const heightM = heightCm / 100;
+                const bmi = weightKg / (heightM * heightM);
+                
+                document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+                document.getElementById('bmiCategory').textContent = getBMICategory(bmi);
+                document.getElementById('bmiDisplay').style.display = 'block';
+                
+                return bmi;
+            } else {
+                document.getElementById('bmiDisplay').style.display = 'none';
+                return null;
+            }
+        }
+
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) return 'Underweight';
+            if (bmi < 25) return 'Normal weight';
+            if (bmi < 30) return 'Overweight';
+            return 'Obese';
+        }
+
+        function updateNutritionBreakdown() {
+            const phaseData = ageSpecificNutrition[currentPhase];
+            const ageData = phaseData[currentAgeGroup];
+            
+            document.getElementById('currentPhaseName').textContent = phaseData.name;
+            document.getElementById('carbsPercent').textContent = ageData.carbs;
+            document.getElementById('proteinPercent').textContent = ageData.protein;
+            document.getElementById('veggiesPercent').textContent = ageData.veggies;
+            document.getElementById('fruitsPercent').textContent = ageData.fruits;
+            document.getElementById('phaseNotes').textContent = phaseData.notes;
+
+            // Update personalized header
+            updatePersonalizedHeader();
+
+            // Add weight-based calculations if weight is provided
+            const weightKg = getWeightInKg();
+            if (weightKg > 0) {
+                updateWeightBasedRecommendations(weightKg, ageData);
+            }
+        }
+
+        function updatePersonalizedHeader() {
+            const ageGroup = document.getElementById('ageGroup').value;
+            const gender = document.getElementById('gender').value;
+            const weightValue = document.getElementById('weightValue').value;
+            const heightCm = getHeightInCm();
+            const bmi = calculateBMI();
+            
+            const ageGroupNames = {
+                '10-under': '10 & Under',
+                '11-12': 'AG 11-12',
+                '13-14': 'AG 13-14', 
+                '15-over': 'AG 15 & Over'
+            };
+
+            if (weightValue && heightCm > 0) {
+                const weightUnit = document.getElementById('weightUnit').value;
+                const heightUnit = document.getElementById('heightUnit').value;
+                
+                let heightDisplay = '';
+                if (heightUnit === 'ft-in') {
+                    const ft = document.getElementById('heightFt').value;
+                    const inches = document.getElementById('heightIn').value;
+                    heightDisplay = `${ft}'${inches}"`;
+                } else {
+                    heightDisplay = `${Math.round(heightCm)}cm`;
+                }
+
+                const headerText = `${ageGroupNames[ageGroup]} ${gender.charAt(0).toUpperCase() + gender.slice(1)} • ${weightValue}${weightUnit} • ${heightDisplay} • BMI: ${bmi ? bmi.toFixed(1) : '--'}`;
+                document.getElementById('swimmerInfo').textContent = headerText;
+                document.getElementById('personalizedHeader').style.display = 'block';
+            } else if (weightValue) {
+                const weightUnit = document.getElementById('weightUnit').value;
+                const headerText = `${ageGroupNames[ageGroup]} ${gender.charAt(0).toUpperCase() + gender.slice(1)} • ${weightValue}${weightUnit}`;
+                document.getElementById('swimmerInfo').textContent = headerText;
+                document.getElementById('personalizedHeader').style.display = 'block';
+            } else {
+                document.getElementById('personalizedHeader').style.display = 'none';
+            }
+        }
+
+        function updateWeightBasedRecommendations(weightKg, ageData) {
+            const carbsPercent = parseInt(ageData.carbs);
+            
+            // Calculate carb loading recommendations (8-12g per kg)
+            const minCarbsLoading = Math.round(weightKg * 8);
+            const maxCarbsLoading = Math.round(weightKg * 12);
+            
+            // Calculate competition morning carbs (1-4g per kg)
+            const minCarbsMorning = Math.round(weightKg * 1);
+            const maxCarbsMorning = Math.round(weightKg * 4);
+
+            // Update the notes with personalized recommendations
+            let personalizedNotes = ageSpecificNutrition[currentPhase].notes;
+            
+            if (currentPhase === 'carb-loading' || currentPhase === 'training-2') {
+                personalizedNotes += ` | Target: ${minCarbsLoading}-${maxCarbsLoading}g carbs daily`;
+            } else if (currentPhase === 'competition') {
+                personalizedNotes += ` | Pre-race meal: ${minCarbsMorning}-${maxCarbsMorning}g carbs`;
+            }
+            
+            document.getElementById('phaseNotes').textContent = personalizedNotes;
+        }
+
+        function renderFoods() {
+            const foodGrid = document.getElementById('foodGrid');
+            const noResults = document.getElementById('noResults');
+            const foodsToAvoid = document.getElementById('foodsToAvoid');
+            let allFoods = [];
+
+            // Collect all foods from all categories
+            for (const [category, foods] of Object.entries(foodDatabase)) {
+                if (currentCategory === 'all' || currentCategory === category) {
+                    foods.forEach(food => {
+                        const recommendation = food.phases[currentPhase];
+                        if (currentRecommendation === 'all' || currentRecommendation === recommendation) {
+                            if (!searchTerm || food.name.toLowerCase().includes(searchTerm)) {
+                                allFoods.push({
+                                    ...food,
+                                    category: category,
+                                    recommendation: recommendation
+                                });
+                            }
+                        }
+                    });
+                }
+            }
+
+            // Show/hide foods to avoid section based on phase
+            const shouldShowAvoidSection = (currentPhase === 'carb-loading' || currentPhase === 'competition') && 
+                                         (currentRecommendation === 'all' || currentRecommendation === 'avoid');
+            
+            if (shouldShowAvoidSection) {
+                foodsToAvoid.style.display = 'block';
+            } else {
+                foodsToAvoid.style.display = 'none';
+            }
+
+            if (allFoods.length === 0 && !shouldShowAvoidSection) {
+                foodGrid.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+
+            foodGrid.style.display = 'grid';
+            noResults.style.display = 'none';
+
+            // Sort foods by recommendation (choose first, then limit, then avoid)
+            const sortOrder = { choose: 0, limit: 1, avoid: 2 };
+            allFoods.sort((a, b) => sortOrder[a.recommendation] - sortOrder[b.recommendation]);
+
+            foodGrid.innerHTML = allFoods.map(food => `
+                <div class="food-card">
+                    <div class="food-image">
+                        ${food.emoji}
+                    </div>
+                    <div class="food-content">
+                        <div class="food-name">${food.name}</div>
+                        <div class="food-category">${formatCategory(food.category)}</div>
+                        <div class="recommendation-badge ${food.recommendation}">
+                            ${formatRecommendation(food.recommendation)}
+                        </div>
+                        <ul class="food-benefits">
+                            ${food.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function formatCategory(category) {
+            return category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+        }
+
+        function formatRecommendation(rec) {
+            switch(rec) {
+                case 'choose': return 'Recommended';
+                case 'limit': return 'Limit';
+                case 'avoid': return 'Avoid';
+                default: return rec;
+            }
+        }
+    </script>
+</body>
+</html>
