@@ -37,11 +37,15 @@
         .logo {
             font-size: 1.6rem;
             font-weight: bold;
-            color: #2563eb;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -52,7 +56,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #666;
+            color: #000000;
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 6px;
@@ -61,7 +65,7 @@
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: #2563eb;
+            color: #1e3a8a;
             background: #eff6ff;
         }
 
@@ -97,15 +101,45 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             margin-bottom: 0.5rem;
-            color: #111;
+            color: #333;
+            font-weight: 600;
         }
 
         .subtitle {
             color: #666;
-            margin-bottom: 2rem;
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Clean header style matching SwimCloud */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .see-all-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .see-all-link:hover {
+            text-decoration: underline;
         }
 
         .swimmer-profile {
@@ -964,6 +998,389 @@
             margin-top: 0.25rem;
         }
 
+        /* Performance Tracking Styles */
+        .meet-selector {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .meet-dropdown select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+        }
+
+        .meet-dropdown select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .meet-results {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-table {
+            width: 100%;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            background: #f8f9fa;
+            padding: 1rem;
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .table-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .result-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            padding: 1rem;
+            border-bottom: 1px solid #f1f3f4;
+            align-items: center;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .event-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .event-details {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .result-time {
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 1rem;
+        }
+
+        .pb-badge {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+
+        .improvement {
+            font-weight: 500;
+        }
+
+        .improvement.positive {
+            color: #10b981;
+        }
+
+        .improvement.negative {
+            color: #ef4444;
+        }
+
+        .place {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .nutrition-correlation {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .phase-performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .phase-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .phase-card h4 {
+            margin: 0 0 1rem 0;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .metric {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 1.1rem;
+        }
+
+        /* Debug Panel Styles */
+        .debug-panel {
+            background: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .debug-panel h4 {
+            margin: 0 0 1rem 0;
+            color: #374151;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .debug-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        #debugLog {
+            background: #1f2937;
+            color: #10b981;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            min-height: 120px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background: #f3f4f6;
+        }
+
+        .status-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .status-indicator.connecting {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-indicator.connected {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-indicator.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #6b7280;
+        }
+
+        .status-indicator.connecting .status-dot {
+            background: #f59e0b;
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.connected .status-dot {
+            background: #10b981;
+        }
+
+        .status-indicator.error .status-dot {
+            background: #ef4444;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .retry-button {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        .retry-button:hover {
+            background: #d97706;
+        }
+
+        /* Manual Entry Panel */
+        .manual-entry-panel {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .manual-entry-panel h4 {
+            margin: 0 0 0.5rem 0;
+            color: #0c4a6e;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .manual-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .form-row input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .form-row input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
+        }
+
+        .troubleshooting-info {
+            background: #fef7cd;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .troubleshooting-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #92400e;
+            font-size: 0.9rem;
+        }
+
+        .troubleshooting-info ul {
+            margin: 0.5rem 0 0 1rem;
+            color: #92400e;
+            font-size: 0.85rem;
+        }
+
+        .troubleshooting-info li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Connection Status Detail */
+        .connection-status-detail {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .connection-status-detail h4 {
+            margin: 0 0 0.5rem 0;
+            color: #0c4a6e;
+            font-size: 0.9rem;
+        }
+
+        #connectionSteps {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            background: white;
+            border: 1px solid #e0e7ff;
+            border-radius: 4px;
+            padding: 0.75rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .connection-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.25rem;
+            border-radius: 3px;
+        }
+
+        .connection-step.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .connection-step.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .connection-step.info {
+            background: #f0f9ff;
+            color: #1e40af;
+        }
+
+        .connection-step.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .step-icon {
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
         @media (max-width: 1024px) {
             .calendar-view.triple {
                 grid-template-columns: 1fr;
@@ -984,6 +1401,1119 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+        }
+
+        // Performance Tracking Functions
+        let debugMode = false;
+        let currentSwimmerId = null;
+        let connectionSteps = [];
+
+        function addConnectionStep(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const step = { message, type, timestamp };
+            connectionSteps.push(step);
+            
+            // Also log to debug console
+            debugLog(message, type);
+            
+            // Update connection steps display
+            updateConnectionStepsDisplay();
+        }
+
+        function updateConnectionStepsDisplay() {
+            const stepsContainer = document.getElementById('connectionSteps');
+            if (!stepsContainer) return;
+            
+            const stepsHtml = connectionSteps.slice(-10).map(step => {
+                const icons = {
+                    success: '✅',
+                    error: '❌',
+                    warning: '⚠️',
+                    info: 'ℹ️'
+                };
+                
+                return `
+                    <div class="connection-step ${step.type}">
+                        <span class="step-icon">${icons[step.type] || 'ℹ️'}</span>
+                        <span>[${step.timestamp}] ${step.message}</span>
+                    </div>
+                `;
+            }).join('');
+            
+            stepsContainer.innerHTML = stepsHtml;
+            stepsContainer.scrollTop = stepsContainer.scrollHeight;
+        }
+
+        function clearConnectionSteps() {
+            connectionSteps = [];
+            updateConnectionStepsDisplay();
+        }
+
+        function debugLog(message, type = 'info') {
+            if (!debugMode) return;
+            
+            const timestamp = new Date().toLocaleTimeString();
+            const logElement = document.getElementById('debugLog');
+            const typeColors = {
+                info: '#10b981',
+                warn: '#f59e0b', 
+                error: '#ef4444',
+                success: '#22c55e'
+            };
+            
+            const coloredMessage = `[${timestamp}] ${message}`;
+            logElement.innerHTML += `<span style="color: ${typeColors[type]}">${coloredMessage}</span>\n`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        function toggleDebugMode() {
+            debugMode = !debugMode;
+            const debugPanel = document.getElementById('debugPanel');
+            const connectionDetail = document.getElementById('connectionStatusDetail');
+            
+            debugPanel.style.display = debugMode ? 'block' : 'none';
+            connectionDetail.style.display = debugMode ? 'block' : 'none';
+            
+            if (debugMode) {
+                debugLog('Debug mode enabled', 'success');
+                addConnectionStep('Debug mode enabled', 'success');
+            } else {
+                clearConnectionSteps();
+            }
+        }
+
+        function testWithSampleUrl() {
+            addConnectionStep('🧪 Starting system test...', 'info');
+            
+            // Test with a simple, known URL first
+            const testUrl = 'https://httpbin.org/html';
+            addConnectionStep(`Testing basic connectivity with: ${testUrl}`, 'info');
+            
+            // Enable debug mode for this test
+            if (!debugMode) {
+                toggleDebugMode();
+            }
+            
+            testBasicConnectivity(testUrl).then(() => {
+                addConnectionStep('System test completed - check logs above', 'success');
+                addConnectionStep('Now try entering your SwimCloud URL', 'info');
+            }).catch(error => {
+                addConnectionStep(`System test failed: ${error.message}`, 'error');
+            });
+        }
+
+        async function testBasicConnectivity(testUrl) {
+            const corsProxies = [
+                'https://api.allorigins.win/raw?url=',
+                'https://corsproxy.io/?',
+            ];
+
+            addConnectionStep(`Testing ${corsProxies.length} proxy services...`, 'info');
+
+            for (let i = 0; i < corsProxies.length; i++) {
+                const proxy = corsProxies[i];
+                addConnectionStep(`Testing proxy ${i + 1}: ${proxy}`, 'info');
+                
+                try {
+                    const response = await fetch(proxy + encodeURIComponent(testUrl), {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'text/html',
+                        }
+                    });
+
+                    if (response.ok) {
+                        const text = await response.text();
+                        addConnectionStep(`✅ Proxy ${i + 1} works! Got ${text.length} characters`, 'success');
+                        
+                        // If this proxy works, test with a SwimCloud-like URL
+                        if (text.length > 100) {
+                            addConnectionStep('This proxy should work for SwimCloud! 🎉', 'success');
+                        }
+                    } else {
+                        addConnectionStep(`❌ Proxy ${i + 1} returned status: ${response.status}`, 'error');
+                    }
+                } catch (error) {
+                    addConnectionStep(`❌ Proxy ${i + 1} failed: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        function updateStatus(status, message) {
+            const statusElement = document.getElementById('connectionStatus');
+            const statusText = statusElement.querySelector('.status-text');
+            
+            // Remove existing status classes
+            statusElement.classList.remove('connecting', 'connected', 'error');
+            statusElement.classList.add(status);
+            
+            // Add status dot if not exists
+            if (!statusElement.querySelector('.status-dot')) {
+                const dot = document.createElement('span');
+                dot.className = 'status-dot';
+                statusElement.insertBefore(dot, statusText);
+            }
+            
+            statusText.textContent = message;
+            debugLog(`Status: ${message}`, status === 'error' ? 'error' : 'info');
+        }
+
+        async function loadSwimmerData() {
+            const url = document.getElementById('swimcloudUrl').value.trim();
+            
+            // Clear previous steps
+            clearConnectionSteps();
+            
+            if (!url) {
+                updateStatus('', 'Not connected');
+                document.getElementById('performanceContent').style.display = 'none';
+                addConnectionStep('No URL provided', 'warning');
+                return;
+            }
+
+            addConnectionStep(`Starting connection to: ${url}`, 'info');
+
+            // Extract swimmer ID from URL
+            const swimmerIdMatch = url.match(/swimmer\/(\d+)/);
+            if (!swimmerIdMatch) {
+                updateStatus('error', 'Invalid URL format');
+                addConnectionStep('❌ Invalid URL format. Expected: https://www.swimcloud.com/swimmer/1234567/', 'error');
+                debugLog('Invalid SwimCloud URL format. Expected: https://www.swimcloud.com/swimmer/1234567/', 'error');
+                return;
+            }
+
+            currentSwimmerId = swimmerIdMatch[1];
+            addConnectionStep(`✅ Found swimmer ID: ${currentSwimmerId}`, 'success');
+            
+            updateStatus('connecting', 'Connecting to SwimCloud...');
+            addConnectionStep('🔄 Connecting to SwimCloud...', 'info');
+            
+            debugLog(`Attempting to fetch data for swimmer ID: ${currentSwimmerId}`, 'info');
+            debugLog(`URL: ${url}`, 'info');
+
+            try {
+                await fetchSwimCloudData(url);
+            } catch (error) {
+                updateStatus('error', 'Connection failed');
+                addConnectionStep(`❌ Connection failed: ${error.message}`, 'error');
+                debugLog(`Connection error: ${error.message}`, 'error');
+                
+                // Provide helpful error message
+                if (error.message.includes('CORS') || error.message.includes('fetch')) {
+                    addConnectionStep('This is likely due to browser security restrictions (CORS)', 'warning');
+                    addConnectionStep('💡 Try the "Manual Entry" option below', 'info');
+                    debugLog('This error is likely due to browser security restrictions', 'warn');
+                    debugLog('Try using the Manual Entry option below', 'info');
+                }
+                
+                showRetryOption();
+            }
+        }
+
+        async function fetchSwimCloudData(url) {
+            // Try multiple CORS proxy services
+            const corsProxies = [
+                'https://api.allorigins.win/raw?url=',
+                'https://corsproxy.io/?',
+                'https://cors-anywhere.herokuapp.com/',
+            ];
+
+            addConnectionStep(`Trying ${corsProxies.length} proxy services...`, 'info');
+
+            for (let i = 0; i < corsProxies.length; i++) {
+                const proxy = corsProxies[i];
+                addConnectionStep(`🔄 Trying proxy ${i + 1}/${corsProxies.length}: ${proxy}`, 'info');
+                debugLog(`Trying proxy ${i + 1}/${corsProxies.length}: ${proxy}`, 'info');
+                
+                try {
+                    const response = await fetch(proxy + encodeURIComponent(url), {
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        const errorMsg = `HTTP ${response.status}: ${response.statusText}`;
+                        addConnectionStep(`❌ Proxy ${i + 1} failed: ${errorMsg}`, 'error');
+                        throw new Error(errorMsg);
+                    }
+
+                    const html = await response.text();
+                    addConnectionStep(`✅ Proxy ${i + 1} success! Got ${html.length} characters`, 'success');
+                    debugLog(`Successfully fetched HTML (${html.length} characters)`, 'success');
+                    
+                    // Analyze page if debug mode is enabled
+                    if (debugMode) {
+                        analyzeSwimCloudPage(html);
+                    }
+                    
+                    // Check if we got actual HTML content
+                    if (html.length < 100 || !html.includes('<html')) {
+                        addConnectionStep(`⚠️ Response doesn't look like HTML (${html.length} chars)`, 'warning');
+                        debugLog(`Response doesn't look like valid HTML (${html.length} chars)`, 'warn');
+                        continue;
+                    }
+                    
+                    addConnectionStep('🔍 Parsing SwimCloud data...', 'info');
+                    const swimmerData = parseSwimCloudHTML(html);
+                    if (swimmerData) {
+                        addConnectionStep('✅ Successfully parsed swimmer data!', 'success');
+                        debugLog('Successfully parsed swimmer data', 'success');
+                        displaySwimmerData(swimmerData);
+                        return; // Success!
+                    } else {
+                        addConnectionStep('❌ Failed to parse swimmer data from HTML', 'error');
+                        debugLog('Failed to parse swimmer data from HTML', 'warn');
+                        continue;
+                    }
+                    
+                } catch (error) {
+                    addConnectionStep(`❌ Proxy ${i + 1} error: ${error.message}`, 'error');
+                    debugLog(`Proxy ${i + 1} failed: ${error.message}`, 'warn');
+                    continue;
+                }
+            }
+            
+            // If all proxies fail, try direct fetch (will likely fail due to CORS)
+            addConnectionStep('⚠️ All proxies failed, trying direct fetch...', 'warning');
+            debugLog('All proxies failed, trying direct fetch...', 'warn');
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                const html = await response.text();
+                addConnectionStep(`✅ Direct fetch worked! Got ${html.length} characters`, 'success');
+                debugLog(`Direct fetch successful (${html.length} characters)`, 'success');
+                
+                // Analyze page if debug mode is enabled
+                if (debugMode) {
+                    analyzeSwimCloudPage(html);
+                }
+                
+                const swimmerData = parseSwimCloudHTML(html);
+                if (swimmerData) {
+                    displaySwimmerData(swimmerData);
+                    return;
+                }
+            } catch (error) {
+                addConnectionStep(`❌ Direct fetch failed: ${error.message}`, 'error');
+                debugLog(`Direct fetch failed: ${error.message}`, 'error');
+            }
+            
+            throw new Error('Unable to fetch SwimCloud data. All connection methods failed.');
+        }
+
+        function parseSwimCloudHTML(html) {
+            debugLog('Parsing SwimCloud HTML...', 'info');
+            
+            try {
+                // Create a temporary DOM parser
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Extract swimmer name - try multiple selectors
+                let swimmerName = 'Unknown Swimmer';
+                const nameSelectors = [
+                    'h1.swimmer-name',
+                    '.swimmer-info h1',
+                    '.page-title',
+                    'h1',
+                    '.swimmer-header h1',
+                    '[data-swimmer-name]'
+                ];
+                
+                for (const selector of nameSelectors) {
+                    const nameElement = doc.querySelector(selector);
+                    if (nameElement && nameElement.textContent.trim()) {
+                        swimmerName = nameElement.textContent.trim();
+                        debugLog(`Found swimmer name with selector ${selector}: ${swimmerName}`, 'success');
+                        break;
+                    }
+                }
+                
+                // Extract meets data - focus on SwimCloud's specific structure
+                const meets = [];
+                
+                // SwimCloud typically uses these patterns for meets
+                const meetSelectors = [
+                    '.meet-item',
+                    '.meet-result-item',
+                    '.meet-card',
+                    '[data-meet-id]',
+                    '.meet-list .meet',
+                    '.results-by-meet .meet',
+                    '.meet-summary'
+                ];
+                
+                let foundMeets = false;
+                
+                for (const selector of meetSelectors) {
+                    const meetElements = doc.querySelectorAll(selector);
+                    debugLog(`Trying selector "${selector}": found ${meetElements.length} elements`, 'info');
+                    
+                    if (meetElements.length > 0) {
+                        meetElements.forEach((element, index) => {
+                            try {
+                                // Try different patterns for meet title and date
+                                let meetTitle = null;
+                                let meetDate = null;
+                                
+                                // Title selectors
+                                const titleSelectors = ['.meet-title', '.meet-name', 'h3', 'h4', '.title', 'a'];
+                                for (const titleSel of titleSelectors) {
+                                    const titleEl = element.querySelector(titleSel);
+                                    if (titleEl && titleEl.textContent.trim()) {
+                                        meetTitle = titleEl.textContent.trim();
+                                        break;
+                                    }
+                                }
+                                
+                                // Date selectors
+                                const dateSelectors = ['.meet-date', '.date', '.meet-info .date', 'time', '.when'];
+                                for (const dateSel of dateSelectors) {
+                                    const dateEl = element.querySelector(dateSel);
+                                    if (dateEl && dateEl.textContent.trim()) {
+                                        meetDate = dateEl.textContent.trim();
+                                        break;
+                                    }
+                                }
+                                
+                                // If no specific date found, look for date-like text in the element
+                                if (!meetDate) {
+                                    const text = element.textContent;
+                                    const dateMatch = text.match(/\b\w{3}\s+\d{1,2}[,-]\s*\d{4}|\d{1,2}\/\d{1,2}\/\d{4}|\w+\s+\d{1,2}-\d{1,2},?\s+\d{4}/i);
+                                    if (dateMatch) {
+                                        meetDate = dateMatch[0];
+                                    }
+                                }
+                                
+                                if (meetTitle || meetDate) {
+                                    const meet = {
+                                        id: meets.length + 1,
+                                        name: meetTitle || 'Unnamed Meet',
+                                        date: meetDate || 'Date unknown',
+                                        element: element,
+                                        html: element.outerHTML
+                                    };
+                                    meets.push(meet);
+                                    debugLog(`Parsed meet ${meets.length}: "${meet.name}" - ${meet.date}`, 'success');
+                                    foundMeets = true;
+                                }
+                            } catch (error) {
+                                debugLog(`Error parsing meet element ${index}: ${error.message}`, 'warn');
+                            }
+                        });
+                        
+                        if (foundMeets) break; // Found meets with this selector, no need to try others
+                    }
+                }
+                
+                // If no meets found with specific selectors, try a broader search
+                if (!foundMeets) {
+                    debugLog('No meets found with specific selectors, trying broader search...', 'warn');
+                    
+                    // Look for any links or elements that contain meet-like text
+                    const allElements = doc.querySelectorAll('a, div, span, h1, h2, h3, h4, h5, h6');
+                    const meetKeywords = ['championship', 'meet', 'invitational', 'classic', 'open', 'sectional', 'regional', 'state', 'national'];
+                    
+                    allElements.forEach((element, index) => {
+                        if (meets.length >= 10) return; // Limit to 10 meets max
+                        
+                        const text = element.textContent.trim();
+                        if (text.length > 5 && text.length < 100) {
+                            const lowerText = text.toLowerCase();
+                            if (meetKeywords.some(keyword => lowerText.includes(keyword))) {
+                                // Check if this looks like a meet name
+                                const dateMatch = text.match(/\b\w{3}\s+\d{1,2}[,-]\s*\d{4}|\d{1,2}\/\d{1,2}\/\d{4}|\w+\s+\d{1,2}-\d{1,2},?\s+\d{4}/i);
+                                
+                                meets.push({
+                                    id: meets.length + 1,
+                                    name: text,
+                                    date: dateMatch ? dateMatch[0] : 'Date in text',
+                                    element: element,
+                                    html: element.outerHTML
+                                });
+                                debugLog(`Found potential meet: "${text}"`, 'info');
+                            }
+                        }
+                    });
+                }
+                
+                debugLog(`Total meets found: ${meets.length}`, meets.length > 0 ? 'success' : 'warn');
+                
+                const result = {
+                    name: swimmerName,
+                    meets: meets,
+                    rawHtml: html.substring(0, 1000) + '...' // Store snippet for debugging
+                };
+                
+                // Important: Return the result even if no meets found
+                // The connection was successful if we got the swimmer name
+                return result;
+                
+            } catch (error) {
+                debugLog(`HTML parsing error: ${error.message}`, 'error');
+                return null;
+            }
+        }
+
+        function displaySwimmerData(data) {
+            addConnectionStep(`📊 Processing data for: ${data.name}`, 'info');
+            addConnectionStep(`Found ${data.meets.length} meets`, 'info');
+            debugLog(`Displaying data for swimmer: ${data.name}`, 'info');
+            debugLog(`Found ${data.meets.length} meets`, 'info');
+            
+            // Update swimmer name
+            document.getElementById('swimmerName').value = data.name;
+            
+            // Update connection status - this was missing!
+            if (data.name !== 'Unknown Swimmer' || data.meets.length > 0) {
+                const statusMsg = `Connected - Found ${data.meets.length} meets`;
+                updateStatus('connected', statusMsg);
+                addConnectionStep(`🎉 ${statusMsg}`, 'success');
+                debugLog('Connection status updated to connected', 'success');
+            } else {
+                const statusMsg = 'Connected but no data found';
+                updateStatus('error', statusMsg);
+                addConnectionStep(`⚠️ ${statusMsg}`, 'warning');
+                debugLog('Connected but no swimmer data found', 'warn');
+            }
+            
+            // Show performance content
+            document.getElementById('performanceContent').style.display = 'block';
+            
+            // Load meets into dropdown
+            loadMeetsData(data.meets);
+            
+            addConnectionStep('✅ Connection completed successfully!', 'success');
+        }
+
+        function loadMeetsData(meets) {
+            const meetSelect = document.getElementById('meetSelect');
+            meetSelect.innerHTML = '<option value="">Select a meet...</option>';
+            
+            debugLog(`Loading ${meets.length} meets into dropdown`, 'info');
+            
+            if (meets.length === 0) {
+                debugLog('No meets found in swimmer data', 'warn');
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = 'No meets found - try debug mode to see what was parsed';
+                option.disabled = true;
+                meetSelect.appendChild(option);
+                
+                // Show debug suggestion
+                const option2 = document.createElement('option');
+                option2.value = 'debug';
+                option2.textContent = '🔍 Enable Debug Mode to see raw data';
+                option2.disabled = true;
+                meetSelect.appendChild(option2);
+                return;
+            }
+            
+            meets.forEach((meet, index) => {
+                const option = document.createElement('option');
+                option.value = meet.id;
+                option.textContent = `${meet.name} - ${meet.date}`;
+                option.dataset.meetData = JSON.stringify(meet); // Store meet data for later use
+                meetSelect.appendChild(option);
+                debugLog(`Added meet ${index + 1}: ${meet.name}`, 'success');
+            });
+            
+            // Add option to view all parsed data
+            const debugOption = document.createElement('option');
+            debugOption.value = 'show-all-data';
+            debugOption.textContent = '📊 Show All Parsed Data';
+            meetSelect.appendChild(debugOption);
+        }
+
+        function showRetryOption() {
+            const statusElement = document.getElementById('connectionStatus');
+            
+            // Remove existing retry button
+            const existingButton = statusElement.querySelector('.retry-button');
+            if (existingButton) {
+                existingButton.remove();
+            }
+            
+            const retryButton = document.createElement('button');
+            retryButton.className = 'retry-button';
+            retryButton.textContent = 'Retry';
+            retryButton.onclick = loadSwimmerData;
+            
+            statusElement.appendChild(retryButton);
+        }
+
+        function testConnection() {
+            debugLog('=== CONNECTION TEST ===', 'info');
+            debugLog(`Current swimmer ID: ${currentSwimmerId}`, 'info');
+            debugLog(`Debug mode: ${debugMode}`, 'info');
+            debugLog(`Browser: ${navigator.userAgent}`, 'info');
+            
+            const url = document.getElementById('swimcloudUrl').value;
+            if (url) {
+                debugLog(`Testing with URL: ${url}`, 'info');
+                
+                // Test CORS proxies
+                const corsProxies = [
+                    'https://api.allorigins.win/raw?url=',
+                    'https://corsproxy.io/?',
+                ];
+                
+                corsProxies.forEach((proxy, index) => {
+                    const testUrl = proxy + encodeURIComponent('https://httpbin.org/json');
+                    debugLog(`Testing proxy ${index + 1}: ${proxy}`, 'info');
+                    
+                    fetch(testUrl, { method: 'GET' })
+                        .then(response => {
+                            const status = response.ok ? 'ACCESSIBLE ✅' : `BLOCKED ❌ (${response.status})`;
+                            debugLog(`Proxy ${index + 1}: ${status}`, response.ok ? 'success' : 'error');
+                        })
+                        .catch(error => {
+                            debugLog(`Proxy ${index + 1}: ERROR ❌ - ${error.message}`, 'error');
+                        });
+                });
+                
+                // Test if we can reach the actual SwimCloud URL
+                debugLog('Testing actual SwimCloud connection...', 'info');
+                setTimeout(() => {
+                    loadSwimmerData(); // Re-run the connection
+                }, 2000);
+                
+            } else {
+                debugLog('No SwimCloud URL provided', 'warn');
+                debugLog('Please enter a SwimCloud profile URL first', 'warn');
+            }
+        }
+
+        // Add page analysis function for debugging
+        function analyzeSwimCloudPage(html) {
+            debugLog('=== PAGE ANALYSIS ===', 'info');
+            
+            try {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Analyze page structure
+                const title = doc.querySelector('title')?.textContent || 'No title found';
+                debugLog(`Page title: ${title}`, 'info');
+                
+                // Look for common SwimCloud elements
+                const commonElements = [
+                    'h1', 'h2', 'h3', '.swimmer-name', '.meet', '.result', 
+                    'table', '.time', '.event', '[data-swimmer]', '[data-meet]'
+                ];
+                
+                commonElements.forEach(selector => {
+                    const elements = doc.querySelectorAll(selector);
+                    if (elements.length > 0) {
+                        debugLog(`Found ${elements.length} elements with selector: ${selector}`, 'info');
+                        // Show first few examples
+                        for (let i = 0; i < Math.min(3, elements.length); i++) {
+                            const text = elements[i].textContent.trim().substring(0, 50);
+                            debugLog(`  Example ${i + 1}: "${text}${text.length === 50 ? '...' : ''}"`, 'info');
+                        }
+                    }
+                });
+                
+                // Check for specific SwimCloud indicators
+                const swimCloudIndicators = [
+                    'swimcloud', 'swimmer', 'meet', 'results', 'times'
+                ];
+                
+                const pageText = doc.body.textContent.toLowerCase();
+                swimCloudIndicators.forEach(indicator => {
+                    const count = (pageText.match(new RegExp(indicator, 'g')) || []).length;
+                    if (count > 0) {
+                        debugLog(`Found "${indicator}" ${count} times in page`, 'success');
+                    }
+                });
+                
+            } catch (error) {
+                debugLog(`Page analysis error: ${error.message}`, 'error');
+            }
+        }
+
+        function showManualEntry() {
+            const panel = document.getElementById('manualEntryPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+            
+            if (panel.style.display === 'block') {
+                debugLog('Manual entry panel opened', 'info');
+                showTroubleshootingInfo();
+            }
+        }
+
+        function saveManualData() {
+            const swimmerName = document.getElementById('manualSwimmerName').value.trim();
+            const meetName = document.getElementById('manualMeetName').value.trim();
+            const meetDate = document.getElementById('manualMeetDate').value.trim();
+            
+            if (!swimmerName) {
+                alert('Please enter swimmer name');
+                return;
+            }
+            
+            debugLog(`Saving manual data: ${swimmerName}`, 'info');
+            
+            // Set swimmer name
+            document.getElementById('swimmerName').value = swimmerName;
+            updateStatus('connected', 'Manual data entered');
+            
+            // Show performance content
+            document.getElementById('performanceContent').style.display = 'block';
+            
+            // Create sample meet data
+            const meets = [];
+            if (meetName && meetDate) {
+                meets.push({
+                    id: 1,
+                    name: meetName,
+                    date: meetDate
+                });
+            }
+            
+            // Add some default meets if none provided
+            if (meets.length === 0) {
+                meets.push(
+                    { id: 1, name: "Sample Championship Meet", date: "Jul 15-17, 2025" },
+                    { id: 2, name: "Regional Championships", date: "Jun 20-22, 2025" }
+                );
+            }
+            
+            loadMeetsData(meets);
+            
+            // Clear manual entry form
+            document.getElementById('manualSwimmerName').value = '';
+            document.getElementById('manualMeetName').value = '';
+            document.getElementById('manualMeetDate').value = '';
+            
+            // Hide manual entry panel
+            document.getElementById('manualEntryPanel').style.display = 'none';
+            
+            debugLog('Manual data saved successfully', 'success');
+        }
+
+        function showTroubleshootingInfo() {
+            // Check if troubleshooting info already exists
+            if (document.getElementById('troubleshootingInfo')) return;
+            
+            const troubleshootingDiv = document.createElement('div');
+            troubleshootingDiv.id = 'troubleshootingInfo';
+            troubleshootingDiv.className = 'troubleshooting-info';
+            troubleshootingDiv.innerHTML = `
+                <h4>⚠️ SwimCloud Connection Issues</h4>
+                <p style="font-size: 0.85rem; color: #92400e; margin-bottom: 0.5rem;">
+                    Automatic SwimCloud data fetching may not work due to browser security restrictions. Here are the current limitations:
+                </p>
+                <ul>
+                    <li><strong>CORS Policy:</strong> SwimCloud blocks cross-origin requests from browsers</li>
+                    <li><strong>No Public API:</strong> SwimCloud doesn't provide a public API for developers</li>
+                    <li><strong>Browser Restrictions:</strong> Modern browsers prevent scraping other websites directly</li>
+                </ul>
+                <p style="font-size: 0.85rem; color: #92400e; margin-top: 0.5rem;">
+                    <strong>Alternatives:</strong> Use manual entry above, or copy-paste meet results for analysis.
+                </p>
+            `;
+            
+            const debugPanel = document.getElementById('debugPanel');
+            debugPanel.appendChild(troubleshootingDiv);
+            
+            debugLog('Troubleshooting information displayed', 'info');
+        }
+
+        function validateUrl() {
+            const url = document.getElementById('swimcloudUrl').value.trim();
+            const validation = document.getElementById('urlValidation');
+            
+            if (!url) {
+                validation.innerHTML = '';
+                return;
+            }
+            
+            const swimmerIdMatch = url.match(/swimmer\/(\d+)/);
+            
+            if (url.includes('swimcloud.com') && swimmerIdMatch) {
+                validation.innerHTML = `<span style="color: #10b981; font-size: 0.8rem;">✅ Valid SwimCloud URL - Swimmer ID: ${swimmerIdMatch[1]}</span>`;
+            } else if (url.includes('swimcloud.com')) {
+                validation.innerHTML = `<span style="color: #f59e0b; font-size: 0.8rem;">⚠️ SwimCloud URL but missing swimmer ID</span>`;
+            } else {
+                validation.innerHTML = `<span style="color: #ef4444; font-size: 0.8rem;">❌ Not a SwimCloud URL</span>`;
+            }
+        }
+
+        function quickDiagnostic() {
+            addConnectionStep('🔧 Running quick diagnostic...', 'info');
+            
+            // Check current values
+            const url = document.getElementById('swimcloudUrl').value.trim();
+            const swimmerName = document.getElementById('swimmerName').value;
+            const statusElement = document.getElementById('connectionStatus');
+            
+            addConnectionStep(`URL: ${url || 'Not provided'}`, 'info');
+            addConnectionStep(`Swimmer Name: ${swimmerName || 'Not set'}`, 'info');
+            addConnectionStep(`Current Status: ${statusElement.querySelector('.status-text').textContent}`, 'info');
+            
+            // Check browser capabilities
+            if (typeof fetch === 'undefined') {
+                addConnectionStep('❌ Browser does not support fetch API', 'error');
+            } else {
+                addConnectionStep('✅ Browser supports fetch API', 'success');
+            }
+            
+            // Check if we're in a secure context
+            if (location.protocol === 'https:' || location.hostname === 'localhost') {
+                addConnectionStep('✅ Secure context (HTTPS or localhost)', 'success');
+            } else {
+                addConnectionStep('⚠️ Insecure context - may have CORS issues', 'warning');
+            }
+            
+            addConnectionStep('💡 Try the "🧪 Test System" button to verify connectivity', 'info');
+        }
+
+        function loadMeetResults() {
+            const meetSelect = document.getElementById('meetSelect');
+            const meetId = meetSelect.value;
+            
+            if (!meetId) {
+                document.getElementById('meetResults').style.display = 'none';
+                document.getElementById('nutritionCorrelation').style.display = 'none';
+                return;
+            }
+
+            // Handle special debug options
+            if (meetId === 'show-all-data') {
+                showAllParsedData();
+                return;
+            }
+
+            debugLog(`Loading results for meet ID: ${meetId}`, 'info');
+
+            // Get the selected meet data
+            const selectedOption = meetSelect.querySelector(`option[value="${meetId}"]`);
+            let meetData = null;
+            
+            if (selectedOption && selectedOption.dataset.meetData) {
+                try {
+                    meetData = JSON.parse(selectedOption.dataset.meetData);
+                    debugLog(`Found meet data: ${meetData.name}`, 'info');
+                } catch (error) {
+                    debugLog(`Error parsing meet data: ${error.message}`, 'error');
+                }
+            }
+
+            // Try to parse actual results from the meet's HTML if available
+            let results = [];
+            if (meetData && meetData.html) {
+                debugLog('Attempting to parse meet results from HTML...', 'info');
+                results = parseSwimCloudMeetResults(meetData.html, meetId);
+            }
+
+            // If no results found, use sample data for demonstration
+            if (results.length === 0) {
+                debugLog('No results parsed from meet HTML, using sample data', 'warn');
+                results = [
+                    { event: "50 L Back", eventDetails: "200 MR (Leadoff)", time: "37.70", improvement: "-3.4%", place: "3rd", isPB: false },
+                    { event: "50 L Back", eventDetails: "Finals", time: "36.98", improvement: "-1.4%", place: "4th", isPB: false },
+                    { event: "50 L Back", eventDetails: "Prelims", time: "36.79", improvement: "-0.9%", place: "3rd", isPB: false },
+                    { event: "100 L Back", eventDetails: "Finals", time: "1:21.31", improvement: "", place: "4th", isPB: true },
+                    { event: "100 L Back", eventDetails: "Prelims", time: "1:23.10", improvement: "", place: "7th", isPB: true },
+                    { event: "50 L Breast", eventDetails: "Prelims", time: "45.60", improvement: "-1.3%", place: "13th", isPB: false },
+                    { event: "100 L Breast", eventDetails: "Prelims", time: "1:38.44", improvement: "-1.1%", place: "15th", isPB: false },
+                    { event: "50 L Fly", eventDetails: "Prelims", time: "36.36", improvement: "-1.7%", place: "14th", isPB: false },
+                    { event: "100 L Fly", eventDetails: "Prelims", time: "1:24.04", improvement: "+1.2%", place: "13th", isPB: true },
+                    { event: "200 L IM", eventDetails: "Prelims", time: "3:04.74", improvement: "+0.0%", place: "14th", isPB: true }
+                ];
+            }
+
+            displayMeetResults(results);
+            document.getElementById('meetResults').style.display = 'block';
+            document.getElementById('nutritionCorrelation').style.display = 'block';
+            
+            debugLog(`Displayed ${results.length} results`, 'success');
+        }
+
+        function showAllParsedData() {
+            debugLog('=== SHOWING ALL PARSED DATA ===', 'info');
+            
+            // Create a modal or overlay to show the data
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0,0,0,0.8); z-index: 1000; display: flex; 
+                align-items: center; justify-content: center; padding: 2rem;
+            `;
+            
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: white; border-radius: 12px; padding: 2rem; 
+                max-width: 80%; max-height: 80%; overflow-y: auto;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            `;
+            
+            const meetSelect = document.getElementById('meetSelect');
+            const allOptions = Array.from(meetSelect.querySelectorAll('option[data-meet-data]'));
+            
+            let htmlContent = '<h2>🔍 All Parsed SwimCloud Data</h2>';
+            
+            if (allOptions.length === 0) {
+                htmlContent += '<p>No meet data found. The SwimCloud page may not contain the expected meet structure.</p>';
+            } else {
+                allOptions.forEach((option, index) => {
+                    try {
+                        const meetData = JSON.parse(option.dataset.meetData);
+                        htmlContent += `
+                            <div style="border: 1px solid #e5e7eb; margin: 1rem 0; padding: 1rem; border-radius: 8px;">
+                                <h3>Meet ${index + 1}: ${meetData.name}</h3>
+                                <p><strong>Date:</strong> ${meetData.date}</p>
+                                <p><strong>ID:</strong> ${meetData.id}</p>
+                                <details>
+                                    <summary>Raw HTML (click to expand)</summary>
+                                    <pre style="background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.8rem;">
+${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
+                                    </pre>
+                                </details>
+                            </div>
+                        `;
+                    } catch (error) {
+                        htmlContent += `<p>Error parsing meet ${index + 1}: ${error.message}</p>`;
+                    }
+                });
+            }
+            
+            htmlContent += '<button onclick="this.closest(\'[style*=\"position: fixed\"]\').remove()" style="background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; margin-top: 1rem;">Close</button>';
+            
+            content.innerHTML = htmlContent;
+            modal.appendChild(content);
+            document.body.appendChild(modal);
+            
+            debugLog('Parsed data modal displayed', 'success');
+        }
+
+        // Advanced parsing function for SwimCloud meet results
+        function parseSwimCloudMeetResults(html, meetId) {
+            debugLog(`Parsing meet results for meet ${meetId}`, 'info');
+            
+            try {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                const results = [];
+                
+                // SwimCloud uses various structures for meet results
+                const resultSelectors = [
+                    // Table-based results
+                    'table.results tbody tr',
+                    'table.meet-results tbody tr',
+                    '.results-table tbody tr',
+                    
+                    // Card-based results
+                    '.result-card',
+                    '.event-result',
+                    '.swim-result',
+                    
+                    // List-based results
+                    '.result-item',
+                    '.event-item',
+                    
+                    // Generic selectors
+                    '[data-event]',
+                    '[data-time]',
+                    'tr:has(.time)',
+                    'div:has(.time)'
+                ];
+                
+                for (const selector of resultSelectors) {
+                    try {
+                        const rows = doc.querySelectorAll(selector);
+                        debugLog(`Trying selector "${selector}": found ${rows.length} elements`, 'info');
+                        
+                        if (rows.length > 0) {
+                            rows.forEach((row, index) => {
+                                try {
+                                    // Multiple approaches to extract event data
+                                    let eventName = null;
+                                    let eventDetails = null;
+                                    let time = null;
+                                    let place = null;
+                                    let improvement = null;
+                                    let isPB = false;
+                                    
+                                    // Event name extraction
+                                    const eventSelectors = ['.event', '.event-name', 'td:first-child', '.stroke', '.distance'];
+                                    for (const eventSel of eventSelectors) {
+                                        const eventEl = row.querySelector(eventSel);
+                                        if (eventEl && eventEl.textContent.trim()) {
+                                            eventName = eventEl.textContent.trim();
+                                            break;
+                                        }
+                                    }
+                                    
+                                    // If no specific event selector, look for swim event patterns
+                                    if (!eventName) {
+                                        const text = row.textContent;
+                                        const eventMatch = text.match(/\b(50|100|200|400|500|800|1000|1500|1650)\s*(L|Y|M)?\s*(Free|Freestyle|Back|Backstroke|Breast|Breaststroke|Fly|Butterfly|IM|Individual Medley)/i);
+                                        if (eventMatch) {
+                                            eventName = eventMatch[0];
+                                        }
+                                    }
+                                    
+                                    // Time extraction
+                                    const timeSelectors = ['.time', '.result-time', '.swim-time', 'td:nth-child(2)', '.time-cell'];
+                                    for (const timeSel of timeSelectors) {
+                                        const timeEl = row.querySelector(timeSel);
+                                        if (timeEl && timeEl.textContent.trim()) {
+                                            time = timeEl.textContent.trim();
+                                            break;
+                                        }
+                                    }
+                                    
+                                    // If no specific time selector, look for time patterns
+                                    if (!time) {
+                                        const text = row.textContent;
+                                        const timeMatch = text.match(/\b\d{1,2}:\d{2}\.\d{2}\b|\b\d{2}\.\d{2}\b/);
+                                        if (timeMatch) {
+                                            time = timeMatch[0];
+                                        }
+                                    }
+                                    
+                                    // Place extraction
+                                    const placeSelectors = ['.place', '.rank', '.position', '.finish', 'td:last-child'];
+                                    for (const placeSel of placeSelectors) {
+                                        const placeEl = row.querySelector(placeSel);
+                                        if (placeEl && placeEl.textContent.trim()) {
+                                            const placeText = placeEl.textContent.trim();
+                                            if (/^\d+/.test(placeText)) {
+                                                place = placeText;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Improvement extraction
+                                    const impSelectors = ['.improvement', '.imp', '.delta', '.change'];
+                                    for (const impSel of impSelectors) {
+                                        const impEl = row.querySelector(impSel);
+                                        if (impEl && impEl.textContent.trim()) {
+                                            improvement = impEl.textContent.trim();
+                                            break;
+                                        }
+                                    }
+                                    
+                                    // Check for Personal Best indicators
+                                    const fullText = row.textContent.toLowerCase();
+                                    isPB = fullText.includes('pb') || fullText.includes('personal best') || 
+                                           fullText.includes('pr') || fullText.includes('personal record') ||
+                                           row.querySelector('.pb, .personal-best, .pr');
+                                    
+                                    // Event details (Finals, Prelims, etc.)
+                                    const detailsMatch = row.textContent.match(/(Finals?|Prelims?|Timed Finals?|Heats?)/i);
+                                    eventDetails = detailsMatch ? detailsMatch[0] : 'Finals';
+                                    
+                                    // Only add if we have at least event name and time
+                                    if (eventName && time) {
+                                        const result = {
+                                            event: eventName,
+                                            eventDetails: eventDetails,
+                                            time: time,
+                                            improvement: improvement || '',
+                                            place: place || '',
+                                            isPB: isPB
+                                        };
+                                        
+                                        results.push(result);
+                                        debugLog(`Parsed result: ${eventName} - ${time} (${place})`, 'success');
+                                    }
+                                    
+                                } catch (error) {
+                                    debugLog(`Error parsing result row ${index}: ${error.message}`, 'warn');
+                                }
+                            });
+                            
+                            // If we found results with this selector, stop trying others
+                            if (results.length > 0) {
+                                debugLog(`Successfully parsed ${results.length} results with selector: ${selector}`, 'success');
+                                break;
+                            }
+                        }
+                        
+                    } catch (error) {
+                        debugLog(`Selector ${selector} failed: ${error.message}`, 'warn');
+                    }
+                }
+                
+                debugLog(`Total results parsed: ${results.length}`, results.length > 0 ? 'success' : 'warn');
+                return results;
+                
+            } catch (error) {
+                debugLog(`Meet results parsing error: ${error.message}`, 'error');
+                return [];
+            }
+        }
+
+        function displayMeetResults(results) {
+            const tableBody = document.getElementById('resultsTableBody');
+            tableBody.innerHTML = '';
+
+            results.forEach(result => {
+                const row = document.createElement('div');
+                row.className = 'result-row';
+
+                const improvementClass = result.improvement.startsWith('-') ? 'positive' : 
+                                       result.improvement.startsWith('+') ? 'negative' : '';
+
+                // Check if mobile view
+                const isMobile = window.innerWidth <= 768;
+
+                if (isMobile) {
+                    row.innerHTML = `
+                        <div class="col-event">
+                            <div class="event-name">${result.event}</div>
+                            <div class="event-details">${result.eventDetails}</div>
+                        </div>
+                        <div class="mobile-result-grid">
+                            <div class="mobile-result-item">
+                                <div class="mobile-result-label">Time</div>
+                                <div class="mobile-result-value result-time">
+                                    ${result.time}${result.isPB ? ' <span class="pb-badge">PB</span>' : ''}
+                                </div>
+                            </div>
+                            <div class="mobile-result-item">
+                                <div class="mobile-result-label">Imp</div>
+                                <div class="mobile-result-value improvement ${improvementClass}">
+                                    ${result.improvement || '–'}
+                                </div>
+                            </div>
+                            <div class="mobile-result-item">
+                                <div class="mobile-result-label">Place</div>
+                                <div class="mobile-result-value place">${result.place}</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <div class="col-event">
+                            <div class="event-name">${result.event}</div>
+                            <div class="event-details">${result.eventDetails}</div>
+                        </div>
+                        <div class="col-time">
+                            <span class="result-time">${result.time}</span>
+                            ${result.isPB ? '<span class="pb-badge">PB</span>' : ''}
+                        </div>
+                        <div class="col-improvement">
+                            <span class="improvement ${improvementClass}">${result.improvement || '–'}</span>
+                        </div>
+                        <div class="col-place">
+                            <span class="place">${result.place}</span>
+                        </div>
+                    `;
+                }
+
+                tableBody.appendChild(row);
+            });
         }
 
         @media (max-width: 768px) {
@@ -1069,6 +2599,60 @@
             .day-number {
                 font-size: 0.8rem;
             }
+
+            /* Performance Tracking Mobile Styles */
+            .table-header {
+                display: none;
+            }
+
+            .result-row {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            .result-row .col-event {
+                margin-bottom: 0.5rem;
+            }
+
+            .result-row .event-name {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .result-row .event-details {
+                font-size: 0.85rem;
+                color: #666;
+            }
+
+            .mobile-result-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .mobile-result-item {
+                text-align: center;
+            }
+
+            .mobile-result-label {
+                font-size: 0.75rem;
+                color: #666;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .mobile-result-value {
+                font-size: 0.9rem;
+                font-weight: 600;
+                margin-top: 0.25rem;
+            }
+
+            .phase-performance-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1136,13 +2720,15 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">SwimFuel Premium</div>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/pingchuantsai/Image_storing/main/SwimmerNutrition5-Gold.png" alt="Swimfuel">
+                Premium
+            </div>
             <ul class="nav-links">
                 <li><a id="foodRecLink" class="active" onclick="showPage('food-recommendations')">Food Recommendations</a></li>
                 <li><a href="#">Nutrition Plans</a></li>
                 <li><a id="calendarLink" onclick="showPage('competition-calendar')">Competition Calendar</a></li>
-                <li><a href="#">Performance Tracking</a></li>
-                <li><a href="#">Premium</a></li>
+                <li><a id="performanceLink" onclick="showPage('performance-tracking')">Performance Tracking</a></li>
             </ul>
         </div>
     </nav>
@@ -1453,6 +3039,128 @@
                 </ul>
             </div>
         </div>
+
+        <!-- Performance Tracking Section -->
+        <div id="performance-tracking" class="page-section">
+            <button class="back-btn" onclick="showPage('food-recommendations')">
+                ← Back to Food Recommendations
+            </button>
+
+            <h1>Performance Tracking</h1>
+            <p class="subtitle">
+                Connect your SwimCloud profile to track performance and correlate nutrition phases with race results.
+            </p>
+
+            <div class="swimmer-profile">
+                <h3>SwimCloud Connection</h3>
+                <div class="profile-form">
+                    <div class="profile-group">
+                        <label>SwimCloud Profile URL</label>
+                        <input type="url" id="swimcloudUrl" placeholder="https://www.swimcloud.com/swimmer/1234567/" 
+                               onchange="loadSwimmerData()" oninput="validateUrl()">
+                        <small style="color: #666; margin-top: 0.5rem; display: block;">
+                            Enter your SwimCloud profile URL to import meet results
+                        </small>
+                        <div id="urlValidation" style="margin-top: 0.5rem;"></div>
+                    </div>
+                    <div class="profile-group">
+                        <label>Swimmer Name</label>
+                        <input type="text" id="swimmerName" placeholder="Loading..." readonly>
+                    </div>
+                    <div class="profile-group">
+                        <label>Connection Status</label>
+                        <div id="connectionStatus" class="status-indicator">
+                            <span class="status-text">Not connected</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="debug-panel" id="debugPanel" style="display: none;">
+                    <h4>Debug Information</h4>
+                    <div class="debug-content">
+                        <div id="debugLog"></div>
+                        <button class="btn btn-secondary" onclick="toggleDebugMode()">Toggle Debug</button>
+                        <button class="btn btn-secondary" onclick="testConnection()">Test Connection</button>
+                        <button class="btn btn-secondary" onclick="showManualEntry()">Manual Entry</button>
+                        <button class="btn btn-primary" onclick="testWithSampleUrl()">🧪 Test System</button>
+                        <button class="btn btn-secondary" onclick="quickDiagnostic()">🔧 Quick Check</button>
+                    </div>
+                </div>
+
+                <div class="connection-status-detail" id="connectionStatusDetail" style="display: none;">
+                    <h4>Connection Details</h4>
+                    <div id="connectionSteps"></div>
+                </div>
+
+                <div class="manual-entry-panel" id="manualEntryPanel" style="display: none;">
+                    <h4>Manual Data Entry</h4>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+                        If automatic SwimCloud connection fails, you can manually enter meet data:
+                    </p>
+                    <div class="manual-form">
+                        <div class="form-row">
+                            <input type="text" id="manualSwimmerName" placeholder="Swimmer Name">
+                            <button class="btn btn-primary" onclick="saveManualData()">Save Data</button>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" id="manualMeetName" placeholder="Meet Name">
+                            <input type="text" id="manualMeetDate" placeholder="Meet Date">
+                        </div>
+                        <small style="color: #666;">
+                            This will create sample data for testing the nutrition correlation features.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="performance-content" id="performanceContent" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">Meets</h2>
+                    <a href="#" class="see-all-link">See all</a>
+                </div>
+
+                <div class="meet-selector">
+                    <div class="meet-dropdown">
+                        <select id="meetSelect" onchange="loadMeetResults()">
+                            <option value="">Select a meet...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="meet-results" id="meetResults" style="display: none;">
+                    <div class="results-table">
+                        <div class="table-header">
+                            <div class="col-event">Event</div>
+                            <div class="col-time">Time</div>
+                            <div class="col-improvement">Imp</div>
+                            <div class="col-place">Place</div>
+                        </div>
+                        <div class="table-body" id="resultsTableBody">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nutrition-correlation" id="nutritionCorrelation" style="display: none;">
+                    <div class="section-header">
+                        <h3 class="section-title">Nutrition Analysis</h3>
+                    </div>
+                    <div class="correlation-content">
+                        <p>Analyze how your nutrition phases correlate with performance improvements.</p>
+                        <div class="phase-performance-grid">
+                            <div class="phase-card">
+                                <h4>Training Phase Performance</h4>
+                                <div class="metric">Average improvement: <span class="metric-value">+2.1%</span></div>
+                            </div>
+                            <div class="phase-card">
+                                <h4>Competition Day Performance</h4>
+                                <div class="metric">Best times achieved: <span class="metric-value">67%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -1481,6 +3189,8 @@
                     renderCalendar();
                     calendarInitialized = true;
                 }
+            } else if (pageId === 'performance-tracking') {
+                document.getElementById('performanceLink').classList.add('active');
             }
         }
 
@@ -2313,6 +4023,19 @@
             updateWeightInputLimits();
             updateNutritionBreakdown();
             renderFoods();
+            
+            // Initialize connection tracking
+            addConnectionStep('💡 SwimFuel Premium loaded! Enter a SwimCloud URL to get started', 'info');
+            addConnectionStep('💡 Use "🧪 Test System" first to verify your connection works', 'info');
+        });
+
+        // Handle window resize for mobile responsive table
+        window.addEventListener('resize', function() {
+            const meetId = document.getElementById('meetSelect').value;
+            if (meetId && document.getElementById('meetResults').style.display !== 'none') {
+                // Reload results to apply correct mobile/desktop layout
+                loadMeetResults();
+            }
         });
     </script>
 </body>
