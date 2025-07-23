@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personalized Prep for Performance - Swimmer Nutrition</title>
+    <title>SwimFuel Premium - Swimmer Nutrition</title>
     <style>
         * {
             margin: 0;
@@ -35,9 +35,13 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #2563eb;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -53,6 +57,7 @@
             padding: 0.5rem 1rem;
             border-radius: 6px;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .nav-links a:hover, .nav-links a.active {
@@ -61,9 +66,17 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
+        }
+
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
         }
 
         .back-btn {
@@ -189,6 +202,32 @@
             background-color: #f9fafb;
             color: #374151;
             font-weight: 500;
+        }
+
+        .calendar-integration {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #f0f9ff;
+            border-radius: 4px;
+            border-left: 3px solid #0ea5e9;
+        }
+
+        .calendar-integration small {
+            color: #0c4a6e;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .calendar-integration a {
+            color: #0284c7;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .calendar-integration a:hover {
+            color: #0369a1;
+            text-decoration: underline;
         }
 
         .phase-selector {
@@ -568,13 +607,392 @@
             color: #666;
         }
 
+        /* Calendar Styles */
+        .calendar-header {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .calendar-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: #e5e7eb;
+            border-color: #9ca3af;
+        }
+
+        .current-period {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .view-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .view-btn.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .view-btn:hover:not(.active) {
+            background: #f3f4f6;
+        }
+
+        .calendar-legends {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .legend-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .calendar-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .calendar-legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .calendar-legend-color.meet { background: #3b82f6; }
+        .calendar-legend-color.time-trial { background: #10b981; }
+        .calendar-legend-color.championship { background: #f59e0b; }
+        .calendar-legend-color.special { background: #ef4444; }
+        .calendar-legend-color.practice { background: #8b5cf6; }
+
+        .calendar-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .calendar-view {
+            display: grid;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .calendar-view.single {
+            grid-template-columns: 1fr;
+        }
+
+        .calendar-view.triple {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .month-calendar {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .month-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #f8f9fa;
+        }
+
+        .weekday {
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            border-right: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+
+        .weekday:last-child {
+            border-right: none;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .calendar-day {
+            min-height: 80px;
+            border-right: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0.5rem;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .calendar-day:hover {
+            background-color: #f8f9fa;
+        }
+
+        .calendar-day:nth-child(7n) {
+            border-right: none;
+        }
+
+        .calendar-day.other-month {
+            color: #9ca3af;
+            background-color: #fafafa;
+        }
+
+        .calendar-day.today {
+            background-color: #eff6ff;
+            border: 2px solid #3b82f6;
+        }
+
+        .day-number {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .event {
+            background: #3b82f6;
+            color: white;
+            padding: 0.125rem 0.25rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            margin-bottom: 0.125rem;
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .event.time-trial { background: #10b981; }
+        .event.championship { background: #f59e0b; }
+        .event.special { background: #ef4444; }
+        .event.practice { background: #8b5cf6; }
+
+        .triple .calendar-day {
+            min-height: 60px;
+            padding: 0.25rem;
+        }
+
+        .triple .event {
+            font-size: 0.55rem;
+            padding: 0.1rem 0.15rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .triple .day-number {
+            font-size: 0.8rem;
+        }
+
+        /* Multi-day event indicators */
+        .event[title*="Day 1"] {
+            border-left: 3px solid rgba(255,255,255,0.8);
+        }
+
+        .event[title*="Final Day"] {
+            border-right: 3px solid rgba(255,255,255,0.8);
+        }
+
+        .event[title*="Day 2"]:not([title*="Day 1"]):not([title*="Final Day"]),
+        .event[title*="Day 3"]:not([title*="Final Day"]),
+        .event[title*="Day 4"]:not([title*="Final Day"]),
+        .event[title*="Day 5"]:not([title*="Final Day"]),
+        .event[title*="Day 6"]:not([title*="Final Day"]) {
+            border-left: 2px solid rgba(255,255,255,0.6);
+            border-right: 2px solid rgba(255,255,255,0.6);
+        }
+
+        .event-form {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-top: 2rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .upcoming-events {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .upcoming-events h3 {
+            margin-bottom: 1rem;
+            color: #111;
+        }
+
+        .event-list {
+            list-style: none;
+        }
+
+        .event-item {
+            padding: 0.75rem;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .event-item.time-trial { border-left-color: #10b981; }
+        .event-item.championship { border-left-color: #f59e0b; }
+        .event-item.special { border-left-color: #ef4444; }
+        .event-item.practice { border-left-color: #8b5cf6; }
+
+        .event-date {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .event-title {
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 1024px) {
+            .calendar-view.triple {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .current-period {
+                min-width: auto;
+                text-align: left;
+                font-size: 1.3rem;
+            }
+            
+            .legend-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
             .logo {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
             
             .profile-form {
@@ -588,6 +1006,14 @@
             
             .weight-section, .height-section {
                 min-width: auto;
+            }
+            
+            .calendar-integration {
+                padding: 0.4rem;
+            }
+            
+            .calendar-integration small {
+                font-size: 0.75rem;
             }
             
             .phase-buttons {
@@ -625,6 +1051,23 @@
 
             .foods-to-avoid {
                 padding: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+            
+            .calendar-day {
+                min-height: 60px;
+                padding: 0.25rem;
+            }
+            
+            .event {
+                font-size: 0.6rem;
+            }
+            
+            .day-number {
+                font-size: 0.8rem;
             }
         }
 
@@ -693,11 +1136,11 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Your Personalized Prep for Performance</div>
+            <div class="logo">SwimFuel Premium</div>
             <ul class="nav-links">
-                <li><a href="#" class="active">Food Recommendations</a></li>
+                <li><a id="foodRecLink" class="active" onclick="showPage('food-recommendations')">Food Recommendations</a></li>
                 <li><a href="#">Nutrition Plans</a></li>
-                <li><a href="#">Competition Calendar</a></li>
+                <li><a id="calendarLink" onclick="showPage('competition-calendar')">Competition Calendar</a></li>
                 <li><a href="#">Performance Tracking</a></li>
                 <li><a href="#">Premium</a></li>
             </ul>
@@ -705,204 +1148,357 @@
     </nav>
 
     <div class="container">
-        <button class="back-btn" onclick="history.back()">
-            ← Back
-        </button>
+        <!-- Food Recommendations Section -->
+        <div id="food-recommendations" class="page-section active">
+            <h1>Food Recommendations</h1>
+            <p class="subtitle">
+                Based on your training schedule and competition timeline, we've curated personalized food recommendations.<br>
+                These suggestions will help you optimize performance, energy levels, and recovery at each phase of your preparation.
+            </p>
 
-        <h1>Food Recommendations</h1>
-        <p class="subtitle">
-            Based on your training schedule and competition timeline, we've curated personalized food recommendations.<br>
-            These suggestions will help you optimize performance, energy levels, and recovery at each phase of your preparation.
-        </p>
-
-        <div class="swimmer-profile">
-            <h3>Swimmer Profile</h3>
-            <div class="profile-form">
-                <div class="profile-group">
-                    <label>Age Group</label>
-                    <select id="ageGroup">
-                        <option value="10-under">10 & Under</option>
-                        <option value="11-12">AG 11-12</option>
-                        <option value="13-14">AG 13-14</option>
-                        <option value="15-over">AG 15 & Over</option>
-                    </select>
-                </div>
-                
-                <div class="profile-group">
-                    <label>Gender</label>
-                    <select id="gender">
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                    </select>
-                </div>
-
-                <div class="profile-group weight-section">
-                    <label>Weight</label>
-                    <div class="radio-options">
-                        <label class="radio-label">
-                            <input type="radio" name="weightUnit" value="kg" checked>
-                            Kilograms (kg)
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="weightUnit" value="lb">
-                            Pounds (lb)
-                        </label>
+            <div class="swimmer-profile">
+                <h3>Swimmer Profile</h3>
+                <div class="profile-form">
+                    <div class="profile-group">
+                        <label>Age Group</label>
+                        <select id="ageGroup">
+                            <option value="10-under">10 & Under</option>
+                            <option value="11-12">AG 11-12</option>
+                            <option value="13-14">AG 13-14</option>
+                            <option value="15-over">AG 15 & Over</option>
+                        </select>
                     </div>
-                    <input type="number" id="weightInput" placeholder="Enter weight in kg" min="20" max="150" step="0.1">
-                </div>
-
-                <div class="profile-group height-section">
-                    <label>Height</label>
-                    <div class="radio-options">
-                        <label class="radio-label">
-                            <input type="radio" name="heightUnit" value="cm" checked>
-                            Centimeters (cm)
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="heightUnit" value="ft-in">
-                            Feet & Inches
-                        </label>
+                    
+                    <div class="profile-group">
+                        <label>Gender</label>
+                        <select id="gender">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
                     </div>
-                    <div id="heightInputContainer">
-                        <input type="number" id="heightCmInput" placeholder="Enter height in cm" min="90" max="250" step="1">
-                        <div id="heightFtInInputs" class="feet-inches-container" style="display: none;">
-                            <input type="number" id="heightFtInput" placeholder="Feet" min="3" max="8" step="1">
-                            <input type="number" id="heightInInput" placeholder="Inches" min="0" max="11" step="1">
+
+                    <div class="profile-group weight-section">
+                        <label>Weight</label>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="weightUnit" value="kg" checked>
+                                Kilograms (kg)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="weightUnit" value="lb">
+                                Pounds (lb)
+                            </label>
+                        </div>
+                        <input type="number" id="weightInput" placeholder="Enter weight in kg" min="20" max="150" step="0.1">
+                    </div>
+
+                    <div class="profile-group height-section">
+                        <label>Height</label>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="heightUnit" value="cm" checked>
+                                Centimeters (cm)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="heightUnit" value="ft-in">
+                                Feet & Inches
+                            </label>
+                        </div>
+                        <div id="heightInputContainer">
+                            <input type="number" id="heightCmInput" placeholder="Enter height in cm" min="90" max="250" step="1">
+                            <div id="heightFtInInputs" class="feet-inches-container" style="display: none;">
+                                <input type="number" id="heightFtInput" placeholder="Feet" min="3" max="8" step="1">
+                                <input type="number" id="heightInInput" placeholder="Inches" min="0" max="11" step="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-group">
+                        <label>BMI (Calculated)</label>
+                        <input type="text" id="bmiResult" placeholder="BMI will be calculated automatically" readonly>
+                    </div>
+
+                    <div class="profile-group">
+                        <label>Competition Date</label>
+                        <input type="date" id="competitionDate">
+                        <div class="calendar-integration">
+                            <small>
+                                💡 <a onclick="showPage('competition-calendar')">View Competition Calendar</a> 
+                                to find upcoming meets and sync with your training schedule
+                            </small>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="profile-group">
-                    <label>BMI (Calculated)</label>
-                    <input type="text" id="bmiResult" placeholder="BMI will be calculated automatically" readonly>
+            <div class="phase-selector">
+                <h3>Select Competition Phase</h3>
+                <div class="phase-buttons">
+                    <button class="phase-btn active" data-phase="training-1">Training Phase 1<br><small>14-8 Days Out</small></button>
+                    <button class="phase-btn" data-phase="training-2">Training Phase 2<br><small>7-3 Days Out</small></button>
+                    <button class="phase-btn" data-phase="carb-loading">Carb Loading<br><small>2-1 Days Out</small></button>
+                    <button class="phase-btn" data-phase="competition">Competition Day<br><small>Race Day</small></button>
+                    <button class="phase-btn" data-phase="recovery">Recovery<br><small>1-2 Days Post</small></button>
                 </div>
+            </div>
 
-                <div class="profile-group">
-                    <label>Competition Date</label>
-                    <input type="date" id="competitionDate">
+            <div class="nutrition-breakdown">
+                <div class="personalized-header" id="personalizedHeader" style="display: none;">
+                    <h4 id="swimmerInfo">Customized Plan</h4>
                 </div>
+                <h3>Nutrition Targets for <span id="currentPhaseName">Training Phase 1 (14-8 Days Out)</span></h3>
+                <div class="macro-grid">
+                    <div class="macro-card carbs">
+                        <div class="macro-percent" id="carbsPercent">50%</div>
+                        <div class="macro-label">Carbs</div>
+                    </div>
+                    <div class="macro-card protein">
+                        <div class="macro-percent" id="proteinPercent">18%</div>
+                        <div class="macro-label">Protein</div>
+                    </div>
+                    <div class="macro-card veggies">
+                        <div class="macro-percent" id="veggiesPercent">17%</div>
+                        <div class="macro-label">Veggies</div>
+                    </div>
+                    <div class="macro-card fruits">
+                        <div class="macro-percent" id="fruitsPercent">15%</div>
+                        <div class="macro-label">Fruits</div>
+                    </div>
+                </div>
+                <div class="phase-notes" id="phaseNotes">
+                    Build glycogen but keep variety in your nutrition approach
+                </div>
+            </div>
+
+            <div class="filters">
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label>Food Category</label>
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="protein">Protein</option>
+                            <option value="carbohydrates">Carbohydrates</option>
+                            <option value="vegetables-high-fiber">Vegetables (High Fiber)</option>
+                            <option value="vegetables-low-fiber">Vegetables (Low Fiber)</option>
+                            <option value="fruits">Fruits</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Diet Preference</label>
+                        <select id="dietFilter">
+                            <option value="all">All Diets</option>
+                            <option value="regular">Regular</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="paleo">Paleo Diet</option>
+                            <option value="pescatarian">Pescatarian</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Recommendation</label>
+                        <select id="recommendationFilter">
+                            <option value="all">All Recommendations</option>
+                            <option value="choose">Choose</option>
+                            <option value="limit">Limit</option>
+                            <option value="avoid">Avoid</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Search Foods</label>
+                        <input type="text" id="searchInput" placeholder="Search by food name...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color choose"></div>
+                    <span>Choose - foods should be eaten often for optimal performance</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color limit"></div>
+                    <span>Limit - foods can be eaten occasionally but should be restricted</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color avoid"></div>
+                    <span>Avoid - foods should be avoided during this phase</span>
+                </div>
+            </div>
+
+            <div class="diet-info">
+                <h4>Diet Filter Guide:</h4>
+                <p><strong>Regular:</strong> All foods included • <strong>Vegetarian:</strong> No meat or fish • <strong>Vegan:</strong> No animal products • <strong>Paleo:</strong> No grains, legumes, or dairy • <strong>Pescatarian:</strong> Vegetarian + fish allowed</p>
+            </div>
+
+            <div class="food-grid" id="foodGrid">
+                <!-- Food cards will be inserted here -->
+            </div>
+
+            <div class="foods-to-avoid" id="foodsToAvoid" style="display: none;">
+                <h2>🚫 Foods to Avoid During This Phase</h2>
+                <p class="avoid-subtitle">These foods can negatively impact your performance and should be avoided during carb loading and competition phases.</p>
+                
+                <div class="avoid-food-grid">
+                    <!-- Avoid food cards will be inserted here -->
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <h3>No foods found</h3>
+                <p>Try adjusting your filters to see more recommendations.</p>
             </div>
         </div>
 
-        <div class="phase-selector">
-            <h3>Select Competition Phase</h3>
-            <div class="phase-buttons">
-                <button class="phase-btn active" data-phase="training-1">Training Phase 1<br><small>14-8 Days Out</small></button>
-                <button class="phase-btn" data-phase="training-2">Training Phase 2<br><small>7-3 Days Out</small></button>
-                <button class="phase-btn" data-phase="carb-loading">Carb Loading<br><small>2-1 Days Out</small></button>
-                <button class="phase-btn" data-phase="competition">Competition Day<br><small>Race Day</small></button>
-                <button class="phase-btn" data-phase="recovery">Recovery<br><small>1-2 Days Post</small></button>
-            </div>
-        </div>
+        <!-- Competition Calendar Section -->
+        <div id="competition-calendar" class="page-section">
+            <button class="back-btn" onclick="showPage('food-recommendations')">
+                ← Back to Food Recommendations
+            </button>
 
-        <div class="nutrition-breakdown">
-            <div class="personalized-header" id="personalizedHeader" style="display: none;">
-                <h4 id="swimmerInfo">Customized Plan</h4>
-            </div>
-            <h3>Nutrition Targets for <span id="currentPhaseName">Training Phase 1 (14-8 Days Out)</span></h3>
-            <div class="macro-grid">
-                <div class="macro-card carbs">
-                    <div class="macro-percent" id="carbsPercent">50%</div>
-                    <div class="macro-label">Carbs</div>
-                </div>
-                <div class="macro-card protein">
-                    <div class="macro-percent" id="proteinPercent">18%</div>
-                    <div class="macro-label">Protein</div>
-                </div>
-                <div class="macro-card veggies">
-                    <div class="macro-percent" id="veggiesPercent">17%</div>
-                    <div class="macro-label">Veggies</div>
-                </div>
-                <div class="macro-card fruits">
-                    <div class="macro-percent" id="fruitsPercent">15%</div>
-                    <div class="macro-label">Fruits</div>
-                </div>
-            </div>
-            <div class="phase-notes" id="phaseNotes">
-                Build glycogen but keep variety in your nutrition approach
-            </div>
-        </div>
+            <h1>Competition Calendar</h1>
+            <p class="subtitle">
+                Manage your competition schedule and plan nutrition strategies around upcoming meets.
+            </p>
 
-        <div class="filters">
-            <div class="filter-row">
-                <div class="filter-group">
-                    <label>Food Category</label>
-                    <select id="categoryFilter">
-                        <option value="all">All Categories</option>
-                        <option value="protein">Protein</option>
-                        <option value="carbohydrates">Carbohydrates</option>
-                        <option value="vegetables-high-fiber">Vegetables (High Fiber)</option>
-                        <option value="vegetables-low-fiber">Vegetables (Low Fiber)</option>
-                        <option value="fruits">Fruits</option>
+            <div class="calendar-header">
+                <div class="calendar-controls">
+                    <div class="calendar-nav">
+                        <button class="nav-btn" onclick="previousPeriod()">◀ Previous</button>
+                        <button class="nav-btn" onclick="goToToday()">Today</button>
+                        <button class="nav-btn" onclick="nextPeriod()">Next ▶</button>
+                    </div>
+                    
+                    <div class="current-period" id="currentPeriod">July 2025</div>
+                    
+                    <div class="view-controls">
+                        <button class="view-btn active" onclick="setView('single')" id="singleViewBtn">Month View</button>
+                        <button class="view-btn" onclick="setView('triple')" id="tripleViewBtn">3-Month View</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-legends">
+                <div class="legend-grid">
+                    <div class="calendar-legend-item">
+                        <div class="calendar-legend-color meet"></div>
+                        <span>Regular Meets</span>
+                    </div>
+                    <div class="calendar-legend-item">
+                        <div class="calendar-legend-color time-trial"></div>
+                        <span>Time Trials</span>
+                    </div>
+                    <div class="calendar-legend-item">
+                        <div class="calendar-legend-color championship"></div>
+                        <span>Championships</span>
+                    </div>
+                    <div class="calendar-legend-item">
+                        <div class="calendar-legend-color special"></div>
+                        <span>Special Events</span>
+                    </div>
+                    <div class="calendar-legend-item">
+                        <div class="calendar-legend-color practice"></div>
+                        <span>Practice Events</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-view single" id="calendarView">
+                    <!-- Calendar will be generated here -->
+                </div>
+            </div>
+
+            <div class="event-form">
+                <h3>Add New Event</h3>
+                <div class="form-group">
+                    <label>Event Title</label>
+                    <input type="text" id="eventTitle" placeholder="Enter event title">
+                </div>
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="date" id="eventDate">
+                </div>
+                <div class="form-group">
+                    <label>Duration (Days)</label>
+                    <select id="eventDuration">
+                        <option value="1">1 Day</option>
+                        <option value="2">2 Days</option>
+                        <option value="3">3 Days</option>
+                        <option value="4">4 Days</option>
+                        <option value="5">5 Days</option>
+                        <option value="6">6 Days</option>
+                        <option value="7">7 Days</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label>Diet Preference</label>
-                    <select id="dietFilter">
-                        <option value="all">All Diets</option>
-                        <option value="regular">Regular</option>
-                        <option value="vegetarian">Vegetarian</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="paleo">Paleo Diet</option>
-                        <option value="pescatarian">Pescatarian</option>
+                <div class="form-group">
+                    <label>Event Type</label>
+                    <select id="eventType">
+                        <option value="meet">Regular Meet</option>
+                        <option value="time-trial">Time Trial</option>
+                        <option value="championship">Championship</option>
+                        <option value="special">Special Event</option>
+                        <option value="practice">Practice Event</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label>Recommendation</label>
-                    <select id="recommendationFilter">
-                        <option value="all">All Recommendations</option>
-                        <option value="choose">Choose</option>
-                        <option value="limit">Limit</option>
-                        <option value="avoid">Avoid</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Search Foods</label>
-                    <input type="text" id="searchInput" placeholder="Search by food name...">
+                <div class="form-actions">
+                    <button class="btn btn-primary" onclick="addEvent()">Add Event</button>
+                    <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
                 </div>
             </div>
-        </div>
 
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-color choose"></div>
-                <span>Choose - foods should be eaten often for optimal performance</span>
+            <div class="upcoming-events">
+                <h3>Upcoming Events</h3>
+                <ul class="event-list" id="upcomingEvents">
+                    <!-- Upcoming events will be populated here -->
+                </ul>
             </div>
-            <div class="legend-item">
-                <div class="legend-color limit"></div>
-                <span>Limit - foods can be eaten occasionally but should be restricted</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color avoid"></div>
-                <span>Avoid - foods should be avoided during this phase</span>
-            </div>
-        </div>
-
-        <div class="diet-info">
-            <h4>Diet Filter Guide:</h4>
-            <p><strong>Regular:</strong> All foods included • <strong>Vegetarian:</strong> No meat or fish • <strong>Vegan:</strong> No animal products • <strong>Paleo:</strong> No grains, legumes, or dairy • <strong>Pescatarian:</strong> Vegetarian + fish allowed</p>
-        </div>
-
-        <div class="food-grid" id="foodGrid">
-            <!-- Food cards will be inserted here -->
-        </div>
-
-        <div class="foods-to-avoid" id="foodsToAvoid" style="display: none;">
-            <h2>🚫 Foods to Avoid During This Phase</h2>
-            <p class="avoid-subtitle">These foods can negatively impact your performance and should be avoided during carb loading and competition phases.</p>
-            
-            <div class="avoid-food-grid">
-                <!-- Avoid food cards will be inserted here -->
-            </div>
-        </div>
-
-        <div class="no-results" id="noResults" style="display: none;">
-            <h3>No foods found</h3>
-            <p>Try adjusting your filters to see more recommendations.</p>
         </div>
     </div>
 
     <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Set active nav link
+            if (pageId === 'food-recommendations') {
+                document.getElementById('foodRecLink').classList.add('active');
+            } else if (pageId === 'competition-calendar') {
+                document.getElementById('calendarLink').classList.add('active');
+                // Initialize calendar when shown
+                if (!calendarInitialized) {
+                    renderCalendar();
+                    calendarInitialized = true;
+                }
+            }
+        }
+
+        // Global variables
+        let currentPhase = 'training-1';
+        let currentAgeGroup = '10-under';
+        let currentCategory = 'all';
+        let currentRecommendation = 'all';
+        let currentDiet = 'all';
+        let searchTerm = '';
+
+        // Calendar variables
+        let currentView = 'single';
+        let currentDate = new Date();
+        const today = new Date();
+        let events = [];
+        let calendarInitialized = false;
+
         // Age-specific nutrition data based on competition timeline
         const ageSpecificNutrition = {
             'training-1': {
@@ -999,22 +1595,283 @@
             ]
         };
 
-        let currentPhase = 'training-1';
-        let currentAgeGroup = '10-under';
-        let currentCategory = 'all';
-        let currentRecommendation = 'all';
-        let currentDiet = 'all';
-        let searchTerm = '';
+        // Calendar Functions
+        function setView(view) {
+            currentView = view;
+            document.getElementById('singleViewBtn').classList.toggle('active', view === 'single');
+            document.getElementById('tripleViewBtn').classList.toggle('active', view === 'triple');
+            document.getElementById('calendarView').className = `calendar-view ${view}`;
+            renderCalendar();
+        }
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            setupEventListeners();
-            toggleHeightInputs();
-            updateWeightInputLimits();
-            updateNutritionBreakdown();
-            renderFoods();
-        });
+        function previousPeriod() {
+            if (currentView === 'single') {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+            } else {
+                currentDate.setMonth(currentDate.getMonth() - 3);
+            }
+            renderCalendar();
+        }
 
+        function nextPeriod() {
+            if (currentView === 'single') {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            } else {
+                currentDate.setMonth(currentDate.getMonth() + 3);
+            }
+            renderCalendar();
+        }
+
+        function goToToday() {
+            currentDate = new Date();
+            renderCalendar();
+        }
+
+        function renderCalendar() {
+            const calendarView = document.getElementById('calendarView');
+            const monthsToShow = currentView === 'single' ? 1 : 3;
+            
+            // Update period display
+            updatePeriodDisplay();
+            
+            calendarView.innerHTML = '';
+            
+            for (let i = 0; i < monthsToShow; i++) {
+                const monthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + i, 1);
+                const monthCalendar = createMonthCalendar(monthDate);
+                calendarView.appendChild(monthCalendar);
+            }
+            
+            renderUpcomingEvents();
+        }
+
+        function updatePeriodDisplay() {
+            const periodElement = document.getElementById('currentPeriod');
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            if (currentView === 'single') {
+                periodElement.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+            } else {
+                const startMonth = monthNames[currentDate.getMonth()];
+                const endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 2, 1);
+                const endMonth = monthNames[endDate.getMonth()];
+                const year = currentDate.getFullYear();
+                periodElement.textContent = `${startMonth} - ${endMonth} ${year}`;
+            }
+        }
+
+        function createMonthCalendar(monthDate) {
+            const monthContainer = document.createElement('div');
+            monthContainer.className = 'month-calendar';
+            
+            // Month header
+            const monthHeader = document.createElement('div');
+            monthHeader.className = 'month-header';
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            monthHeader.textContent = `${monthNames[monthDate.getMonth()]} ${monthDate.getFullYear()}`;
+            
+            // Weekdays header
+            const weekdays = document.createElement('div');
+            weekdays.className = 'weekdays';
+            const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            weekdayNames.forEach(day => {
+                const weekday = document.createElement('div');
+                weekday.className = 'weekday';
+                weekday.textContent = day;
+                weekdays.appendChild(weekday);
+            });
+            
+            // Calendar grid
+            const calendarGrid = document.createElement('div');
+            calendarGrid.className = 'calendar-grid';
+            
+            // Get first day of month and days in month
+            const firstDay = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+            const lastDay = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
+            const startDate = new Date(firstDay);
+            startDate.setDate(startDate.getDate() - firstDay.getDay());
+            
+            // Create calendar days
+            for (let i = 0; i < 42; i++) { // 6 weeks * 7 days
+                const dayDate = new Date(startDate);
+                dayDate.setDate(startDate.getDate() + i);
+                
+                const dayElement = createDayElement(dayDate, monthDate);
+                calendarGrid.appendChild(dayElement);
+            }
+            
+            monthContainer.appendChild(monthHeader);
+            monthContainer.appendChild(weekdays);
+            monthContainer.appendChild(calendarGrid);
+            
+            return monthContainer;
+        }
+
+        function createDayElement(date, monthDate) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            
+            // Check if day is in current month
+            if (date.getMonth() !== monthDate.getMonth()) {
+                dayElement.classList.add('other-month');
+            }
+            
+            // Check if day is today
+            if (date.toDateString() === today.toDateString()) {
+                dayElement.classList.add('today');
+            }
+            
+            // Day number
+            const dayNumber = document.createElement('div');
+            dayNumber.className = 'day-number';
+            dayNumber.textContent = date.getDate();
+            dayElement.appendChild(dayNumber);
+            
+            // Check for events on this day (including multi-day events)
+            const dateString = date.toISOString().split('T')[0];
+            const dayEvents = getEventsForDate(dateString);
+            
+            dayEvents.forEach(eventInfo => {
+                const eventElement = document.createElement('div');
+                eventElement.className = `event ${eventInfo.event.type}`;
+                
+                // Show different text based on which day of the event it is
+                let displayText = eventInfo.event.title;
+                if (eventInfo.event.duration > 1) {
+                    if (eventInfo.dayNumber === 1) {
+                        displayText += ` (Day 1/${eventInfo.event.duration})`;
+                    } else if (eventInfo.dayNumber === eventInfo.event.duration) {
+                        displayText += ` (Final Day)`;
+                    } else {
+                        displayText += ` (Day ${eventInfo.dayNumber}/${eventInfo.event.duration})`;
+                    }
+                }
+                
+                eventElement.textContent = displayText;
+                eventElement.title = `${eventInfo.event.title} - Day ${eventInfo.dayNumber} of ${eventInfo.event.duration}`; // Tooltip
+                dayElement.appendChild(eventElement);
+            });
+            
+            // Click handler to populate form
+            dayElement.addEventListener('click', () => {
+                document.getElementById('eventDate').value = dateString;
+            });
+            
+            return dayElement;
+        }
+
+        function getEventsForDate(dateString) {
+            const targetDate = new Date(dateString);
+            const eventsForDay = [];
+            
+            events.forEach(event => {
+                const startDate = new Date(event.startDate);
+                const endDate = new Date(startDate);
+                endDate.setDate(startDate.getDate() + event.duration - 1);
+                
+                // Check if target date falls within event duration
+                if (targetDate >= startDate && targetDate <= endDate) {
+                    const daysDiff = Math.floor((targetDate - startDate) / (1000 * 60 * 60 * 24));
+                    eventsForDay.push({
+                        event: event,
+                        dayNumber: daysDiff + 1
+                    });
+                }
+            });
+            
+            return eventsForDay;
+        }
+
+        function addEvent() {
+            const title = document.getElementById('eventTitle').value;
+            const startDate = document.getElementById('eventDate').value;
+            const duration = parseInt(document.getElementById('eventDuration').value);
+            const type = document.getElementById('eventType').value;
+            
+            if (!title || !startDate) {
+                alert('Please fill in both title and start date');
+                return;
+            }
+            
+            // Create event object with duration
+            const newEvent = {
+                title,
+                startDate,
+                duration,
+                type
+            };
+            
+            events.push(newEvent);
+            events.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+            
+            clearForm();
+            renderCalendar();
+        }
+
+        function clearForm() {
+            document.getElementById('eventTitle').value = '';
+            document.getElementById('eventDate').value = '';
+            document.getElementById('eventDuration').value = '1';
+            document.getElementById('eventType').value = 'meet';
+        }
+
+        function renderUpcomingEvents() {
+            const upcomingEvents = document.getElementById('upcomingEvents');
+            const todayString = today.toISOString().split('T')[0];
+            
+            const futureEvents = events
+                .filter(event => event.startDate >= todayString)
+                .slice(0, 5); // Show next 5 events
+            
+            upcomingEvents.innerHTML = '';
+            
+            if (futureEvents.length === 0) {
+                upcomingEvents.innerHTML = '<li style="color: #666; font-style: italic;">No upcoming events scheduled. Add events using the form above.</li>';
+                return;
+            }
+            
+            futureEvents.forEach(event => {
+                const eventItem = document.createElement('li');
+                eventItem.className = `event-item ${event.type}`;
+                
+                const startDate = new Date(event.startDate);
+                const endDate = new Date(startDate);
+                endDate.setDate(startDate.getDate() + event.duration - 1);
+                
+                let dateString;
+                if (event.duration === 1) {
+                    dateString = startDate.toLocaleDateString('en-US', { 
+                        weekday: 'short', 
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                } else {
+                    const startStr = startDate.toLocaleDateString('en-US', { 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    const endStr = endDate.toLocaleDateString('en-US', { 
+                        weekday: 'short',
+                        year: 'numeric',
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    dateString = `${startStr} - ${endStr} (${event.duration} days)`;
+                }
+                
+                eventItem.innerHTML = `
+                    <div class="event-date">${dateString}</div>
+                    <div class="event-title">${event.title}</div>
+                `;
+                
+                upcomingEvents.appendChild(eventItem);
+            });
+        }
+
+        // Food Recommendation Functions
         function setupEventListeners() {
             // Profile inputs
             document.getElementById('ageGroup').addEventListener('change', function() {
@@ -1448,6 +2305,15 @@
                 default: return rec;
             }
         }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            toggleHeightInputs();
+            updateWeightInputLimits();
+            updateNutritionBreakdown();
+            renderFoods();
+        });
     </script>
 </body>
 </html>
