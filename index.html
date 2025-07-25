@@ -998,6 +998,426 @@
             margin-top: 0.25rem;
         }
 
+        /* Enhanced Nutrition Plans Styles */
+        .plan-setup {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .plan-setup h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .setup-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .nutrition-plan-view {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .plan-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .plan-header h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .plan-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* Enhanced Nutrition Calendar View Styles */
+        .nutrition-calendar-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nutrition-calendar-weeks {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nutrition-week {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .nutrition-week:last-child {
+            border-bottom: none;
+        }
+
+        .week-header-row {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #f8f9fa;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .week-day-header {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: #666;
+            border-right: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .week-day-header:last-child {
+            border-right: none;
+        }
+
+        .day-name {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .day-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .phase-headers-row {
+            position: relative;
+            height: 50px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .phase-header {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 0;
+        }
+
+        .phase-header.training-1 {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .phase-header.training-2 {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .phase-header.carb-loading {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .phase-header.competition {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .phase-header.recovery {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .meals-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .day-meals {
+            border-right: 1px solid #e5e7eb;
+            padding: 1rem;
+            min-height: 400px;
+        }
+
+        .day-meals:last-child {
+            border-right: none;
+        }
+
+        .meal-time {
+            margin-bottom: 1.5rem;
+        }
+
+        .meal-time:last-child {
+            margin-bottom: 0;
+        }
+
+        .meal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meal-header.breakfast {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .meal-header.lunch {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .meal-header.dinner {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .meal-header.snack {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .meal-icon {
+            font-size: 1rem;
+        }
+
+        .meal-items {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .meal-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .meal-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .meal-bullet {
+            color: #666;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .meal-item-text {
+            flex: 1;
+            color: #555;
+        }
+
+        .editable-meal-item {
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            padding: 0.25rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #555;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .editable-meal-item:hover {
+            background: #f8f9fa;
+            border-color: #d1d5db;
+        }
+
+        .editable-meal-item:focus {
+            outline: none;
+            background: white;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .add-meal-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            font-size: 0.8rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .add-meal-item:hover {
+            background: #eff6ff;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .view-toggle-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .view-toggle-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        .view-toggle-btn:hover:not(.active) {
+            background: #f3f4f6;
+            border-color: #d1d5db;
+        }
+
+        .weeks-container {
+            padding: 2rem;
+        }
+
+        .week-section {
+            margin-bottom: 3rem;
+        }
+
+        .week-section:last-child {
+            margin-bottom: 1rem;
+        }
+
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .week-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .week-dates {
+            color: #666;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .daily-plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .daily-plan-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .daily-plan-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .daily-card-header {
+            padding: 1rem;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .daily-card-header h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.1rem;
+        }
+
+        .phase-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .daily-card-content {
+            background: white;
+            padding: 1.5rem;
+        }
+
+        .meal-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .meal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .meal-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meal-content {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+            margin-left: 1.5rem;
+        }
+
+        /* Phase-specific colors */
+        .phase-training-1 { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .phase-training-2 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .phase-carb-loading { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .phase-competition { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .phase-recovery { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+
+        .plan-actions {
+            padding: 1.5rem 2rem;
+            background: #f8f9fa;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .plan-actions .btn {
+            min-width: 140px;
+        }
+
         /* Performance Tracking Styles */
         .meet-selector {
             background: white;
@@ -1254,133 +1674,6 @@
             background: #d97706;
         }
 
-        /* Manual Entry Panel */
-        .manual-entry-panel {
-            background: #f0f9ff;
-            border: 1px solid #0ea5e9;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-        }
-
-        .manual-entry-panel h4 {
-            margin: 0 0 0.5rem 0;
-            color: #0c4a6e;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .manual-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-
-        .form-row input {
-            flex: 1;
-            padding: 0.5rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-
-        .form-row input:focus {
-            outline: none;
-            border-color: #0ea5e9;
-            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.1);
-        }
-
-        .troubleshooting-info {
-            background: #fef7cd;
-            border: 1px solid #f59e0b;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-        }
-
-        .troubleshooting-info h4 {
-            margin: 0 0 0.5rem 0;
-            color: #92400e;
-            font-size: 0.9rem;
-        }
-
-        .troubleshooting-info ul {
-            margin: 0.5rem 0 0 1rem;
-            color: #92400e;
-            font-size: 0.85rem;
-        }
-
-        .troubleshooting-info li {
-            margin-bottom: 0.25rem;
-        }
-
-        /* Connection Status Detail */
-        .connection-status-detail {
-            background: #f0f9ff;
-            border: 1px solid #0ea5e9;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1rem;
-        }
-
-        .connection-status-detail h4 {
-            margin: 0 0 0.5rem 0;
-            color: #0c4a6e;
-            font-size: 0.9rem;
-        }
-
-        #connectionSteps {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            background: white;
-            border: 1px solid #e0e7ff;
-            border-radius: 4px;
-            padding: 0.75rem;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .connection-step {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.25rem;
-            padding: 0.25rem;
-            border-radius: 3px;
-        }
-
-        .connection-step.success {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .connection-step.error {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-
-        .connection-step.info {
-            background: #f0f9ff;
-            color: #1e40af;
-        }
-
-        .connection-step.warning {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .step-icon {
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
         @media (max-width: 1024px) {
             .calendar-view.triple {
                 grid-template-columns: 1fr;
@@ -1401,1119 +1694,30 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-        }
 
-        // Performance Tracking Functions
-        let debugMode = false;
-        let currentSwimmerId = null;
-        let connectionSteps = [];
-
-        function addConnectionStep(message, type = 'info') {
-            const timestamp = new Date().toLocaleTimeString();
-            const step = { message, type, timestamp };
-            connectionSteps.push(step);
-            
-            // Also log to debug console
-            debugLog(message, type);
-            
-            // Update connection steps display
-            updateConnectionStepsDisplay();
-        }
-
-        function updateConnectionStepsDisplay() {
-            const stepsContainer = document.getElementById('connectionSteps');
-            if (!stepsContainer) return;
-            
-            const stepsHtml = connectionSteps.slice(-10).map(step => {
-                const icons = {
-                    success: '✅',
-                    error: '❌',
-                    warning: '⚠️',
-                    info: 'ℹ️'
-                };
-                
-                return `
-                    <div class="connection-step ${step.type}">
-                        <span class="step-icon">${icons[step.type] || 'ℹ️'}</span>
-                        <span>[${step.timestamp}] ${step.message}</span>
-                    </div>
-                `;
-            }).join('');
-            
-            stepsContainer.innerHTML = stepsHtml;
-            stepsContainer.scrollTop = stepsContainer.scrollHeight;
-        }
-
-        function clearConnectionSteps() {
-            connectionSteps = [];
-            updateConnectionStepsDisplay();
-        }
-
-        function debugLog(message, type = 'info') {
-            if (!debugMode) return;
-            
-            const timestamp = new Date().toLocaleTimeString();
-            const logElement = document.getElementById('debugLog');
-            const typeColors = {
-                info: '#10b981',
-                warn: '#f59e0b', 
-                error: '#ef4444',
-                success: '#22c55e'
-            };
-            
-            const coloredMessage = `[${timestamp}] ${message}`;
-            logElement.innerHTML += `<span style="color: ${typeColors[type]}">${coloredMessage}</span>\n`;
-            logElement.scrollTop = logElement.scrollHeight;
-        }
-
-        function toggleDebugMode() {
-            debugMode = !debugMode;
-            const debugPanel = document.getElementById('debugPanel');
-            const connectionDetail = document.getElementById('connectionStatusDetail');
-            
-            debugPanel.style.display = debugMode ? 'block' : 'none';
-            connectionDetail.style.display = debugMode ? 'block' : 'none';
-            
-            if (debugMode) {
-                debugLog('Debug mode enabled', 'success');
-                addConnectionStep('Debug mode enabled', 'success');
-            } else {
-                clearConnectionSteps();
-            }
-        }
-
-        function testWithSampleUrl() {
-            addConnectionStep('🧪 Starting system test...', 'info');
-            
-            // Test with a simple, known URL first
-            const testUrl = 'https://httpbin.org/html';
-            addConnectionStep(`Testing basic connectivity with: ${testUrl}`, 'info');
-            
-            // Enable debug mode for this test
-            if (!debugMode) {
-                toggleDebugMode();
-            }
-            
-            testBasicConnectivity(testUrl).then(() => {
-                addConnectionStep('System test completed - check logs above', 'success');
-                addConnectionStep('Now try entering your SwimCloud URL', 'info');
-            }).catch(error => {
-                addConnectionStep(`System test failed: ${error.message}`, 'error');
-            });
-        }
-
-        async function testBasicConnectivity(testUrl) {
-            const corsProxies = [
-                'https://api.allorigins.win/raw?url=',
-                'https://corsproxy.io/?',
-            ];
-
-            addConnectionStep(`Testing ${corsProxies.length} proxy services...`, 'info');
-
-            for (let i = 0; i < corsProxies.length; i++) {
-                const proxy = corsProxies[i];
-                addConnectionStep(`Testing proxy ${i + 1}: ${proxy}`, 'info');
-                
-                try {
-                    const response = await fetch(proxy + encodeURIComponent(testUrl), {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'text/html',
-                        }
-                    });
-
-                    if (response.ok) {
-                        const text = await response.text();
-                        addConnectionStep(`✅ Proxy ${i + 1} works! Got ${text.length} characters`, 'success');
-                        
-                        // If this proxy works, test with a SwimCloud-like URL
-                        if (text.length > 100) {
-                            addConnectionStep('This proxy should work for SwimCloud! 🎉', 'success');
-                        }
-                    } else {
-                        addConnectionStep(`❌ Proxy ${i + 1} returned status: ${response.status}`, 'error');
-                    }
-                } catch (error) {
-                    addConnectionStep(`❌ Proxy ${i + 1} failed: ${error.message}`, 'error');
-                }
-            }
-        }
-
-        function updateStatus(status, message) {
-            const statusElement = document.getElementById('connectionStatus');
-            const statusText = statusElement.querySelector('.status-text');
-            
-            // Remove existing status classes
-            statusElement.classList.remove('connecting', 'connected', 'error');
-            statusElement.classList.add(status);
-            
-            // Add status dot if not exists
-            if (!statusElement.querySelector('.status-dot')) {
-                const dot = document.createElement('span');
-                dot.className = 'status-dot';
-                statusElement.insertBefore(dot, statusText);
-            }
-            
-            statusText.textContent = message;
-            debugLog(`Status: ${message}`, status === 'error' ? 'error' : 'info');
-        }
-
-        async function loadSwimmerData() {
-            const url = document.getElementById('swimcloudUrl').value.trim();
-            
-            // Clear previous steps
-            clearConnectionSteps();
-            
-            if (!url) {
-                updateStatus('', 'Not connected');
-                document.getElementById('performanceContent').style.display = 'none';
-                addConnectionStep('No URL provided', 'warning');
-                return;
+            /* Enhanced Nutrition Calendar Mobile */
+            .nutrition-calendar-weeks {
+                overflow-x: auto;
             }
 
-            addConnectionStep(`Starting connection to: ${url}`, 'info');
-
-            // Extract swimmer ID from URL
-            const swimmerIdMatch = url.match(/swimmer\/(\d+)/);
-            if (!swimmerIdMatch) {
-                updateStatus('error', 'Invalid URL format');
-                addConnectionStep('❌ Invalid URL format. Expected: https://www.swimcloud.com/swimmer/1234567/', 'error');
-                debugLog('Invalid SwimCloud URL format. Expected: https://www.swimcloud.com/swimmer/1234567/', 'error');
-                return;
+            .week-header-row,
+            .meals-grid {
+                min-width: 800px;
             }
 
-            currentSwimmerId = swimmerIdMatch[1];
-            addConnectionStep(`✅ Found swimmer ID: ${currentSwimmerId}`, 'success');
-            
-            updateStatus('connecting', 'Connecting to SwimCloud...');
-            addConnectionStep('🔄 Connecting to SwimCloud...', 'info');
-            
-            debugLog(`Attempting to fetch data for swimmer ID: ${currentSwimmerId}`, 'info');
-            debugLog(`URL: ${url}`, 'info');
-
-            try {
-                await fetchSwimCloudData(url);
-            } catch (error) {
-                updateStatus('error', 'Connection failed');
-                addConnectionStep(`❌ Connection failed: ${error.message}`, 'error');
-                debugLog(`Connection error: ${error.message}`, 'error');
-                
-                // Provide helpful error message
-                if (error.message.includes('CORS') || error.message.includes('fetch')) {
-                    addConnectionStep('This is likely due to browser security restrictions (CORS)', 'warning');
-                    addConnectionStep('💡 Try the "Manual Entry" option below', 'info');
-                    debugLog('This error is likely due to browser security restrictions', 'warn');
-                    debugLog('Try using the Manual Entry option below', 'info');
-                }
-                
-                showRetryOption();
-            }
-        }
-
-        async function fetchSwimCloudData(url) {
-            // Try multiple CORS proxy services
-            const corsProxies = [
-                'https://api.allorigins.win/raw?url=',
-                'https://corsproxy.io/?',
-                'https://cors-anywhere.herokuapp.com/',
-            ];
-
-            addConnectionStep(`Trying ${corsProxies.length} proxy services...`, 'info');
-
-            for (let i = 0; i < corsProxies.length; i++) {
-                const proxy = corsProxies[i];
-                addConnectionStep(`🔄 Trying proxy ${i + 1}/${corsProxies.length}: ${proxy}`, 'info');
-                debugLog(`Trying proxy ${i + 1}/${corsProxies.length}: ${proxy}`, 'info');
-                
-                try {
-                    const response = await fetch(proxy + encodeURIComponent(url), {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                        }
-                    });
-
-                    if (!response.ok) {
-                        const errorMsg = `HTTP ${response.status}: ${response.statusText}`;
-                        addConnectionStep(`❌ Proxy ${i + 1} failed: ${errorMsg}`, 'error');
-                        throw new Error(errorMsg);
-                    }
-
-                    const html = await response.text();
-                    addConnectionStep(`✅ Proxy ${i + 1} success! Got ${html.length} characters`, 'success');
-                    debugLog(`Successfully fetched HTML (${html.length} characters)`, 'success');
-                    
-                    // Analyze page if debug mode is enabled
-                    if (debugMode) {
-                        analyzeSwimCloudPage(html);
-                    }
-                    
-                    // Check if we got actual HTML content
-                    if (html.length < 100 || !html.includes('<html')) {
-                        addConnectionStep(`⚠️ Response doesn't look like HTML (${html.length} chars)`, 'warning');
-                        debugLog(`Response doesn't look like valid HTML (${html.length} chars)`, 'warn');
-                        continue;
-                    }
-                    
-                    addConnectionStep('🔍 Parsing SwimCloud data...', 'info');
-                    const swimmerData = parseSwimCloudHTML(html);
-                    if (swimmerData) {
-                        addConnectionStep('✅ Successfully parsed swimmer data!', 'success');
-                        debugLog('Successfully parsed swimmer data', 'success');
-                        displaySwimmerData(swimmerData);
-                        return; // Success!
-                    } else {
-                        addConnectionStep('❌ Failed to parse swimmer data from HTML', 'error');
-                        debugLog('Failed to parse swimmer data from HTML', 'warn');
-                        continue;
-                    }
-                    
-                } catch (error) {
-                    addConnectionStep(`❌ Proxy ${i + 1} error: ${error.message}`, 'error');
-                    debugLog(`Proxy ${i + 1} failed: ${error.message}`, 'warn');
-                    continue;
-                }
-            }
-            
-            // If all proxies fail, try direct fetch (will likely fail due to CORS)
-            addConnectionStep('⚠️ All proxies failed, trying direct fetch...', 'warning');
-            debugLog('All proxies failed, trying direct fetch...', 'warn');
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                const html = await response.text();
-                addConnectionStep(`✅ Direct fetch worked! Got ${html.length} characters`, 'success');
-                debugLog(`Direct fetch successful (${html.length} characters)`, 'success');
-                
-                // Analyze page if debug mode is enabled
-                if (debugMode) {
-                    analyzeSwimCloudPage(html);
-                }
-                
-                const swimmerData = parseSwimCloudHTML(html);
-                if (swimmerData) {
-                    displaySwimmerData(swimmerData);
-                    return;
-                }
-            } catch (error) {
-                addConnectionStep(`❌ Direct fetch failed: ${error.message}`, 'error');
-                debugLog(`Direct fetch failed: ${error.message}`, 'error');
-            }
-            
-            throw new Error('Unable to fetch SwimCloud data. All connection methods failed.');
-        }
-
-        function parseSwimCloudHTML(html) {
-            debugLog('Parsing SwimCloud HTML...', 'info');
-            
-            try {
-                // Create a temporary DOM parser
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                
-                // Extract swimmer name - try multiple selectors
-                let swimmerName = 'Unknown Swimmer';
-                const nameSelectors = [
-                    'h1.swimmer-name',
-                    '.swimmer-info h1',
-                    '.page-title',
-                    'h1',
-                    '.swimmer-header h1',
-                    '[data-swimmer-name]'
-                ];
-                
-                for (const selector of nameSelectors) {
-                    const nameElement = doc.querySelector(selector);
-                    if (nameElement && nameElement.textContent.trim()) {
-                        swimmerName = nameElement.textContent.trim();
-                        debugLog(`Found swimmer name with selector ${selector}: ${swimmerName}`, 'success');
-                        break;
-                    }
-                }
-                
-                // Extract meets data - focus on SwimCloud's specific structure
-                const meets = [];
-                
-                // SwimCloud typically uses these patterns for meets
-                const meetSelectors = [
-                    '.meet-item',
-                    '.meet-result-item',
-                    '.meet-card',
-                    '[data-meet-id]',
-                    '.meet-list .meet',
-                    '.results-by-meet .meet',
-                    '.meet-summary'
-                ];
-                
-                let foundMeets = false;
-                
-                for (const selector of meetSelectors) {
-                    const meetElements = doc.querySelectorAll(selector);
-                    debugLog(`Trying selector "${selector}": found ${meetElements.length} elements`, 'info');
-                    
-                    if (meetElements.length > 0) {
-                        meetElements.forEach((element, index) => {
-                            try {
-                                // Try different patterns for meet title and date
-                                let meetTitle = null;
-                                let meetDate = null;
-                                
-                                // Title selectors
-                                const titleSelectors = ['.meet-title', '.meet-name', 'h3', 'h4', '.title', 'a'];
-                                for (const titleSel of titleSelectors) {
-                                    const titleEl = element.querySelector(titleSel);
-                                    if (titleEl && titleEl.textContent.trim()) {
-                                        meetTitle = titleEl.textContent.trim();
-                                        break;
-                                    }
-                                }
-                                
-                                // Date selectors
-                                const dateSelectors = ['.meet-date', '.date', '.meet-info .date', 'time', '.when'];
-                                for (const dateSel of dateSelectors) {
-                                    const dateEl = element.querySelector(dateSel);
-                                    if (dateEl && dateEl.textContent.trim()) {
-                                        meetDate = dateEl.textContent.trim();
-                                        break;
-                                    }
-                                }
-                                
-                                // If no specific date found, look for date-like text in the element
-                                if (!meetDate) {
-                                    const text = element.textContent;
-                                    const dateMatch = text.match(/\b\w{3}\s+\d{1,2}[,-]\s*\d{4}|\d{1,2}\/\d{1,2}\/\d{4}|\w+\s+\d{1,2}-\d{1,2},?\s+\d{4}/i);
-                                    if (dateMatch) {
-                                        meetDate = dateMatch[0];
-                                    }
-                                }
-                                
-                                if (meetTitle || meetDate) {
-                                    const meet = {
-                                        id: meets.length + 1,
-                                        name: meetTitle || 'Unnamed Meet',
-                                        date: meetDate || 'Date unknown',
-                                        element: element,
-                                        html: element.outerHTML
-                                    };
-                                    meets.push(meet);
-                                    debugLog(`Parsed meet ${meets.length}: "${meet.name}" - ${meet.date}`, 'success');
-                                    foundMeets = true;
-                                }
-                            } catch (error) {
-                                debugLog(`Error parsing meet element ${index}: ${error.message}`, 'warn');
-                            }
-                        });
-                        
-                        if (foundMeets) break; // Found meets with this selector, no need to try others
-                    }
-                }
-                
-                // If no meets found with specific selectors, try a broader search
-                if (!foundMeets) {
-                    debugLog('No meets found with specific selectors, trying broader search...', 'warn');
-                    
-                    // Look for any links or elements that contain meet-like text
-                    const allElements = doc.querySelectorAll('a, div, span, h1, h2, h3, h4, h5, h6');
-                    const meetKeywords = ['championship', 'meet', 'invitational', 'classic', 'open', 'sectional', 'regional', 'state', 'national'];
-                    
-                    allElements.forEach((element, index) => {
-                        if (meets.length >= 10) return; // Limit to 10 meets max
-                        
-                        const text = element.textContent.trim();
-                        if (text.length > 5 && text.length < 100) {
-                            const lowerText = text.toLowerCase();
-                            if (meetKeywords.some(keyword => lowerText.includes(keyword))) {
-                                // Check if this looks like a meet name
-                                const dateMatch = text.match(/\b\w{3}\s+\d{1,2}[,-]\s*\d{4}|\d{1,2}\/\d{1,2}\/\d{4}|\w+\s+\d{1,2}-\d{1,2},?\s+\d{4}/i);
-                                
-                                meets.push({
-                                    id: meets.length + 1,
-                                    name: text,
-                                    date: dateMatch ? dateMatch[0] : 'Date in text',
-                                    element: element,
-                                    html: element.outerHTML
-                                });
-                                debugLog(`Found potential meet: "${text}"`, 'info');
-                            }
-                        }
-                    });
-                }
-                
-                debugLog(`Total meets found: ${meets.length}`, meets.length > 0 ? 'success' : 'warn');
-                
-                const result = {
-                    name: swimmerName,
-                    meets: meets,
-                    rawHtml: html.substring(0, 1000) + '...' // Store snippet for debugging
-                };
-                
-                // Important: Return the result even if no meets found
-                // The connection was successful if we got the swimmer name
-                return result;
-                
-            } catch (error) {
-                debugLog(`HTML parsing error: ${error.message}`, 'error');
-                return null;
-            }
-        }
-
-        function displaySwimmerData(data) {
-            addConnectionStep(`📊 Processing data for: ${data.name}`, 'info');
-            addConnectionStep(`Found ${data.meets.length} meets`, 'info');
-            debugLog(`Displaying data for swimmer: ${data.name}`, 'info');
-            debugLog(`Found ${data.meets.length} meets`, 'info');
-            
-            // Update swimmer name
-            document.getElementById('swimmerName').value = data.name;
-            
-            // Update connection status - this was missing!
-            if (data.name !== 'Unknown Swimmer' || data.meets.length > 0) {
-                const statusMsg = `Connected - Found ${data.meets.length} meets`;
-                updateStatus('connected', statusMsg);
-                addConnectionStep(`🎉 ${statusMsg}`, 'success');
-                debugLog('Connection status updated to connected', 'success');
-            } else {
-                const statusMsg = 'Connected but no data found';
-                updateStatus('error', statusMsg);
-                addConnectionStep(`⚠️ ${statusMsg}`, 'warning');
-                debugLog('Connected but no swimmer data found', 'warn');
-            }
-            
-            // Show performance content
-            document.getElementById('performanceContent').style.display = 'block';
-            
-            // Load meets into dropdown
-            loadMeetsData(data.meets);
-            
-            addConnectionStep('✅ Connection completed successfully!', 'success');
-        }
-
-        function loadMeetsData(meets) {
-            const meetSelect = document.getElementById('meetSelect');
-            meetSelect.innerHTML = '<option value="">Select a meet...</option>';
-            
-            debugLog(`Loading ${meets.length} meets into dropdown`, 'info');
-            
-            if (meets.length === 0) {
-                debugLog('No meets found in swimmer data', 'warn');
-                const option = document.createElement('option');
-                option.value = '';
-                option.textContent = 'No meets found - try debug mode to see what was parsed';
-                option.disabled = true;
-                meetSelect.appendChild(option);
-                
-                // Show debug suggestion
-                const option2 = document.createElement('option');
-                option2.value = 'debug';
-                option2.textContent = '🔍 Enable Debug Mode to see raw data';
-                option2.disabled = true;
-                meetSelect.appendChild(option2);
-                return;
-            }
-            
-            meets.forEach((meet, index) => {
-                const option = document.createElement('option');
-                option.value = meet.id;
-                option.textContent = `${meet.name} - ${meet.date}`;
-                option.dataset.meetData = JSON.stringify(meet); // Store meet data for later use
-                meetSelect.appendChild(option);
-                debugLog(`Added meet ${index + 1}: ${meet.name}`, 'success');
-            });
-            
-            // Add option to view all parsed data
-            const debugOption = document.createElement('option');
-            debugOption.value = 'show-all-data';
-            debugOption.textContent = '📊 Show All Parsed Data';
-            meetSelect.appendChild(debugOption);
-        }
-
-        function showRetryOption() {
-            const statusElement = document.getElementById('connectionStatus');
-            
-            // Remove existing retry button
-            const existingButton = statusElement.querySelector('.retry-button');
-            if (existingButton) {
-                existingButton.remove();
-            }
-            
-            const retryButton = document.createElement('button');
-            retryButton.className = 'retry-button';
-            retryButton.textContent = 'Retry';
-            retryButton.onclick = loadSwimmerData;
-            
-            statusElement.appendChild(retryButton);
-        }
-
-        function testConnection() {
-            debugLog('=== CONNECTION TEST ===', 'info');
-            debugLog(`Current swimmer ID: ${currentSwimmerId}`, 'info');
-            debugLog(`Debug mode: ${debugMode}`, 'info');
-            debugLog(`Browser: ${navigator.userAgent}`, 'info');
-            
-            const url = document.getElementById('swimcloudUrl').value;
-            if (url) {
-                debugLog(`Testing with URL: ${url}`, 'info');
-                
-                // Test CORS proxies
-                const corsProxies = [
-                    'https://api.allorigins.win/raw?url=',
-                    'https://corsproxy.io/?',
-                ];
-                
-                corsProxies.forEach((proxy, index) => {
-                    const testUrl = proxy + encodeURIComponent('https://httpbin.org/json');
-                    debugLog(`Testing proxy ${index + 1}: ${proxy}`, 'info');
-                    
-                    fetch(testUrl, { method: 'GET' })
-                        .then(response => {
-                            const status = response.ok ? 'ACCESSIBLE ✅' : `BLOCKED ❌ (${response.status})`;
-                            debugLog(`Proxy ${index + 1}: ${status}`, response.ok ? 'success' : 'error');
-                        })
-                        .catch(error => {
-                            debugLog(`Proxy ${index + 1}: ERROR ❌ - ${error.message}`, 'error');
-                        });
-                });
-                
-                // Test if we can reach the actual SwimCloud URL
-                debugLog('Testing actual SwimCloud connection...', 'info');
-                setTimeout(() => {
-                    loadSwimmerData(); // Re-run the connection
-                }, 2000);
-                
-            } else {
-                debugLog('No SwimCloud URL provided', 'warn');
-                debugLog('Please enter a SwimCloud profile URL first', 'warn');
-            }
-        }
-
-        // Add page analysis function for debugging
-        function analyzeSwimCloudPage(html) {
-            debugLog('=== PAGE ANALYSIS ===', 'info');
-            
-            try {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                
-                // Analyze page structure
-                const title = doc.querySelector('title')?.textContent || 'No title found';
-                debugLog(`Page title: ${title}`, 'info');
-                
-                // Look for common SwimCloud elements
-                const commonElements = [
-                    'h1', 'h2', 'h3', '.swimmer-name', '.meet', '.result', 
-                    'table', '.time', '.event', '[data-swimmer]', '[data-meet]'
-                ];
-                
-                commonElements.forEach(selector => {
-                    const elements = doc.querySelectorAll(selector);
-                    if (elements.length > 0) {
-                        debugLog(`Found ${elements.length} elements with selector: ${selector}`, 'info');
-                        // Show first few examples
-                        for (let i = 0; i < Math.min(3, elements.length); i++) {
-                            const text = elements[i].textContent.trim().substring(0, 50);
-                            debugLog(`  Example ${i + 1}: "${text}${text.length === 50 ? '...' : ''}"`, 'info');
-                        }
-                    }
-                });
-                
-                // Check for specific SwimCloud indicators
-                const swimCloudIndicators = [
-                    'swimcloud', 'swimmer', 'meet', 'results', 'times'
-                ];
-                
-                const pageText = doc.body.textContent.toLowerCase();
-                swimCloudIndicators.forEach(indicator => {
-                    const count = (pageText.match(new RegExp(indicator, 'g')) || []).length;
-                    if (count > 0) {
-                        debugLog(`Found "${indicator}" ${count} times in page`, 'success');
-                    }
-                });
-                
-            } catch (error) {
-                debugLog(`Page analysis error: ${error.message}`, 'error');
-            }
-        }
-
-        function showManualEntry() {
-            const panel = document.getElementById('manualEntryPanel');
-            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-            
-            if (panel.style.display === 'block') {
-                debugLog('Manual entry panel opened', 'info');
-                showTroubleshootingInfo();
-            }
-        }
-
-        function saveManualData() {
-            const swimmerName = document.getElementById('manualSwimmerName').value.trim();
-            const meetName = document.getElementById('manualMeetName').value.trim();
-            const meetDate = document.getElementById('manualMeetDate').value.trim();
-            
-            if (!swimmerName) {
-                alert('Please enter swimmer name');
-                return;
-            }
-            
-            debugLog(`Saving manual data: ${swimmerName}`, 'info');
-            
-            // Set swimmer name
-            document.getElementById('swimmerName').value = swimmerName;
-            updateStatus('connected', 'Manual data entered');
-            
-            // Show performance content
-            document.getElementById('performanceContent').style.display = 'block';
-            
-            // Create sample meet data
-            const meets = [];
-            if (meetName && meetDate) {
-                meets.push({
-                    id: 1,
-                    name: meetName,
-                    date: meetDate
-                });
-            }
-            
-            // Add some default meets if none provided
-            if (meets.length === 0) {
-                meets.push(
-                    { id: 1, name: "Sample Championship Meet", date: "Jul 15-17, 2025" },
-                    { id: 2, name: "Regional Championships", date: "Jun 20-22, 2025" }
-                );
-            }
-            
-            loadMeetsData(meets);
-            
-            // Clear manual entry form
-            document.getElementById('manualSwimmerName').value = '';
-            document.getElementById('manualMeetName').value = '';
-            document.getElementById('manualMeetDate').value = '';
-            
-            // Hide manual entry panel
-            document.getElementById('manualEntryPanel').style.display = 'none';
-            
-            debugLog('Manual data saved successfully', 'success');
-        }
-
-        function showTroubleshootingInfo() {
-            // Check if troubleshooting info already exists
-            if (document.getElementById('troubleshootingInfo')) return;
-            
-            const troubleshootingDiv = document.createElement('div');
-            troubleshootingDiv.id = 'troubleshootingInfo';
-            troubleshootingDiv.className = 'troubleshooting-info';
-            troubleshootingDiv.innerHTML = `
-                <h4>⚠️ SwimCloud Connection Issues</h4>
-                <p style="font-size: 0.85rem; color: #92400e; margin-bottom: 0.5rem;">
-                    Automatic SwimCloud data fetching may not work due to browser security restrictions. Here are the current limitations:
-                </p>
-                <ul>
-                    <li><strong>CORS Policy:</strong> SwimCloud blocks cross-origin requests from browsers</li>
-                    <li><strong>No Public API:</strong> SwimCloud doesn't provide a public API for developers</li>
-                    <li><strong>Browser Restrictions:</strong> Modern browsers prevent scraping other websites directly</li>
-                </ul>
-                <p style="font-size: 0.85rem; color: #92400e; margin-top: 0.5rem;">
-                    <strong>Alternatives:</strong> Use manual entry above, or copy-paste meet results for analysis.
-                </p>
-            `;
-            
-            const debugPanel = document.getElementById('debugPanel');
-            debugPanel.appendChild(troubleshootingDiv);
-            
-            debugLog('Troubleshooting information displayed', 'info');
-        }
-
-        function validateUrl() {
-            const url = document.getElementById('swimcloudUrl').value.trim();
-            const validation = document.getElementById('urlValidation');
-            
-            if (!url) {
-                validation.innerHTML = '';
-                return;
-            }
-            
-            const swimmerIdMatch = url.match(/swimmer\/(\d+)/);
-            
-            if (url.includes('swimcloud.com') && swimmerIdMatch) {
-                validation.innerHTML = `<span style="color: #10b981; font-size: 0.8rem;">✅ Valid SwimCloud URL - Swimmer ID: ${swimmerIdMatch[1]}</span>`;
-            } else if (url.includes('swimcloud.com')) {
-                validation.innerHTML = `<span style="color: #f59e0b; font-size: 0.8rem;">⚠️ SwimCloud URL but missing swimmer ID</span>`;
-            } else {
-                validation.innerHTML = `<span style="color: #ef4444; font-size: 0.8rem;">❌ Not a SwimCloud URL</span>`;
-            }
-        }
-
-        function quickDiagnostic() {
-            addConnectionStep('🔧 Running quick diagnostic...', 'info');
-            
-            // Check current values
-            const url = document.getElementById('swimcloudUrl').value.trim();
-            const swimmerName = document.getElementById('swimmerName').value;
-            const statusElement = document.getElementById('connectionStatus');
-            
-            addConnectionStep(`URL: ${url || 'Not provided'}`, 'info');
-            addConnectionStep(`Swimmer Name: ${swimmerName || 'Not set'}`, 'info');
-            addConnectionStep(`Current Status: ${statusElement.querySelector('.status-text').textContent}`, 'info');
-            
-            // Check browser capabilities
-            if (typeof fetch === 'undefined') {
-                addConnectionStep('❌ Browser does not support fetch API', 'error');
-            } else {
-                addConnectionStep('✅ Browser supports fetch API', 'success');
-            }
-            
-            // Check if we're in a secure context
-            if (location.protocol === 'https:' || location.hostname === 'localhost') {
-                addConnectionStep('✅ Secure context (HTTPS or localhost)', 'success');
-            } else {
-                addConnectionStep('⚠️ Insecure context - may have CORS issues', 'warning');
-            }
-            
-            addConnectionStep('💡 Try the "🧪 Test System" button to verify connectivity', 'info');
-        }
-
-        function loadMeetResults() {
-            const meetSelect = document.getElementById('meetSelect');
-            const meetId = meetSelect.value;
-            
-            if (!meetId) {
-                document.getElementById('meetResults').style.display = 'none';
-                document.getElementById('nutritionCorrelation').style.display = 'none';
-                return;
+            .day-meals {
+                min-height: 350px;
+                padding: 0.75rem;
             }
 
-            // Handle special debug options
-            if (meetId === 'show-all-data') {
-                showAllParsedData();
-                return;
+            .meal-header {
+                font-size: 0.8rem;
+                padding: 0.4rem;
             }
 
-            debugLog(`Loading results for meet ID: ${meetId}`, 'info');
-
-            // Get the selected meet data
-            const selectedOption = meetSelect.querySelector(`option[value="${meetId}"]`);
-            let meetData = null;
-            
-            if (selectedOption && selectedOption.dataset.meetData) {
-                try {
-                    meetData = JSON.parse(selectedOption.dataset.meetData);
-                    debugLog(`Found meet data: ${meetData.name}`, 'info');
-                } catch (error) {
-                    debugLog(`Error parsing meet data: ${error.message}`, 'error');
-                }
+            .meal-item {
+                font-size: 0.8rem;
             }
-
-            // Try to parse actual results from the meet's HTML if available
-            let results = [];
-            if (meetData && meetData.html) {
-                debugLog('Attempting to parse meet results from HTML...', 'info');
-                results = parseSwimCloudMeetResults(meetData.html, meetId);
-            }
-
-            // If no results found, use sample data for demonstration
-            if (results.length === 0) {
-                debugLog('No results parsed from meet HTML, using sample data', 'warn');
-                results = [
-                    { event: "50 L Back", eventDetails: "200 MR (Leadoff)", time: "37.70", improvement: "-3.4%", place: "3rd", isPB: false },
-                    { event: "50 L Back", eventDetails: "Finals", time: "36.98", improvement: "-1.4%", place: "4th", isPB: false },
-                    { event: "50 L Back", eventDetails: "Prelims", time: "36.79", improvement: "-0.9%", place: "3rd", isPB: false },
-                    { event: "100 L Back", eventDetails: "Finals", time: "1:21.31", improvement: "", place: "4th", isPB: true },
-                    { event: "100 L Back", eventDetails: "Prelims", time: "1:23.10", improvement: "", place: "7th", isPB: true },
-                    { event: "50 L Breast", eventDetails: "Prelims", time: "45.60", improvement: "-1.3%", place: "13th", isPB: false },
-                    { event: "100 L Breast", eventDetails: "Prelims", time: "1:38.44", improvement: "-1.1%", place: "15th", isPB: false },
-                    { event: "50 L Fly", eventDetails: "Prelims", time: "36.36", improvement: "-1.7%", place: "14th", isPB: false },
-                    { event: "100 L Fly", eventDetails: "Prelims", time: "1:24.04", improvement: "+1.2%", place: "13th", isPB: true },
-                    { event: "200 L IM", eventDetails: "Prelims", time: "3:04.74", improvement: "+0.0%", place: "14th", isPB: true }
-                ];
-            }
-
-            displayMeetResults(results);
-            document.getElementById('meetResults').style.display = 'block';
-            document.getElementById('nutritionCorrelation').style.display = 'block';
-            
-            debugLog(`Displayed ${results.length} results`, 'success');
-        }
-
-        function showAllParsedData() {
-            debugLog('=== SHOWING ALL PARSED DATA ===', 'info');
-            
-            // Create a modal or overlay to show the data
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-                background: rgba(0,0,0,0.8); z-index: 1000; display: flex; 
-                align-items: center; justify-content: center; padding: 2rem;
-            `;
-            
-            const content = document.createElement('div');
-            content.style.cssText = `
-                background: white; border-radius: 12px; padding: 2rem; 
-                max-width: 80%; max-height: 80%; overflow-y: auto;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            `;
-            
-            const meetSelect = document.getElementById('meetSelect');
-            const allOptions = Array.from(meetSelect.querySelectorAll('option[data-meet-data]'));
-            
-            let htmlContent = '<h2>🔍 All Parsed SwimCloud Data</h2>';
-            
-            if (allOptions.length === 0) {
-                htmlContent += '<p>No meet data found. The SwimCloud page may not contain the expected meet structure.</p>';
-            } else {
-                allOptions.forEach((option, index) => {
-                    try {
-                        const meetData = JSON.parse(option.dataset.meetData);
-                        htmlContent += `
-                            <div style="border: 1px solid #e5e7eb; margin: 1rem 0; padding: 1rem; border-radius: 8px;">
-                                <h3>Meet ${index + 1}: ${meetData.name}</h3>
-                                <p><strong>Date:</strong> ${meetData.date}</p>
-                                <p><strong>ID:</strong> ${meetData.id}</p>
-                                <details>
-                                    <summary>Raw HTML (click to expand)</summary>
-                                    <pre style="background: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.8rem;">
-${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
-                                    </pre>
-                                </details>
-                            </div>
-                        `;
-                    } catch (error) {
-                        htmlContent += `<p>Error parsing meet ${index + 1}: ${error.message}</p>`;
-                    }
-                });
-            }
-            
-            htmlContent += '<button onclick="this.closest(\'[style*=\"position: fixed\"]\').remove()" style="background: #2563eb; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; margin-top: 1rem;">Close</button>';
-            
-            content.innerHTML = htmlContent;
-            modal.appendChild(content);
-            document.body.appendChild(modal);
-            
-            debugLog('Parsed data modal displayed', 'success');
-        }
-
-        // Advanced parsing function for SwimCloud meet results
-        function parseSwimCloudMeetResults(html, meetId) {
-            debugLog(`Parsing meet results for meet ${meetId}`, 'info');
-            
-            try {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                
-                const results = [];
-                
-                // SwimCloud uses various structures for meet results
-                const resultSelectors = [
-                    // Table-based results
-                    'table.results tbody tr',
-                    'table.meet-results tbody tr',
-                    '.results-table tbody tr',
-                    
-                    // Card-based results
-                    '.result-card',
-                    '.event-result',
-                    '.swim-result',
-                    
-                    // List-based results
-                    '.result-item',
-                    '.event-item',
-                    
-                    // Generic selectors
-                    '[data-event]',
-                    '[data-time]',
-                    'tr:has(.time)',
-                    'div:has(.time)'
-                ];
-                
-                for (const selector of resultSelectors) {
-                    try {
-                        const rows = doc.querySelectorAll(selector);
-                        debugLog(`Trying selector "${selector}": found ${rows.length} elements`, 'info');
-                        
-                        if (rows.length > 0) {
-                            rows.forEach((row, index) => {
-                                try {
-                                    // Multiple approaches to extract event data
-                                    let eventName = null;
-                                    let eventDetails = null;
-                                    let time = null;
-                                    let place = null;
-                                    let improvement = null;
-                                    let isPB = false;
-                                    
-                                    // Event name extraction
-                                    const eventSelectors = ['.event', '.event-name', 'td:first-child', '.stroke', '.distance'];
-                                    for (const eventSel of eventSelectors) {
-                                        const eventEl = row.querySelector(eventSel);
-                                        if (eventEl && eventEl.textContent.trim()) {
-                                            eventName = eventEl.textContent.trim();
-                                            break;
-                                        }
-                                    }
-                                    
-                                    // If no specific event selector, look for swim event patterns
-                                    if (!eventName) {
-                                        const text = row.textContent;
-                                        const eventMatch = text.match(/\b(50|100|200|400|500|800|1000|1500|1650)\s*(L|Y|M)?\s*(Free|Freestyle|Back|Backstroke|Breast|Breaststroke|Fly|Butterfly|IM|Individual Medley)/i);
-                                        if (eventMatch) {
-                                            eventName = eventMatch[0];
-                                        }
-                                    }
-                                    
-                                    // Time extraction
-                                    const timeSelectors = ['.time', '.result-time', '.swim-time', 'td:nth-child(2)', '.time-cell'];
-                                    for (const timeSel of timeSelectors) {
-                                        const timeEl = row.querySelector(timeSel);
-                                        if (timeEl && timeEl.textContent.trim()) {
-                                            time = timeEl.textContent.trim();
-                                            break;
-                                        }
-                                    }
-                                    
-                                    // If no specific time selector, look for time patterns
-                                    if (!time) {
-                                        const text = row.textContent;
-                                        const timeMatch = text.match(/\b\d{1,2}:\d{2}\.\d{2}\b|\b\d{2}\.\d{2}\b/);
-                                        if (timeMatch) {
-                                            time = timeMatch[0];
-                                        }
-                                    }
-                                    
-                                    // Place extraction
-                                    const placeSelectors = ['.place', '.rank', '.position', '.finish', 'td:last-child'];
-                                    for (const placeSel of placeSelectors) {
-                                        const placeEl = row.querySelector(placeSel);
-                                        if (placeEl && placeEl.textContent.trim()) {
-                                            const placeText = placeEl.textContent.trim();
-                                            if (/^\d+/.test(placeText)) {
-                                                place = placeText;
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    
-                                    // Improvement extraction
-                                    const impSelectors = ['.improvement', '.imp', '.delta', '.change'];
-                                    for (const impSel of impSelectors) {
-                                        const impEl = row.querySelector(impSel);
-                                        if (impEl && impEl.textContent.trim()) {
-                                            improvement = impEl.textContent.trim();
-                                            break;
-                                        }
-                                    }
-                                    
-                                    // Check for Personal Best indicators
-                                    const fullText = row.textContent.toLowerCase();
-                                    isPB = fullText.includes('pb') || fullText.includes('personal best') || 
-                                           fullText.includes('pr') || fullText.includes('personal record') ||
-                                           row.querySelector('.pb, .personal-best, .pr');
-                                    
-                                    // Event details (Finals, Prelims, etc.)
-                                    const detailsMatch = row.textContent.match(/(Finals?|Prelims?|Timed Finals?|Heats?)/i);
-                                    eventDetails = detailsMatch ? detailsMatch[0] : 'Finals';
-                                    
-                                    // Only add if we have at least event name and time
-                                    if (eventName && time) {
-                                        const result = {
-                                            event: eventName,
-                                            eventDetails: eventDetails,
-                                            time: time,
-                                            improvement: improvement || '',
-                                            place: place || '',
-                                            isPB: isPB
-                                        };
-                                        
-                                        results.push(result);
-                                        debugLog(`Parsed result: ${eventName} - ${time} (${place})`, 'success');
-                                    }
-                                    
-                                } catch (error) {
-                                    debugLog(`Error parsing result row ${index}: ${error.message}`, 'warn');
-                                }
-                            });
-                            
-                            // If we found results with this selector, stop trying others
-                            if (results.length > 0) {
-                                debugLog(`Successfully parsed ${results.length} results with selector: ${selector}`, 'success');
-                                break;
-                            }
-                        }
-                        
-                    } catch (error) {
-                        debugLog(`Selector ${selector} failed: ${error.message}`, 'warn');
-                    }
-                }
-                
-                debugLog(`Total results parsed: ${results.length}`, results.length > 0 ? 'success' : 'warn');
-                return results;
-                
-            } catch (error) {
-                debugLog(`Meet results parsing error: ${error.message}`, 'error');
-                return [];
-            }
-        }
-
-        function displayMeetResults(results) {
-            const tableBody = document.getElementById('resultsTableBody');
-            tableBody.innerHTML = '';
-
-            results.forEach(result => {
-                const row = document.createElement('div');
-                row.className = 'result-row';
-
-                const improvementClass = result.improvement.startsWith('-') ? 'positive' : 
-                                       result.improvement.startsWith('+') ? 'negative' : '';
-
-                // Check if mobile view
-                const isMobile = window.innerWidth <= 768;
-
-                if (isMobile) {
-                    row.innerHTML = `
-                        <div class="col-event">
-                            <div class="event-name">${result.event}</div>
-                            <div class="event-details">${result.eventDetails}</div>
-                        </div>
-                        <div class="mobile-result-grid">
-                            <div class="mobile-result-item">
-                                <div class="mobile-result-label">Time</div>
-                                <div class="mobile-result-value result-time">
-                                    ${result.time}${result.isPB ? ' <span class="pb-badge">PB</span>' : ''}
-                                </div>
-                            </div>
-                            <div class="mobile-result-item">
-                                <div class="mobile-result-label">Imp</div>
-                                <div class="mobile-result-value improvement ${improvementClass}">
-                                    ${result.improvement || '–'}
-                                </div>
-                            </div>
-                            <div class="mobile-result-item">
-                                <div class="mobile-result-label">Place</div>
-                                <div class="mobile-result-value place">${result.place}</div>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    row.innerHTML = `
-                        <div class="col-event">
-                            <div class="event-name">${result.event}</div>
-                            <div class="event-details">${result.eventDetails}</div>
-                        </div>
-                        <div class="col-time">
-                            <span class="result-time">${result.time}</span>
-                            ${result.isPB ? '<span class="pb-badge">PB</span>' : ''}
-                        </div>
-                        <div class="col-improvement">
-                            <span class="improvement ${improvementClass}">${result.improvement || '–'}</span>
-                        </div>
-                        <div class="col-place">
-                            <span class="place">${result.place}</span>
-                        </div>
-                    `;
-                }
-
-                tableBody.appendChild(row);
-            });
         }
 
         @media (max-width: 768px) {
@@ -2598,6 +1802,70 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             
             .day-number {
                 font-size: 0.8rem;
+            }
+
+            /* Enhanced Nutrition Mobile */
+            .nutrition-calendar-container {
+                margin: 0 -1rem;
+            }
+
+            .week-header-row,
+            .meals-grid {
+                min-width: 700px;
+            }
+
+            .day-meals {
+                min-height: 300px;
+                padding: 0.5rem;
+            }
+
+            .day-number {
+                font-size: 1.2rem;
+            }
+
+            .meal-header {
+                font-size: 0.75rem;
+                padding: 0.3rem;
+            }
+
+            .meal-item {
+                font-size: 0.75rem;
+            }
+
+            .setup-form {
+                grid-template-columns: 1fr;
+            }
+
+            .daily-plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .plan-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .weeks-container {
+                padding: 1rem;
+            }
+
+            .week-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .plan-actions {
+                padding: 1rem;
+                flex-direction: column;
+            }
+
+            .plan-actions .btn {
+                min-width: auto;
+                width: 100%;
             }
 
             /* Performance Tracking Mobile Styles */
@@ -2722,11 +1990,11 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
         <div class="nav-container">
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/pingchuantsai/Image_storing/main/SwimmerNutrition5-Gold.png" alt="Swimfuel">
-                Swimfuel Premium
+                SwimFuel Premium
             </div>
             <ul class="nav-links">
                 <li><a id="foodRecLink" class="active" onclick="showPage('food-recommendations')">Food Recommendations</a></li>
-                <li><a href="#">Nutrition Plans</a></li>
+                <li><a id="nutritionPlansLink" onclick="showPage('nutrition-plans')">Nutrition Plans</a></li>
                 <li><a id="calendarLink" onclick="showPage('competition-calendar')">Competition Calendar</a></li>
                 <li><a id="performanceLink" onclick="showPage('performance-tracking')">Performance Tracking</a></li>
             </ul>
@@ -2935,6 +2203,83 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             </div>
         </div>
 
+        <!-- Nutrition Plans Section (Enhanced) -->
+        <div id="nutrition-plans" class="page-section">
+            <h1>Nutrition Plans</h1>
+            <p class="subtitle">
+                Personalized 2-week meal plans optimized for your competition schedule and training phases.
+            </p>
+
+            <div class="plan-setup">
+                <h3>Competition Schedule Setup</h3>
+                <div class="setup-form">
+                    <div class="form-group">
+                        <label>Target Competition Date</label>
+                        <input type="date" id="targetMeetDate" onchange="generateNutritionPlan()">
+                        <small style="color: #666; display: block; margin-top: 0.5rem;">
+                            Select your major meet date to generate a 2-week nutrition plan
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>Competition Name (Optional)</label>
+                        <input type="text" id="competitionName" placeholder="e.g., Regional Championships">
+                    </div>
+                </div>
+            </div>
+
+            <div class="nutrition-plan-view" id="nutritionPlanView" style="display: none;">
+                <div class="plan-header">
+                    <h2 id="planTitle">2-Week Nutrition Plan</h2>
+                    <p id="planSubtitle">Optimized for your competition schedule</p>
+                </div>
+
+                <div class="calendar-view-container">
+                    <div class="view-toggle">
+                        <button class="view-toggle-btn active" id="calendarViewBtn" onclick="switchNutritionView('calendar')">📅 Calendar View</button>
+                        <button class="view-toggle-btn" id="cardViewBtn" onclick="switchNutritionView('cards')">🃏 Card View</button>
+                    </div>
+
+                    <!-- Enhanced Calendar View -->
+                    <div class="calendar-nutrition-view" id="calendarNutritionView">
+                        <div class="nutrition-calendar-container">
+                            <div class="nutrition-calendar-weeks" id="nutritionCalendarWeeks">
+                                <!-- Enhanced calendar weeks will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Original Card View -->
+                    <div class="weeks-container" id="cardView" style="display: none;">
+                        <div class="week-section">
+                            <div class="week-header">
+                                <h3 id="week1Title">Week 1: Training Phase</h3>
+                                <span id="week1Dates" class="week-dates">Jul 13-19, 2025</span>
+                            </div>
+                            <div class="daily-plans-grid" id="week1Grid">
+                                <!-- Week 1 daily plans will be generated here -->
+                            </div>
+                        </div>
+
+                        <div class="week-section">
+                            <div class="week-header">
+                                <h3 id="week2Title">Week 2: Competition Week</h3>
+                                <span id="week2Dates" class="week-dates">Jul 20-26, 2025</span>
+                            </div>
+                            <div class="daily-plans-grid" id="week2Grid">
+                                <!-- Week 2 daily plans will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-actions">
+                    <button class="btn btn-primary" onclick="downloadPlan()">📥 Download Plan</button>
+                    <button class="btn btn-secondary" onclick="printPlan()">🖨️ Print Plan</button>
+                    <button class="btn btn-secondary" onclick="sharePlan()">📤 Share Plan</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Competition Calendar Section -->
         <div id="competition-calendar" class="page-section">
             <button class="back-btn" onclick="showPage('food-recommendations')">
@@ -3084,31 +2429,7 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                         <button class="btn btn-secondary" onclick="showManualEntry()">Manual Entry</button>
                         <button class="btn btn-primary" onclick="testWithSampleUrl()">🧪 Test System</button>
                         <button class="btn btn-secondary" onclick="quickDiagnostic()">🔧 Quick Check</button>
-                    </div>
-                </div>
-
-                <div class="connection-status-detail" id="connectionStatusDetail" style="display: none;">
-                    <h4>Connection Details</h4>
-                    <div id="connectionSteps"></div>
-                </div>
-
-                <div class="manual-entry-panel" id="manualEntryPanel" style="display: none;">
-                    <h4>Manual Data Entry</h4>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
-                        If automatic SwimCloud connection fails, you can manually enter meet data:
-                    </p>
-                    <div class="manual-form">
-                        <div class="form-row">
-                            <input type="text" id="manualSwimmerName" placeholder="Swimmer Name">
-                            <button class="btn btn-primary" onclick="saveManualData()">Save Data</button>
-                        </div>
-                        <div class="form-row">
-                            <input type="text" id="manualMeetName" placeholder="Meet Name">
-                            <input type="text" id="manualMeetDate" placeholder="Meet Date">
-                        </div>
-                        <small style="color: #666;">
-                            This will create sample data for testing the nutrition correlation features.
-                        </small>
+                        <button class="btn btn-primary" onclick="showMeetScraper()">📊 Meet Scraper</button>
                     </div>
                 </div>
             </div>
@@ -3164,6 +2485,30 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
     </div>
 
     <script>
+        // Global variables
+        let currentPhase = 'training-1';
+        let currentAgeGroup = '10-under';
+        let currentCategory = 'all';
+        let currentRecommendation = 'all';
+        let currentDiet = 'all';
+        let searchTerm = '';
+
+        // Calendar variables
+        let currentView = 'single';
+        let currentDate = new Date();
+        const today = new Date();
+        let events = [];
+        let calendarInitialized = false;
+
+        // Enhanced Nutrition Calendar variables
+        let nutritionCalendarData = {};
+        let currentNutritionView = 'calendar';
+
+        // Performance tracking variables
+        let debugMode = false;
+        let currentSwimmerId = null;
+        let connectionSteps = [];
+
         // Page navigation
         function showPage(pageId) {
             // Hide all pages
@@ -3191,119 +2536,626 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 }
             } else if (pageId === 'performance-tracking') {
                 document.getElementById('performanceLink').classList.add('active');
+            } else if (pageId === 'nutrition-plans') {
+                document.getElementById('nutritionPlansLink').classList.add('active');
             }
         }
 
-        // Global variables
-        let currentPhase = 'training-1';
-        let currentAgeGroup = '10-under';
-        let currentCategory = 'all';
-        let currentRecommendation = 'all';
-        let currentDiet = 'all';
-        let searchTerm = '';
+        // Enhanced Nutrition Plans Functions
+        function switchNutritionView(view) {
+            currentNutritionView = view;
+            document.getElementById('calendarViewBtn').classList.toggle('active', view === 'calendar');
+            document.getElementById('cardViewBtn').classList.toggle('active', view === 'cards');
+            
+            if (view === 'calendar') {
+                document.getElementById('calendarNutritionView').style.display = 'block';
+                document.getElementById('cardView').style.display = 'none';
+                generateNutritionCalendar();
+            } else {
+                document.getElementById('calendarNutritionView').style.display = 'none';
+                document.getElementById('cardView').style.display = 'block';
+                // Generate card view plans
+                const meetDate = document.getElementById('targetMeetDate').value;
+                if (meetDate) {
+                    const meetDateTime = new Date(meetDate);
+                    const startDate = new Date(meetDateTime);
+                    startDate.setDate(startDate.getDate() - 13);
+                    
+                    const week1Start = new Date(startDate);
+                    const week1End = new Date(startDate);
+                    week1End.setDate(week1End.getDate() + 6);
+                    
+                    const week2Start = new Date(week1End);
+                    week2Start.setDate(week2Start.getDate() + 1);
+                    const week2End = new Date(meetDateTime);
 
-        // Calendar variables
-        let currentView = 'single';
-        let currentDate = new Date();
-        const today = new Date();
-        let events = [];
-        let calendarInitialized = false;
-
-        // Age-specific nutrition data based on competition timeline
-        const ageSpecificNutrition = {
-            'training-1': {
-                name: 'Training Phase 1 (14-8 Days Out)',
-                notes: 'Build glycogen but keep variety in your nutrition approach',
-                '10-under': { carbs: '50%', protein: '18%', veggies: '17%', fruits: '15%' },
-                '11-12': { carbs: '50%', protein: '20%', veggies: '15%', fruits: '15%' },
-                '13-14': { carbs: '50%', protein: '22%', veggies: '15%', fruits: '13%' },
-                '15-over': { carbs: '50%', protein: '25%', veggies: '15%', fruits: '10%' }
-            },
-            'training-2': {
-                name: 'Training Phase 2 (7-3 Days Out)',
-                notes: 'Taper training and begin glycogen loading protocol',
-                '10-under': { carbs: '55%', protein: '17%', veggies: '13%', fruits: '15%' },
-                '11-12': { carbs: '58%', protein: '18%', veggies: '12%', fruits: '12%' },
-                '13-14': { carbs: '60%', protein: '18%', veggies: '12%', fruits: '10%' },
-                '15-over': { carbs: '62%', protein: '18%', veggies: '10%', fruits: '10%' }
-            },
-            'carb-loading': {
-                name: 'Carb Loading (2-1 Days Out)',
-                notes: 'Begin fiber-reduction and low-residue foods, maintain hydration',
-                '10-under': { carbs: '62%', protein: '18%', veggies: '10%', fruits: '10%' },
-                '11-12': { carbs: '64%', protein: '17%', veggies: '10%', fruits: '9%' },
-                '13-14': { carbs: '65%', protein: '16%', veggies: '9%', fruits: '10%' },
-                '15-over': { carbs: '66%', protein: '16%', veggies: '8%', fruits: '10%' }
-            },
-            'competition': {
-                name: 'Competition Day (Race Day)', 
-                notes: 'Fast-fuel, easy-digest foods only. Small frequent portions',
-                '10-under': { carbs: '67%', protein: '15%', veggies: '8%', fruits: '10%' },
-                '11-12': { carbs: '68%', protein: '15%', veggies: '7%', fruits: '10%' },
-                '13-14': { carbs: '69%', protein: '15%', veggies: '6%', fruits: '10%' },
-                '15-over': { carbs: '70%', protein: '15%', veggies: '5%', fruits: '10%' }
-            },
-            'recovery': {
-                name: 'Recovery (1-2 Days Post)',
-                notes: 'Replenish glycogen and support muscle recovery',
-                '10-under': { carbs: '50%', protein: '18%', veggies: '17%', fruits: '15%' },
-                '11-12': { carbs: '50%', protein: '20%', veggies: '15%', fruits: '15%' },
-                '13-14': { carbs: '50%', protein: '22%', veggies: '15%', fruits: '13%' },
-                '15-over': { carbs: '50%', protein: '25%', veggies: '15%', fruits: '10%' }
+                    generateWeekPlans('week1Grid', week1Start, week1End, meetDateTime);
+                    generateWeekPlans('week2Grid', week2Start, week2End, meetDateTime);
+                }
             }
-        };
+        }
 
-        // Food database with phase-specific recommendations and diet compatibility
-        const foodDatabase = {
-            protein: [
-                { name: "Chicken Breast", emoji: "🐔", benefits: ["Complete protein", "Lean muscle building", "Easy to digest"], diets: ["regular", "paleo"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Turkey Breast", emoji: "🦃", benefits: ["High protein", "Low fat", "B vitamins"], diets: ["regular", "paleo"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Salmon", emoji: "🐟", benefits: ["Omega-3 fatty acids", "Anti-inflammatory", "Complete protein"], diets: ["regular", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Greek Yogurt", emoji: "🥛", benefits: ["Probiotics", "Quick absorption", "Calcium"], diets: ["regular", "vegetarian", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Eggs", emoji: "🥚", benefits: ["Complete amino acids", "Versatile", "Choline"], diets: ["regular", "vegetarian", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Quinoa", emoji: "🌾", benefits: ["Complete protein", "Complex carbs", "Fiber"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Lentils", emoji: "🫘", benefits: ["Plant protein", "Iron", "Folate"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "limit" }},
-                { name: "Tuna", emoji: "🐟", benefits: ["Lean protein", "Convenient", "B vitamins"], diets: ["regular", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Almonds", emoji: "🌰", benefits: ["Healthy fats", "Vitamin E", "Magnesium"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Tofu", emoji: "🥡", benefits: ["Plant-based", "Calcium", "Isoflavones"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
-            ],
-            carbohydrates: [
-                { name: "Brown Rice", emoji: "🍚", benefits: ["Complex carbs", "B vitamins", "Sustained energy"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Sweet Potatoes", emoji: "🍠", benefits: ["Beta carotene", "Complex carbs", "Potassium"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Oats", emoji: "🥣", benefits: ["Beta glucan", "Fiber", "Sustained energy"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Whole Wheat Bread", emoji: "🍞", benefits: ["Fiber", "B vitamins", "Iron"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Pasta", emoji: "🍝", benefits: ["Quick energy", "Carb loading", "Familiar"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Bananas", emoji: "🍌", benefits: ["Quick energy", "Potassium", "Easy to digest"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "White Potatoes", emoji: "🥔", benefits: ["Quick carbs", "Potassium", "Familiar"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Dates", emoji: "🌴", benefits: ["Natural sugars", "Potassium", "Quick energy"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Sourdough Bread", emoji: "🥖", benefits: ["Easy to digest", "Lower glycemic", "Probiotics"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
-            ],
-            "vegetables-high-fiber": [
-                { name: "Broccoli", emoji: "🥦", benefits: ["Vitamin C", "Fiber", "Antioxidants"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
-                { name: "Brussels Sprouts", emoji: "🥬", benefits: ["Vitamin K", "Fiber", "Folate"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
-                { name: "Spinach", emoji: "🍃", benefits: ["Iron", "Folate", "Nitrates"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
-                { name: "Kale", emoji: "🥬", benefits: ["Vitamin A", "Calcium", "Antioxidants"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
-                { name: "Carrots", emoji: "🥕", benefits: ["Beta carotene", "Fiber", "Vitamin A"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
-                { name: "Artichokes", emoji: "🌿", benefits: ["High fiber", "Antioxidants", "Prebiotics"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "limit", "carb-loading": "avoid", "competition": "avoid", recovery: "limit" }}
-            ],
-            "vegetables-low-fiber": [
-                { name: "Tomatoes", emoji: "🍅", benefits: ["Lycopene", "Vitamin C", "Hydrating"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Cucumbers", emoji: "🥒", benefits: ["Hydrating", "Low calorie", "Refreshing"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Lettuce", emoji: "🥬", benefits: ["Hydrating", "Low calorie", "Vitamin K"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Bell Peppers", emoji: "🫑", benefits: ["Vitamin C", "Antioxidants", "Low fiber"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Avocados", emoji: "🥑", benefits: ["Healthy fats", "Potassium", "Creamy texture"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
-                { name: "Mushrooms", emoji: "🍄", benefits: ["Umami flavor", "B vitamins", "Low calorie"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }}
-            ],
-            fruits: [
-                { name: "Oranges", emoji: "🍊", benefits: ["Vitamin C", "Hydrating", "Natural sugars"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Watermelon", emoji: "🍉", benefits: ["Hydrating", "Quick sugars", "Refreshing"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Grapes", emoji: "🍇", benefits: ["Quick energy", "Antioxidants", "Convenient"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Apples", emoji: "🍎", benefits: ["Fiber", "Vitamin C", "Pectin"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Berries", emoji: "🫐", benefits: ["Antioxidants", "Vitamin C", "Anti-inflammatory"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Melons", emoji: "🍈", benefits: ["Hydrating", "Potassium", "Easy to digest"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
-                { name: "Peaches", emoji: "🍑", benefits: ["Vitamin A", "Natural sugars", "Hydrating"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
-            ]
-        };
+        function generateNutritionCalendar() {
+            const meetDate = document.getElementById('targetMeetDate').value;
+            if (!meetDate) return;
+
+            const meetDateTime = new Date(meetDate);
+            const startDate = new Date(meetDateTime);
+            startDate.setDate(startDate.getDate() - 13); // Start 14 days before (including meet day)
+
+            // Generate 2 weeks of calendar
+            const weeksContainer = document.getElementById('nutritionCalendarWeeks');
+            weeksContainer.innerHTML = '';
+
+            // Generate week 1 (days -13 to -7)
+            const week1Start = new Date(startDate);
+            const week1End = new Date(startDate);
+            week1End.setDate(week1End.getDate() + 6);
+            
+            const week1 = generateNutritionWeek(week1Start, week1End, meetDateTime, 'Week 1');
+            weeksContainer.appendChild(week1);
+
+            // Generate week 2 (days -6 to meet day)
+            const week2Start = new Date(week1End);
+            week2Start.setDate(week2Start.getDate() + 1);
+            const week2End = new Date(meetDateTime);
+
+            const week2 = generateNutritionWeek(week2Start, week2End, meetDateTime, 'Week 2');
+            weeksContainer.appendChild(week2);
+        }
+
+        function generateNutritionWeek(startDate, endDate, meetDate, weekLabel) {
+            const weekContainer = document.createElement('div');
+            weekContainer.className = 'nutrition-week';
+
+            // Generate days array for this week
+            const days = [];
+            const currentDate = new Date(startDate);
+            
+            // Fill in days from start to end, padding to 7 days
+            while (days.length < 7) {
+                if (currentDate <= endDate) {
+                    days.push(new Date(currentDate));
+                    currentDate.setDate(currentDate.getDate() + 1);
+                } else {
+                    days.push(null); // Empty day
+                }
+            }
+
+            // Create week header with day names and numbers
+            const weekHeader = document.createElement('div');
+            weekHeader.className = 'week-header-row';
+
+            const dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            days.forEach((day, index) => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'week-day-header';
+                
+                if (day) {
+                    dayHeader.innerHTML = `
+                        <div class="day-name">${dayNames[index]}</div>
+                        <div class="day-number">${day.getDate()}</div>
+                    `;
+                } else {
+                    dayHeader.innerHTML = `
+                        <div class="day-name">${dayNames[index]}</div>
+                        <div class="day-number"></div>
+                    `;
+                }
+                weekHeader.appendChild(dayHeader);
+            });
+
+            // Create phase headers row
+            const phaseHeadersRow = document.createElement('div');
+            phaseHeadersRow.className = 'phase-headers-row';
+
+            const phaseHeaders = calculatePhaseHeaders(days, meetDate);
+            phaseHeaders.forEach(header => {
+                const phaseElement = document.createElement('div');
+                phaseElement.className = `phase-header ${header.phase}`;
+                phaseElement.style.left = `${header.left}%`;
+                phaseElement.style.width = `${header.width}%`;
+                phaseElement.textContent = header.label;
+                phaseHeadersRow.appendChild(phaseElement);
+            });
+
+            // Create meals grid
+            const mealsGrid = document.createElement('div');
+            mealsGrid.className = 'meals-grid';
+
+            days.forEach((day, dayIndex) => {
+                const dayMeals = document.createElement('div');
+                dayMeals.className = 'day-meals';
+
+                if (day) {
+                    const phase = determinePhase(day, meetDate);
+                    const dateKey = day.toISOString().split('T')[0];
+                    
+                    // Initialize data if not exists
+                    if (!nutritionCalendarData[dateKey]) {
+                        nutritionCalendarData[dateKey] = initializeDayMeals(phase);
+                    }
+
+                    const meals = ['breakfast', 'lunch', 'dinner', 'snack'];
+                    const mealIcons = {
+                        breakfast: '🍳',
+                        lunch: '🍽️',
+                        dinner: '🍽️',
+                        snack: '🥜'
+                    };
+
+                    meals.forEach(mealType => {
+                        const mealSection = document.createElement('div');
+                        mealSection.className = 'meal-time';
+
+                        const mealHeader = document.createElement('div');
+                        mealHeader.className = `meal-header ${mealType}`;
+                        mealHeader.innerHTML = `
+                            <span class="meal-icon">${mealIcons[mealType]}</span>
+                            <span>${mealType.toUpperCase()}</span>
+                        `;
+
+                        const mealItems = document.createElement('div');
+                        mealItems.className = 'meal-items';
+
+                        // Render existing meal items
+                        nutritionCalendarData[dateKey][mealType].forEach((item, itemIndex) => {
+                            const mealItem = createEditableMealItem(item, dateKey, mealType, itemIndex);
+                            mealItems.appendChild(mealItem);
+                        });
+
+                        // Add "Add new item" button
+                        const addButton = document.createElement('div');
+                        addButton.className = 'add-meal-item';
+                        addButton.innerHTML = '<span>+</span> <span>Add item</span>';
+                        addButton.onclick = () => addNewMealItem(dateKey, mealType, mealItems);
+
+                        mealSection.appendChild(mealHeader);
+                        mealSection.appendChild(mealItems);
+                        mealSection.appendChild(addButton);
+                        dayMeals.appendChild(mealSection);
+                    });
+                }
+
+                mealsGrid.appendChild(dayMeals);
+            });
+
+            weekContainer.appendChild(weekHeader);
+            weekContainer.appendChild(phaseHeadersRow);
+            weekContainer.appendChild(mealsGrid);
+
+            return weekContainer;
+        }
+
+        function calculatePhaseHeaders(days, meetDate) {
+            const headers = [];
+            let currentPhase = null;
+            let phaseStart = 0;
+
+            days.forEach((day, index) => {
+                if (!day) return;
+
+                const phase = determinePhase(day, meetDate);
+                
+                if (phase !== currentPhase) {
+                    // End previous phase
+                    if (currentPhase !== null) {
+                        headers.push({
+                            phase: currentPhase,
+                            label: getPhaseLabel(currentPhase),
+                            left: (phaseStart / 7) * 100,
+                            width: ((index - phaseStart) / 7) * 100
+                        });
+                    }
+                    
+                    // Start new phase
+                    currentPhase = phase;
+                    phaseStart = index;
+                }
+            });
+
+            // End final phase
+            if (currentPhase !== null) {
+                const validDays = days.filter(d => d !== null).length;
+                headers.push({
+                    phase: currentPhase,
+                    label: getPhaseLabel(currentPhase),
+                    left: (phaseStart / 7) * 100,
+                    width: ((validDays - phaseStart) / 7) * 100
+                });
+            }
+
+            return headers;
+        }
+
+        function getPhaseLabel(phase) {
+            const labels = {
+                'training-1': 'Training Phase 1',
+                'training-2': 'Training Phase 2',
+                'carb-loading': 'Carb loading',
+                'competition': 'Competition Day',
+                'recovery': 'Recovery'
+            };
+            return labels[phase] || phase;
+        }
+
+        function determinePhase(date, meetDate) {
+            const daysToMeet = Math.ceil((meetDate - date) / (1000 * 60 * 60 * 24));
+            
+            if (daysToMeet === 0) return 'competition';
+            if (daysToMeet < 0) {
+                // Post competition - recovery for 1-2 days
+                const daysPost = Math.abs(daysToMeet);
+                if (daysPost <= 2) return 'recovery';
+                return 'recovery';
+            }
+            if (daysToMeet >= 1 && daysToMeet <= 2) return 'carb-loading';
+            if (daysToMeet >= 3 && daysToMeet <= 7) return 'training-2';
+            if (daysToMeet >= 8 && daysToMeet <= 14) return 'training-1';
+            
+            return 'training-1';
+        }
+
+        function initializeDayMeals(phase) {
+            const defaultMeals = {
+                'training-1': {
+                    breakfast: [
+                        'Whole wheat toast with olive oil',
+                        'A glass of 2% milk',
+                        'A bowl of fruit'
+                    ],
+                    lunch: [
+                        'Mixed sautéed vegetables',
+                        'A fried egg',
+                        'Whole wheat bread'
+                    ],
+                    dinner: [
+                        'Oven baked zucchini boats filled with tuna, tomato, and gouda cheese',
+                        'Fruit and a glass of milk'
+                    ],
+                    snack: [
+                        'Mixed nuts: cashews, hazelnuts, raisins, pistachios',
+                        'Natural yogurt mixed with fruits'
+                    ]
+                },
+                'training-2': {
+                    breakfast: [
+                        'Whole wheat toast with nut butter',
+                        'Natural juice'
+                    ],
+                    lunch: [
+                        'Rice with beef and vegetable stew',
+                        'Seasonal fruit'
+                    ],
+                    dinner: [
+                        'Baked eggplant or zucchini boats filled with mozzarella cheese',
+                        'Seasonal fruit'
+                    ],
+                    snack: [
+                        'Seasonal fruit smoothie made with whole milk'
+                    ]
+                },
+                'carb-loading': {
+                    breakfast: [
+                        'Natural orange juice',
+                        'Oatmeal',
+                        'Dried apricot'
+                    ],
+                    lunch: [
+                        'Cheese stuffed tomatoes',
+                        'Chickpeas',
+                        'Whole wheat toast',
+                        'Yogurt'
+                    ],
+                    dinner: [
+                        'Salad topped with avocado, mushrooms, and ginger',
+                        'Beef tenderloin',
+                        'Whole wheat toast'
+                    ],
+                    snack: [
+                        'Pear with nuts',
+                        'Carrots with Burgos cheese',
+                        'Toast, yogurt, and kiwi'
+                    ]
+                },
+                'competition': {
+                    breakfast: [
+                        'Oatmeal made with milk',
+                        'Cacao 70% or drinkable yogurt without added sugars',
+                        'Toast with olive oil'
+                    ],
+                    lunch: [
+                        'Couscous with zucchini and onion',
+                        '2 tomatoes',
+                        'Yogurt'
+                    ],
+                    dinner: [
+                        'Potato purée',
+                        'Sautéed peas',
+                        'Roasted chicken with lettuce',
+                        'Fruit'
+                    ],
+                    snack: [
+                        'Semicurated cheese sandwich',
+                        'Apple',
+                        'Oatmeal cookies and a banana'
+                    ]
+                },
+                'recovery': {
+                    breakfast: [
+                        'Protein smoothie with fruit',
+                        'Whole grain toast'
+                    ],
+                    lunch: [
+                        'Quinoa bowl with vegetables',
+                        'Lean protein'
+                    ],
+                    dinner: [
+                        'Grilled fish with sweet potato',
+                        'Steamed vegetables'
+                    ],
+                    snack: [
+                        'Greek yogurt with berries',
+                        'Mixed nuts'
+                    ]
+                }
+            };
+
+            return defaultMeals[phase] || defaultMeals['training-1'];
+        }
+
+        function createEditableMealItem(text, dateKey, mealType, itemIndex) {
+            const mealItem = document.createElement('div');
+            mealItem.className = 'meal-item';
+
+            const bullet = document.createElement('span');
+            bullet.className = 'meal-bullet';
+            bullet.textContent = '•';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'editable-meal-item';
+            input.value = text;
+            input.onblur = () => updateMealItem(dateKey, mealType, itemIndex, input.value);
+            input.onkeypress = (e) => {
+                if (e.key === 'Enter') {
+                    input.blur();
+                }
+            };
+
+            mealItem.appendChild(bullet);
+            mealItem.appendChild(input);
+
+            return mealItem;
+        }
+
+        function updateMealItem(dateKey, mealType, itemIndex, newValue) {
+            if (!nutritionCalendarData[dateKey]) return;
+            
+            if (newValue.trim() === '') {
+                nutritionCalendarData[dateKey][mealType].splice(itemIndex, 1);
+                generateNutritionCalendar();
+            } else {
+                nutritionCalendarData[dateKey][mealType][itemIndex] = newValue.trim();
+            }
+        }
+
+        function addNewMealItem(dateKey, mealType, mealItemsContainer) {
+            if (!nutritionCalendarData[dateKey]) {
+                const phase = determinePhase(new Date(dateKey), new Date(document.getElementById('targetMeetDate').value));
+                nutritionCalendarData[dateKey] = initializeDayMeals(phase);
+            }
+
+            nutritionCalendarData[dateKey][mealType].push('New meal item');
+            generateNutritionCalendar();
+        }
+
+        function generateWeekPlans(containerId, startDate, endDate, meetDate) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            const currentDate = new Date(startDate);
+            
+            while (currentDate <= endDate) {
+                const dayCard = createDayPlan(currentDate, meetDate);
+                container.appendChild(dayCard);
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+        }
+
+        function createDayPlan(date, meetDate) {
+            const phase = determinePhase(date, meetDate);
+            const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+            const dayDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            
+            const card = document.createElement('div');
+            card.className = 'daily-plan-card';
+            
+            const phaseNames = {
+                'training-1': 'Training Phase 1',
+                'training-2': 'Training Phase 2', 
+                'carb-loading': 'Carb Loading',
+                'competition': 'Competition Day',
+                'recovery': 'Recovery Day'
+            };
+
+            card.innerHTML = `
+                <div class="daily-card-header phase-${phase}">
+                    <h4>${dayName}</h4>
+                    <div class="phase-label">${dayDate} • ${phaseNames[phase]}</div>
+                </div>
+                <div class="daily-card-content">
+                    ${generateMealSections(phase)}
+                </div>
+            `;
+
+            return card;
+        }
+
+        function generateMealSections(phase) {
+            const meals = ['breakfast', 'lunch', 'dinner', 'snack'];
+            const mealIcons = {
+                breakfast: '🍳',
+                lunch: '🥗', 
+                dinner: '🍽️',
+                snack: '🍎'
+            };
+
+            const mealPlans = {
+                'training-1': {
+                    breakfast: ["Oatmeal with berries and nuts", "Whole grain toast with nut butter"],
+                    lunch: ["Grilled chicken with quinoa and vegetables", "Turkey sandwich on whole grain bread"],
+                    dinner: ["Baked fish with sweet potato and broccoli", "Lean beef stir-fry with brown rice"],
+                    snack: ["Apple with almond butter", "Greek yogurt with berries"]
+                },
+                'training-2': {
+                    breakfast: ["Pancakes with fruit and syrup", "Bagel with honey and banana"],
+                    lunch: ["Pasta with marinara and grilled chicken", "Rice bowl with teriyaki chicken"],
+                    dinner: ["Spaghetti with meat sauce", "Chicken and rice casserole"],
+                    snack: ["Banana with peanut butter", "Energy balls with dates"]
+                },
+                'carb-loading': {
+                    breakfast: ["Large bowl of oatmeal with banana", "Stack of pancakes with syrup"],
+                    lunch: ["Large pasta portion with simple sauce", "Rice and chicken bowl"],
+                    dinner: ["Huge pasta serving with marinara", "Rice pilaf with lean protein"],
+                    snack: ["Sports drink with pretzels", "White bread with honey"]
+                },
+                'competition': {
+                    breakfast: ["Toast with honey and banana", "Oatmeal with easy-digest toppings"],
+                    lunch: ["Light pasta with simple sauce", "White rice with grilled chicken"],
+                    dinner: ["Simple pasta with olive oil", "White rice with lean fish"],
+                    snack: ["Sports drink and crackers", "Banana with sports drink"]
+                },
+                'recovery': {
+                    breakfast: ["Protein smoothie with fruit", "Eggs with whole grain toast"],
+                    lunch: ["Chicken and vegetable soup", "Quinoa bowl with protein"],
+                    dinner: ["Grilled fish with vegetables", "Lean beef with quinoa"],
+                    snack: ["Chocolate milk", "Protein bar"]
+                }
+            };
+
+            return meals.map(meal => {
+                const mealOptions = mealPlans[phase][meal];
+                const selectedMeal = mealOptions[Math.floor(Math.random() * mealOptions.length)];
+                
+                return `
+                    <div class="meal-section">
+                        <div class="meal-header">
+                            <span class="meal-icon">${mealIcons[meal]}</span>
+                            <span class="meal-title">${meal}</span>
+                        </div>
+                        <div class="meal-content">
+                            ${selectedMeal}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function formatDateRange(startDate, endDate) {
+            const options = { month: 'short', day: 'numeric' };
+            const start = startDate.toLocaleDateString('en-US', options);
+            const end = endDate.toLocaleDateString('en-US', { ...options, year: 'numeric' });
+            return `${start} - ${end}`;
+        }
+
+        function generateNutritionPlan() {
+            const meetDate = document.getElementById('targetMeetDate').value;
+            const competitionName = document.getElementById('competitionName').value;
+            
+            if (!meetDate) {
+                alert('Please select a competition date');
+                return;
+            }
+
+            const meetDateTime = new Date(meetDate);
+            
+            // Calculate 2 weeks before meet date
+            const startDate = new Date(meetDateTime);
+            startDate.setDate(startDate.getDate() - 13); // 14 days total (including meet day)
+            
+            // Generate plan title
+            const planTitle = competitionName 
+                ? `2-Week Nutrition Plan for ${competitionName}`
+                : '2-Week Nutrition Plan';
+            
+            document.getElementById('planTitle').textContent = planTitle;
+            document.getElementById('planSubtitle').textContent = 
+                `Competition Date: ${meetDateTime.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })}`;
+
+            // Generate week date ranges
+            const week1Start = new Date(startDate);
+            const week1End = new Date(startDate);
+            week1End.setDate(week1End.getDate() + 6);
+            
+            const week2Start = new Date(week1End);
+            week2Start.setDate(week2Start.getDate() + 1);
+            const week2End = new Date(meetDateTime);
+
+            document.getElementById('week1Dates').textContent = 
+                `${formatDateRange(week1Start, week1End)}`;
+            document.getElementById('week2Dates').textContent = 
+                `${formatDateRange(week2Start, week2End)}`;
+
+            // Clear existing nutrition calendar data
+            nutritionCalendarData = {};
+
+            // Generate both views based on current selection
+            if (currentNutritionView === 'calendar') {
+                generateNutritionCalendar();
+            } else {
+                generateWeekPlans('week1Grid', week1Start, week1End, meetDateTime);
+                generateWeekPlans('week2Grid', week2Start, week2End, meetDateTime);
+            }
+
+            // Show the plan
+            document.getElementById('nutritionPlanView').style.display = 'block';
+        }
+
+        function downloadPlan() {
+            const planTitle = document.getElementById('planTitle').textContent;
+            const planSubtitle = document.getElementById('planSubtitle').textContent;
+            
+            let planText = `${planTitle}\n${planSubtitle}\n\n`;
+            planText += "Generated by SwimFuel Premium\n";
+
+            const blob = new Blob([planText], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'nutrition-plan.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function printPlan() {
+            window.print();
+        }
+
+        function sharePlan() {
+            const planTitle = document.getElementById('planTitle').textContent;
+            const planSubtitle = document.getElementById('planSubtitle').textContent;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: planTitle,
+                    text: `Check out my ${planTitle} - ${planSubtitle}`,
+                    url: window.location.href
+                });
+            } else {
+                const shareText = `${planTitle}\n${planSubtitle}\n\nGenerated by SwimFuel Premium`;
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Plan details copied to clipboard!');
+                });
+            }
+        }
 
         // Calendar Functions
         function setView(view) {
@@ -3341,7 +3193,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             const calendarView = document.getElementById('calendarView');
             const monthsToShow = currentView === 'single' ? 1 : 3;
             
-            // Update period display
             updatePeriodDisplay();
             
             calendarView.innerHTML = '';
@@ -3375,14 +3226,12 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             const monthContainer = document.createElement('div');
             monthContainer.className = 'month-calendar';
             
-            // Month header
             const monthHeader = document.createElement('div');
             monthHeader.className = 'month-header';
             const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
                               'July', 'August', 'September', 'October', 'November', 'December'];
             monthHeader.textContent = `${monthNames[monthDate.getMonth()]} ${monthDate.getFullYear()}`;
             
-            // Weekdays header
             const weekdays = document.createElement('div');
             weekdays.className = 'weekdays';
             const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -3393,18 +3242,15 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 weekdays.appendChild(weekday);
             });
             
-            // Calendar grid
             const calendarGrid = document.createElement('div');
             calendarGrid.className = 'calendar-grid';
             
-            // Get first day of month and days in month
             const firstDay = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
             const lastDay = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0);
             const startDate = new Date(firstDay);
             startDate.setDate(startDate.getDate() - firstDay.getDay());
             
-            // Create calendar days
-            for (let i = 0; i < 42; i++) { // 6 weeks * 7 days
+            for (let i = 0; i < 42; i++) {
                 const dayDate = new Date(startDate);
                 dayDate.setDate(startDate.getDate() + i);
                 
@@ -3423,23 +3269,19 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             const dayElement = document.createElement('div');
             dayElement.className = 'calendar-day';
             
-            // Check if day is in current month
             if (date.getMonth() !== monthDate.getMonth()) {
                 dayElement.classList.add('other-month');
             }
             
-            // Check if day is today
             if (date.toDateString() === today.toDateString()) {
                 dayElement.classList.add('today');
             }
             
-            // Day number
             const dayNumber = document.createElement('div');
             dayNumber.className = 'day-number';
             dayNumber.textContent = date.getDate();
             dayElement.appendChild(dayNumber);
             
-            // Check for events on this day (including multi-day events)
             const dateString = date.toISOString().split('T')[0];
             const dayEvents = getEventsForDate(dateString);
             
@@ -3447,7 +3289,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 const eventElement = document.createElement('div');
                 eventElement.className = `event ${eventInfo.event.type}`;
                 
-                // Show different text based on which day of the event it is
                 let displayText = eventInfo.event.title;
                 if (eventInfo.event.duration > 1) {
                     if (eventInfo.dayNumber === 1) {
@@ -3460,11 +3301,10 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 }
                 
                 eventElement.textContent = displayText;
-                eventElement.title = `${eventInfo.event.title} - Day ${eventInfo.dayNumber} of ${eventInfo.event.duration}`; // Tooltip
+                eventElement.title = `${eventInfo.event.title} - Day ${eventInfo.dayNumber} of ${eventInfo.event.duration}`;
                 dayElement.appendChild(eventElement);
             });
             
-            // Click handler to populate form
             dayElement.addEventListener('click', () => {
                 document.getElementById('eventDate').value = dateString;
             });
@@ -3481,7 +3321,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 const endDate = new Date(startDate);
                 endDate.setDate(startDate.getDate() + event.duration - 1);
                 
-                // Check if target date falls within event duration
                 if (targetDate >= startDate && targetDate <= endDate) {
                     const daysDiff = Math.floor((targetDate - startDate) / (1000 * 60 * 60 * 24));
                     eventsForDay.push({
@@ -3505,7 +3344,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 return;
             }
             
-            // Create event object with duration
             const newEvent = {
                 title,
                 startDate,
@@ -3533,7 +3371,7 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             
             const futureEvents = events
                 .filter(event => event.startDate >= todayString)
-                .slice(0, 5); // Show next 5 events
+                .slice(0, 5);
             
             upcomingEvents.innerHTML = '';
             
@@ -3582,8 +3420,78 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
         }
 
         // Food Recommendation Functions
+        const ageSpecificNutrition = {
+            'training-1': {
+                name: 'Training Phase 1 (14-8 Days Out)',
+                notes: 'Build glycogen but keep variety in your nutrition approach',
+                '10-under': { carbs: '50%', protein: '18%', veggies: '17%', fruits: '15%' },
+                '11-12': { carbs: '50%', protein: '20%', veggies: '15%', fruits: '15%' },
+                '13-14': { carbs: '50%', protein: '22%', veggies: '15%', fruits: '13%' },
+                '15-over': { carbs: '50%', protein: '25%', veggies: '15%', fruits: '10%' }
+            },
+            'training-2': {
+                name: 'Training Phase 2 (7-3 Days Out)',
+                notes: 'Taper training and begin glycogen loading protocol',
+                '10-under': { carbs: '55%', protein: '17%', veggies: '13%', fruits: '15%' },
+                '11-12': { carbs: '58%', protein: '18%', veggies: '12%', fruits: '12%' },
+                '13-14': { carbs: '60%', protein: '18%', veggies: '12%', fruits: '10%' },
+                '15-over': { carbs: '62%', protein: '18%', veggies: '10%', fruits: '10%' }
+            },
+            'carb-loading': {
+                name: 'Carb Loading (2-1 Days Out)',
+                notes: 'Begin fiber-reduction and low-residue foods, maintain hydration',
+                '10-under': { carbs: '62%', protein: '18%', veggies: '10%', fruits: '10%' },
+                '11-12': { carbs: '64%', protein: '17%', veggies: '10%', fruits: '9%' },
+                '13-14': { carbs: '65%', protein: '16%', veggies: '9%', fruits: '10%' },
+                '15-over': { carbs: '66%', protein: '16%', veggies: '8%', fruits: '10%' }
+            },
+            'competition': {
+                name: 'Competition Day (Race Day)', 
+                notes: 'Fast-fuel, easy-digest foods only. Small frequent portions',
+                '10-under': { carbs: '67%', protein: '15%', veggies: '8%', fruits: '10%' },
+                '11-12': { carbs: '68%', protein: '15%', veggies: '7%', fruits: '10%' },
+                '13-14': { carbs: '69%', protein: '15%', veggies: '6%', fruits: '10%' },
+                '15-over': { carbs: '70%', protein: '15%', veggies: '5%', fruits: '10%' }
+            },
+            'recovery': {
+                name: 'Recovery (1-2 Days Post)',
+                notes: 'Replenish glycogen and support muscle recovery',
+                '10-under': { carbs: '50%', protein: '18%', veggies: '17%', fruits: '15%' },
+                '11-12': { carbs: '50%', protein: '20%', veggies: '15%', fruits: '15%' },
+                '13-14': { carbs: '50%', protein: '22%', veggies: '15%', fruits: '13%' },
+                '15-over': { carbs: '50%', protein: '25%', veggies: '15%', fruits: '10%' }
+            }
+        };
+
+        const foodDatabase = {
+            protein: [
+                { name: "Chicken Breast", emoji: "🐔", benefits: ["Complete protein", "Lean muscle building", "Easy to digest"], diets: ["regular", "paleo"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Turkey Breast", emoji: "🦃", benefits: ["High protein", "Low fat", "B vitamins"], diets: ["regular", "paleo"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Salmon", emoji: "🐟", benefits: ["Omega-3 fatty acids", "Anti-inflammatory", "Complete protein"], diets: ["regular", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "limit", recovery: "choose" }},
+                { name: "Greek Yogurt", emoji: "🥛", benefits: ["Probiotics", "Quick absorption", "Calcium"], diets: ["regular", "vegetarian", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Eggs", emoji: "🥚", benefits: ["Complete amino acids", "Versatile", "Choline"], diets: ["regular", "vegetarian", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ],
+            carbohydrates: [
+                { name: "Brown Rice", emoji: "🍚", benefits: ["Complex carbs", "B vitamins", "Sustained energy"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Sweet Potatoes", emoji: "🍠", benefits: ["Beta carotene", "Complex carbs", "Potassium"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Oats", emoji: "🥣", benefits: ["Beta glucan", "Fiber", "Sustained energy"], diets: ["regular", "vegetarian", "vegan", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Bananas", emoji: "🍌", benefits: ["Quick energy", "Potassium", "Easy to digest"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ],
+            "vegetables-high-fiber": [
+                { name: "Broccoli", emoji: "🥦", benefits: ["Vitamin C", "Fiber", "Antioxidants"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }},
+                { name: "Spinach", emoji: "🍃", benefits: ["Iron", "Folate", "Nitrates"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "limit", "competition": "avoid", recovery: "choose" }}
+            ],
+            "vegetables-low-fiber": [
+                { name: "Tomatoes", emoji: "🍅", benefits: ["Lycopene", "Vitamin C", "Hydrating"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Cucumbers", emoji: "🥒", benefits: ["Hydrating", "Low calorie", "Refreshing"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ],
+            fruits: [
+                { name: "Oranges", emoji: "🍊", benefits: ["Vitamin C", "Hydrating", "Natural sugars"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }},
+                { name: "Watermelon", emoji: "🍉", benefits: ["Hydrating", "Quick sugars", "Refreshing"], diets: ["regular", "vegetarian", "vegan", "paleo", "pescatarian"], phases: { "training-1": "choose", "training-2": "choose", "carb-loading": "choose", "competition": "choose", recovery: "choose" }}
+            ]
+        };
+
         function setupEventListeners() {
-            // Profile inputs
             document.getElementById('ageGroup').addEventListener('change', function() {
                 currentAgeGroup = this.value;
                 updateNutritionBreakdown();
@@ -3593,7 +3501,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 updateNutritionBreakdown();
             });
 
-            // Weight radio buttons
             document.querySelectorAll('input[name="weightUnit"]').forEach(radio => {
                 radio.addEventListener('change', function() {
                     updateWeightInputLimits();
@@ -3607,7 +3514,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 updateNutritionBreakdown();
             });
 
-            // Height radio buttons
             document.querySelectorAll('input[name="heightUnit"]').forEach(radio => {
                 radio.addEventListener('change', function() {
                     toggleHeightInputs();
@@ -3616,7 +3522,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 });
             });
 
-            // Height inputs
             document.getElementById('heightCmInput').addEventListener('input', function() {
                 calculateBMI();
                 updateNutritionBreakdown();
@@ -3636,7 +3541,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 updateNutritionBreakdown();
             });
 
-            // Phase selector buttons
             document.querySelectorAll('.phase-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
@@ -3647,7 +3551,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                 });
             });
 
-            // Filter controls
             document.getElementById('categoryFilter').addEventListener('change', function() {
                 currentCategory = this.value;
                 renderFoods();
@@ -3828,7 +3731,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                     foods.forEach(food => {
                         const recommendation = food.phases[currentPhase];
                         
-                        // Check diet compatibility
                         const isDietCompatible = currentDiet === 'all' || food.diets.includes(currentDiet);
                         
                         if ((currentRecommendation === 'all' || currentRecommendation === recommendation) &&
@@ -3857,21 +3759,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             if (allFoods.length === 0 && !shouldShowAvoidSection) {
                 foodGrid.style.display = 'none';
                 noResults.style.display = 'block';
-                
-                // Update no results message based on active filters
-                const noResultsElement = document.getElementById('noResults');
-                let message = 'No foods found';
-                let suggestion = 'Try adjusting your filters to see more recommendations.';
-                
-                if (currentDiet !== 'all') {
-                    message = `No ${currentDiet} foods found for this phase`;
-                    suggestion = `Try selecting "All Diets" or a different phase to see more ${currentDiet} options.`;
-                }
-                
-                noResultsElement.innerHTML = `
-                    <h3>${message}</h3>
-                    <p>${suggestion}</p>
-                `;
                 return;
             }
 
@@ -3928,19 +3815,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                         </div>
                     </div>
                     <div class="food-card avoid-card">
-                        <div class="food-image avoid-image">🥓</div>
-                        <div class="food-content">
-                            <div class="food-name">Bacon Heavy Meals</div>
-                            <div class="food-category">Deep-Fried Foods</div>
-                            <div class="recommendation-badge avoid">Avoid</div>
-                            <ul class="food-benefits avoid-effects">
-                                <li>High saturated fat</li>
-                                <li>High sodium</li>
-                                <li>Inflammatory compounds</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="food-card avoid-card">
                         <div class="food-image avoid-image">🍺</div>
                         <div class="food-content">
                             <div class="food-name">Alcohol</div>
@@ -3984,19 +3858,6 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
                             </ul>
                         </div>
                     </div>
-                    <div class="food-card avoid-card">
-                        <div class="food-image avoid-image">🥤</div>
-                        <div class="food-content">
-                            <div class="food-name">Soda</div>
-                            <div class="food-category">Sugary Drinks</div>
-                            <div class="recommendation-badge avoid">Avoid</div>
-                            <ul class="food-benefits avoid-effects">
-                                <li>Empty calories</li>
-                                <li>Dehydrating</li>
-                                <li>Blood sugar spikes</li>
-                            </ul>
-                        </div>
-                    </div>
                 `;
             }
         }
@@ -4016,6 +3877,64 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             }
         }
 
+        // Performance Tracking Functions
+        function debugLog(message, type = 'info') {
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        function toggleDebugMode() {
+            debugMode = !debugMode;
+            console.log('Debug mode:', debugMode ? 'enabled' : 'disabled');
+        }
+
+        function testConnection() {
+            console.log('Testing connection...');
+        }
+
+        function showManualEntry() {
+            console.log('Manual entry mode');
+        }
+
+        function testWithSampleUrl() {
+            console.log('Testing with sample URL...');
+        }
+
+        function quickDiagnostic() {
+            console.log('Running quick diagnostic...');
+        }
+
+        function showMeetScraper() {
+            console.log('Meet scraper feature');
+        }
+
+        function validateUrl() {
+            const url = document.getElementById('swimcloudUrl').value.trim();
+            const validation = document.getElementById('urlValidation');
+            
+            if (!url) {
+                validation.innerHTML = '';
+                return;
+            }
+            
+            const swimmerIdMatch = url.match(/swimmer\/(\d+)/);
+            
+            if (url.includes('swimcloud.com') && swimmerIdMatch) {
+                validation.innerHTML = `<span style="color: #10b981; font-size: 0.8rem;">✅ Valid SwimCloud URL - Swimmer ID: ${swimmerIdMatch[1]}</span>`;
+            } else if (url.includes('swimcloud.com')) {
+                validation.innerHTML = `<span style="color: #f59e0b; font-size: 0.8rem;">⚠️ SwimCloud URL but missing swimmer ID</span>`;
+            } else {
+                validation.innerHTML = `<span style="color: #ef4444; font-size: 0.8rem;">❌ Not a SwimCloud URL</span>`;
+            }
+        }
+
+        function loadSwimmerData() {
+            console.log('Loading swimmer data...');
+        }
+
+        function loadMeetResults() {
+            console.log('Loading meet results...');
+        }
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             setupEventListeners();
@@ -4024,18 +3943,16 @@ ${meetData.html ? meetData.html.substring(0, 500) + '...' : 'No HTML stored'}
             updateNutritionBreakdown();
             renderFoods();
             
-            // Initialize connection tracking
-            addConnectionStep('💡 SwimFuel Premium loaded! Enter a SwimCloud URL to get started', 'info');
-            addConnectionStep('💡 Use "🧪 Test System" first to verify your connection works', 'info');
-        });
-
-        // Handle window resize for mobile responsive table
-        window.addEventListener('resize', function() {
-            const meetId = document.getElementById('meetSelect').value;
-            if (meetId && document.getElementById('meetResults').style.display !== 'none') {
-                // Reload results to apply correct mobile/desktop layout
-                loadMeetResults();
-            }
+            // Set a default date 3 weeks from now for nutrition plans
+            const defaultDate = new Date();
+            defaultDate.setDate(defaultDate.getDate() + 21);
+            document.getElementById('targetMeetDate').value = defaultDate.toISOString().split('T')[0];
+            document.getElementById('competitionName').value = 'Regional Championships';
+            
+            // Auto-generate the nutrition plan for demonstration
+            setTimeout(() => {
+                generateNutritionPlan();
+            }, 500);
         });
     </script>
 </body>
