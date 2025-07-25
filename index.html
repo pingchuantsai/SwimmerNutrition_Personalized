@@ -1990,7 +1990,7 @@
         <div class="nav-container">
             <div class="logo">
                 <img src="https://raw.githubusercontent.com/pingchuantsai/Image_storing/main/SwimmerNutrition5-Gold.png" alt="Swimfuel">
-                SwimFuel Premium
+                Premium
             </div>
             <ul class="nav-links">
                 <li><a id="foodRecLink" class="active" onclick="showPage('food-recommendations')">Food Recommendations</a></li>
@@ -2214,23 +2214,41 @@
                 <h3>Competition Schedule Setup</h3>
                 <div class="setup-form">
                     <div class="form-group">
-                        <label>Target Competition Date</label>
+                        <label>Competition Start Date</label>
                         <input type="date" id="targetMeetDate" onchange="generateNutritionPlan()">
                         <small style="color: #666; display: block; margin-top: 0.5rem;">
-                            Select your major meet date to generate a 2-week nutrition plan
+                            Select the first day of your competition
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>Competition Duration</label>
+                        <select id="competitionDuration" onchange="generateNutritionPlan()">
+                            <option value="1">1 Day</option>
+                            <option value="2">2 Days</option>
+                            <option value="3" selected>3 Days</option>
+                            <option value="4">4 Days</option>
+                            <option value="5">5 Days</option>
+                            <option value="6">6 Days</option>
+                            <option value="7">7 Days</option>
+                        </select>
+                        <small style="color: #666; display: block; margin-top: 0.5rem;">
+                            How many days will the competition last?
                         </small>
                     </div>
                     <div class="form-group">
                         <label>Competition Name (Optional)</label>
                         <input type="text" id="competitionName" placeholder="e.g., Regional Championships">
+                        <small style="color: #666; display: block; margin-top: 0.5rem;">
+                            Generates a 3-week plan: 2 weeks prep + competition + 2 days recovery
+                        </small>
                     </div>
                 </div>
             </div>
 
             <div class="nutrition-plan-view" id="nutritionPlanView" style="display: none;">
                 <div class="plan-header">
-                    <h2 id="planTitle">2-Week Nutrition Plan</h2>
-                    <p id="planSubtitle">Optimized for your competition schedule</p>
+                    <h2 id="planTitle">3-Week Competition Nutrition Plan</h2>
+                    <p id="planSubtitle">Optimized for your competition schedule and recovery</p>
                 </div>
 
                 <div class="calendar-view-container">
@@ -2267,6 +2285,16 @@
                             </div>
                             <div class="daily-plans-grid" id="week2Grid">
                                 <!-- Week 2 daily plans will be generated here -->
+                            </div>
+                        </div>
+
+                        <div class="week-section" id="week3Section">
+                            <div class="week-header">
+                                <h3 id="week3Title">Week 3: Competition & Recovery</h3>
+                                <span id="week3Dates" class="week-dates">Jul 27-29, 2025</span>
+                            </div>
+                            <div class="daily-plans-grid" id="week3Grid">
+                                <!-- Week 3 daily plans will be generated here -->
                             </div>
                         </div>
                     </div>
@@ -2554,57 +2582,100 @@
             } else {
                 document.getElementById('calendarNutritionView').style.display = 'none';
                 document.getElementById('cardView').style.display = 'block';
-                // Generate card view plans
+                // Generate card view plans for 3 weeks
                 const meetDate = document.getElementById('targetMeetDate').value;
                 if (meetDate) {
-                    const meetDateTime = new Date(meetDate);
-                    const startDate = new Date(meetDateTime);
-                    startDate.setDate(startDate.getDate() - 13);
+                    const competitionDuration = parseInt(document.getElementById('competitionDuration').value) || 3;
+                    const meetStartDate = new Date(meetDate);
+                    const meetEndDate = new Date(meetStartDate);
+                    meetEndDate.setDate(meetStartDate.getDate() + competitionDuration - 1);
                     
-                    const week1Start = new Date(startDate);
-                    const week1End = new Date(startDate);
+                    const planStartDate = new Date(meetStartDate);
+                    planStartDate.setDate(planStartDate.getDate() - 13);
+                    
+                    const recoveryEndDate = new Date(meetEndDate);
+                    recoveryEndDate.setDate(recoveryEndDate.getDate() + 2);
+                    
+                    // Week 1: 2 weeks before competition start
+                    const week1Start = new Date(planStartDate);
+                    const week1End = new Date(planStartDate);
                     week1End.setDate(week1End.getDate() + 6);
                     
+                    // Week 2: 1 week before competition start
                     const week2Start = new Date(week1End);
                     week2Start.setDate(week2Start.getDate() + 1);
-                    const week2End = new Date(meetDateTime);
+                    const week2End = new Date(week2Start);
+                    week2End.setDate(week2End.getDate() + 6);
+                    
+                    // Week 3: Competition + recovery
+                    const week3Start = new Date(week2End);
+                    week3Start.setDate(week3Start.getDate() + 1);
+                    const week3End = new Date(recoveryEndDate);
 
-                    generateWeekPlans('week1Grid', week1Start, week1End, meetDateTime);
-                    generateWeekPlans('week2Grid', week2Start, week2End, meetDateTime);
+                    // Update week labels and dates
+                    document.getElementById('week1Title').textContent = 'Week 1: Training Preparation';
+                    document.getElementById('week2Title').textContent = 'Week 2: Final Preparation';
+                    document.getElementById('week3Title').textContent = 'Week 3: Competition & Recovery';
+                    
+                    document.getElementById('week1Dates').textContent = formatDateRange(week1Start, week1End);
+                    document.getElementById('week2Dates').textContent = formatDateRange(week2Start, week2End);
+                    document.getElementById('week3Dates').textContent = formatDateRange(week3Start, week3End);
+
+                    generateWeekPlans('week1Grid', week1Start, week1End, meetStartDate, meetEndDate);
+                    generateWeekPlans('week2Grid', week2Start, week2End, meetStartDate, meetEndDate);
+                    generateWeekPlans('week3Grid', week3Start, week3End, meetStartDate, meetEndDate);
                 }
             }
         }
 
         function generateNutritionCalendar() {
             const meetDate = document.getElementById('targetMeetDate').value;
+            const competitionDuration = parseInt(document.getElementById('competitionDuration').value) || 3;
+            
             if (!meetDate) return;
 
-            const meetDateTime = new Date(meetDate);
-            const startDate = new Date(meetDateTime);
-            startDate.setDate(startDate.getDate() - 13); // Start 14 days before (including meet day)
+            const meetStartDate = new Date(meetDate);
+            const meetEndDate = new Date(meetStartDate);
+            meetEndDate.setDate(meetStartDate.getDate() + competitionDuration - 1);
+            
+            // Calculate 3-week plan: 2 weeks prep + competition + 2 days recovery
+            const planStartDate = new Date(meetStartDate);
+            planStartDate.setDate(planStartDate.getDate() - 13); // 14 days before competition
+            
+            const recoveryEndDate = new Date(meetEndDate);
+            recoveryEndDate.setDate(recoveryEndDate.getDate() + 2); // 2 days recovery
 
-            // Generate 2 weeks of calendar
+            // Generate 3 weeks of calendar
             const weeksContainer = document.getElementById('nutritionCalendarWeeks');
             weeksContainer.innerHTML = '';
 
-            // Generate week 1 (days -13 to -7)
-            const week1Start = new Date(startDate);
-            const week1End = new Date(startDate);
+            // Generate week 1 (days -13 to -7 before competition)
+            const week1Start = new Date(planStartDate);
+            const week1End = new Date(planStartDate);
             week1End.setDate(week1End.getDate() + 6);
             
-            const week1 = generateNutritionWeek(week1Start, week1End, meetDateTime, 'Week 1');
+            const week1 = generateNutritionWeek(week1Start, week1End, meetStartDate, meetEndDate, 'Week 1: Preparation');
             weeksContainer.appendChild(week1);
 
-            // Generate week 2 (days -6 to meet day)
+            // Generate week 2 (days -6 to competition start)
             const week2Start = new Date(week1End);
             week2Start.setDate(week2Start.getDate() + 1);
-            const week2End = new Date(meetDateTime);
+            const week2End = new Date(week2Start);
+            week2End.setDate(week2End.getDate() + 6);
 
-            const week2 = generateNutritionWeek(week2Start, week2End, meetDateTime, 'Week 2');
+            const week2 = generateNutritionWeek(week2Start, week2End, meetStartDate, meetEndDate, 'Week 2: Final Prep');
             weeksContainer.appendChild(week2);
+
+            // Generate week 3 (competition + recovery)
+            const week3Start = new Date(week2End);
+            week3Start.setDate(week3Start.getDate() + 1);
+            const week3End = new Date(recoveryEndDate);
+
+            const week3 = generateNutritionWeek(week3Start, week3End, meetStartDate, meetEndDate, 'Week 3: Competition & Recovery');
+            weeksContainer.appendChild(week3);
         }
 
-        function generateNutritionWeek(startDate, endDate, meetDate, weekLabel) {
+        function generateNutritionWeek(startDate, endDate, meetStartDate, meetEndDate, weekLabel) {
             const weekContainer = document.createElement('div');
             weekContainer.className = 'nutrition-week';
 
@@ -2649,7 +2720,7 @@
             const phaseHeadersRow = document.createElement('div');
             phaseHeadersRow.className = 'phase-headers-row';
 
-            const phaseHeaders = calculatePhaseHeaders(days, meetDate);
+            const phaseHeaders = calculatePhaseHeaders(days, meetStartDate, meetEndDate);
             phaseHeaders.forEach(header => {
                 const phaseElement = document.createElement('div');
                 phaseElement.className = `phase-header ${header.phase}`;
@@ -2668,7 +2739,7 @@
                 dayMeals.className = 'day-meals';
 
                 if (day) {
-                    const phase = determinePhase(day, meetDate);
+                    const phase = determinePhase(day, meetStartDate, meetEndDate);
                     const dateKey = day.toISOString().split('T')[0];
                     
                     // Initialize data if not exists
@@ -2727,7 +2798,7 @@
             return weekContainer;
         }
 
-        function calculatePhaseHeaders(days, meetDate) {
+        function calculatePhaseHeaders(days, meetStartDate, meetEndDate) {
             const headers = [];
             let currentPhase = null;
             let phaseStart = 0;
@@ -2735,7 +2806,7 @@
             days.forEach((day, index) => {
                 if (!day) return;
 
-                const phase = determinePhase(day, meetDate);
+                const phase = determinePhase(day, meetStartDate, meetEndDate);
                 
                 if (phase !== currentPhase) {
                     // End previous phase
@@ -2779,20 +2850,32 @@
             return labels[phase] || phase;
         }
 
-        function determinePhase(date, meetDate) {
-            const daysToMeet = Math.ceil((meetDate - date) / (1000 * 60 * 60 * 24));
+        function determinePhase(date, meetStartDate, meetEndDate) {
+            const daysToMeetStart = Math.ceil((meetStartDate - date) / (1000 * 60 * 60 * 24));
+            const daysFromMeetEnd = Math.ceil((date - meetEndDate) / (1000 * 60 * 60 * 24));
             
-            if (daysToMeet === 0) return 'competition';
-            if (daysToMeet < 0) {
-                // Post competition - recovery for 1-2 days
-                const daysPost = Math.abs(daysToMeet);
-                if (daysPost <= 2) return 'recovery';
+            // Check if date is during competition
+            if (date >= meetStartDate && date <= meetEndDate) {
+                return 'competition';
+            }
+            
+            // Check if date is after competition (recovery phase)
+            if (daysFromMeetEnd >= 1 && daysFromMeetEnd <= 2) {
                 return 'recovery';
             }
-            if (daysToMeet >= 1 && daysToMeet <= 2) return 'carb-loading';
-            if (daysToMeet >= 3 && daysToMeet <= 7) return 'training-2';
-            if (daysToMeet >= 8 && daysToMeet <= 14) return 'training-1';
             
+            // Check if date is before competition
+            if (daysToMeetStart >= 1 && daysToMeetStart <= 2) {
+                return 'carb-loading';
+            }
+            if (daysToMeetStart >= 3 && daysToMeetStart <= 7) {
+                return 'training-2';
+            }
+            if (daysToMeetStart >= 8) {
+                return 'training-1';
+            }
+            
+            // Default fallback
             return 'training-1';
         }
 
@@ -2942,7 +3025,12 @@
 
         function addNewMealItem(dateKey, mealType, mealItemsContainer) {
             if (!nutritionCalendarData[dateKey]) {
-                const phase = determinePhase(new Date(dateKey), new Date(document.getElementById('targetMeetDate').value));
+                const meetStartDate = new Date(document.getElementById('targetMeetDate').value);
+                const competitionDuration = parseInt(document.getElementById('competitionDuration').value) || 3;
+                const meetEndDate = new Date(meetStartDate);
+                meetEndDate.setDate(meetStartDate.getDate() + competitionDuration - 1);
+                
+                const phase = determinePhase(new Date(dateKey), meetStartDate, meetEndDate);
                 nutritionCalendarData[dateKey] = initializeDayMeals(phase);
             }
 
@@ -2950,21 +3038,21 @@
             generateNutritionCalendar();
         }
 
-        function generateWeekPlans(containerId, startDate, endDate, meetDate) {
+        function generateWeekPlans(containerId, startDate, endDate, meetStartDate, meetEndDate) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
 
             const currentDate = new Date(startDate);
             
             while (currentDate <= endDate) {
-                const dayCard = createDayPlan(currentDate, meetDate);
+                const dayCard = createDayPlan(currentDate, meetStartDate, meetEndDate);
                 container.appendChild(dayCard);
                 currentDate.setDate(currentDate.getDate() + 1);
             }
         }
 
-        function createDayPlan(date, meetDate) {
-            const phase = determinePhase(date, meetDate);
+        function createDayPlan(date, meetStartDate, meetEndDate) {
+            const phase = determinePhase(date, meetStartDate, meetEndDate);
             const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
             const dayDate = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             
@@ -2979,10 +3067,18 @@
                 'recovery': 'Recovery Day'
             };
 
+            // Determine if this is a competition day and which day
+            let phaseDisplayName = phaseNames[phase];
+            if (phase === 'competition') {
+                const dayOfCompetition = Math.floor((date - meetStartDate) / (1000 * 60 * 60 * 24)) + 1;
+                const totalDays = Math.floor((meetEndDate - meetStartDate) / (1000 * 60 * 60 * 24)) + 1;
+                phaseDisplayName = `Competition Day ${dayOfCompetition}/${totalDays}`;
+            }
+
             card.innerHTML = `
                 <div class="daily-card-header phase-${phase}">
                     <h4>${dayName}</h4>
-                    <div class="phase-label">${dayDate} • ${phaseNames[phase]}</div>
+                    <div class="phase-label">${dayDate} • ${phaseDisplayName}</div>
                 </div>
                 <div class="daily-card-content">
                     ${generateMealSections(phase)}
@@ -2990,6 +3086,11 @@
             `;
 
             return card;
+        }
+
+        function addWeek3ToCardView() {
+            // This function is no longer needed since Week 3 is now in the HTML
+            // But keeping for backwards compatibility
         }
 
         function generateMealSections(phase) {
@@ -3061,41 +3162,72 @@
 
         function generateNutritionPlan() {
             const meetDate = document.getElementById('targetMeetDate').value;
+            const competitionDuration = parseInt(document.getElementById('competitionDuration').value) || 3;
             const competitionName = document.getElementById('competitionName').value;
             
             if (!meetDate) {
-                alert('Please select a competition date');
+                alert('Please select a competition start date');
                 return;
             }
 
-            const meetDateTime = new Date(meetDate);
+            const meetStartDate = new Date(meetDate);
+            const meetEndDate = new Date(meetStartDate);
+            meetEndDate.setDate(meetStartDate.getDate() + competitionDuration - 1);
             
-            // Calculate 2 weeks before meet date
-            const startDate = new Date(meetDateTime);
-            startDate.setDate(startDate.getDate() - 13); // 14 days total (including meet day)
+            // Calculate 3-week plan: 2 weeks prep + competition + 2 days recovery
+            const planStartDate = new Date(meetStartDate);
+            planStartDate.setDate(planStartDate.getDate() - 13); // 14 days before competition
+            
+            const recoveryEndDate = new Date(meetEndDate);
+            recoveryEndDate.setDate(recoveryEndDate.getDate() + 2); // 2 days recovery
             
             // Generate plan title
             const planTitle = competitionName 
-                ? `2-Week Nutrition Plan for ${competitionName}`
-                : '2-Week Nutrition Plan';
+                ? `3-Week Nutrition Plan for ${competitionName}`
+                : '3-Week Competition Nutrition Plan';
             
             document.getElementById('planTitle').textContent = planTitle;
-            document.getElementById('planSubtitle').textContent = 
-                `Competition Date: ${meetDateTime.toLocaleDateString('en-US', { 
+            
+            // Create subtitle with competition dates
+            let competitionDateText;
+            if (competitionDuration === 1) {
+                competitionDateText = meetStartDate.toLocaleDateString('en-US', { 
                     weekday: 'long', 
                     year: 'numeric', 
                     month: 'long', 
                     day: 'numeric' 
-                })}`;
+                });
+            } else {
+                const startStr = meetStartDate.toLocaleDateString('en-US', { 
+                    weekday: 'short',
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                const endStr = meetEndDate.toLocaleDateString('en-US', { 
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                competitionDateText = `${startStr} - ${endStr} (${competitionDuration} days)`;
+            }
+            
+            document.getElementById('planSubtitle').textContent = 
+                `Competition: ${competitionDateText} | Plan: ${formatDateRange(planStartDate, recoveryEndDate)}`;
 
-            // Generate week date ranges
-            const week1Start = new Date(startDate);
-            const week1End = new Date(startDate);
+            // Generate week date ranges for card view
+            const week1Start = new Date(planStartDate);
+            const week1End = new Date(planStartDate);
             week1End.setDate(week1End.getDate() + 6);
             
             const week2Start = new Date(week1End);
             week2Start.setDate(week2Start.getDate() + 1);
-            const week2End = new Date(meetDateTime);
+            const week2End = new Date(week2Start);
+            week2End.setDate(week2End.getDate() + 6);
+            
+            const week3Start = new Date(week2End);
+            week3Start.setDate(week3Start.getDate() + 1);
+            const week3End = new Date(recoveryEndDate);
 
             document.getElementById('week1Dates').textContent = 
                 `${formatDateRange(week1Start, week1End)}`;
@@ -3109,8 +3241,13 @@
             if (currentNutritionView === 'calendar') {
                 generateNutritionCalendar();
             } else {
-                generateWeekPlans('week1Grid', week1Start, week1End, meetDateTime);
-                generateWeekPlans('week2Grid', week2Start, week2End, meetDateTime);
+                generateWeekPlans('week1Grid', week1Start, week1End, meetStartDate, meetEndDate);
+                generateWeekPlans('week2Grid', week2Start, week2End, meetStartDate, meetEndDate);
+                // Add week 3 if it doesn't exist in the DOM
+                if (!document.getElementById('week3Grid')) {
+                    addWeek3ToCardView();
+                }
+                generateWeekPlans('week3Grid', week3Start, week3End, meetStartDate, meetEndDate);
             }
 
             // Show the plan
